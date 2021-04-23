@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@materials-ui/core": "0.0.27",
     "parcel": "2.0.0-beta.2"
   },
   "dependencies": {

@@ -1,4 +1,6 @@
 import React from 'react';
+import Register from './components/Register/Register'
+import { Container, AppBar, Typography, Grow, Grid} from "@material-ui/core";
 export default class App extends React.Component {
     constructor(props) {
         super(props);
@@ -6,7 +8,10 @@ export default class App extends React.Component {
 
     render(){
         return <div>
-            <h1> Hello to React </h1>
+            <Grid item xs={12} sm={4}>
+                <Register/>
+            </Grid>
+
         </div>;
     }
 }
