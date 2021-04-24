@@ -1,7 +1,16 @@
 import React from 'react';
 import {render} from 'react-dom';
 import App from "./app";
+import reducers from './reducers'
 import './index.css'
+import { createStore, applyMiddleware, compose} from "redux";
+import thunk from "redux-thunk";
+import {Provider} from "react-redux";
+const store = createStore(reducers, compose(applyMiddleware(thunk)))
+
 //It will only show the App_with_a_class_component component.
-render(<h1> Hello to React Header</h1>, document.getElementById('app'));
-render(<App/>, document.getElementById('app'));
+render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('app'));
