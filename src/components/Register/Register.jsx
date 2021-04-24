@@ -1,26 +1,30 @@
 //Here we have to crate the form and submit values.
 import React, {useState, useEffect} from 'react'
 import useStyle from './style'
+import {useDispatch , useSelector} from 'react-redux';
 
 import {TextField, Button, Typography, Paper, FormControl} from "@material-ui/core";
 
 
 const Register = () => {
     const classes = useStyle();
+    const dispatch = useDispatch();
 
     //Methods comes here.
-    const [ userData , setUserData] = useState([
+    const [userData, setUserData] = useState(
         {
             firstName: '',
             lastName: ''
         }
-    ]);
+    );
+
     function handleSubmit() {
       //Submit values
     }
-    useEffect (() => {
 
-    },[])
+    useEffect(() => {
+
+    }, [])
 
     return (<React.Fragment>
         <div style={{marginTop:"50%" , width:"90%",padding:"10px"}}>
@@ -35,19 +39,23 @@ const Register = () => {
 
                 </TextField>
 
-                <TextField
-                    name= "LastName"
-                    label= "Last Name"
-                >
+                    <TextField
+                        name="LastName"
+                        label="Last Name"
+                        variant="outlined"
+                        fullwidth
+                        value={userData.lastName}
+                        onChange={(e) => setUserData({...userData, creator: e.target.value})}>
+                    </TextField>
 
-                </TextField>
-                <Button
-                    name ="submit"
-                    className={classes.submitButton}
-                    color= "secondary"
-                > Submit </Button>
-            </form>
-        </Paper>
+
+                    <Button
+                        name="submit"
+                        className={classes.submitButton}
+                        color="secondary"
+                    > Submit </Button>
+                </form>
+            </Paper>
         </div>
     </React.Fragment>)
 }
