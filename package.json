@@ -10,7 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "@materials-ui/core": "0.0.27",
-    "parcel": "2.0.0-beta.2"
+    "parcel": "2.0.0-beta.2",
+    "react-uuid": "^1.0.2"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
