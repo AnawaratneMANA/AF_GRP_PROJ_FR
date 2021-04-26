@@ -29,7 +29,8 @@ const Register = () => {
         //Restart the Fields.
     }, [])
 
-    return (<React.Fragment>
+    return (
+    <React.Fragment>
         <div style={{marginTop: "50%", width: "90%", padding: "10px"}}>
             <Paper>
                 <h1 className={classes.h1}> Registration Form</h1>
@@ -42,7 +43,6 @@ const Register = () => {
                         value={userData.firstName}
                         onChange={(e) => setUserData({...userData, firstName: e.target.value})}>
 
-                    >
 
                     </TextField>
 
@@ -64,7 +64,8 @@ const Register = () => {
                 </form>
             </Paper>
         </div>
-    </React.Fragment>)
+    </React.Fragment>
+    )
 }
 
 export default Register;

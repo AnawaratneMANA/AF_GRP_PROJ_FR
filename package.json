@@ -10,14 +10,18 @@
   "license": "ISC",
   "devDependencies": {
     "@materials-ui/core": "0.0.27",
-    "parcel": "2.0.0-beta.2"
+    "parcel": "2.0.0-beta.2",
+    "react-uuid": "^1.0.2"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "redux-thunk": "^2.3.0",
     "uuid": "^8.3.2"
