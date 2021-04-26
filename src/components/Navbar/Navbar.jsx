@@ -28,8 +28,10 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/DisplayStudent">Display Student</a>
-                            </li>
+                                <Link to='/loginpage'>
+                                <a className="nav-link" href="/DisplayStudent">Login Page</a>
+                                </Link>
+                                </li>
                         </ul>
                     </div>
                 </div>

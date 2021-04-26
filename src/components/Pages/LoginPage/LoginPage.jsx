@@ -1,13 +1,15 @@
-import style from './style.css'
+import './style.css'
 import React from 'react'
+import Login from "../../Login/Login";
 const LoginPage = () => {
     return (
-        <table className={style.borderless}>
+        <table>
             <tr>
-                <td>Say</td>
-                <td></td>
-                <td></td>
+                <td><img className= "loginImage"  src={require("./images/img1.jpg")} alt="CONF_IMG"/></td>
+                <td className= "td-login"><Login/></td>
             </tr>
+
+
         </table>
     )
 }
