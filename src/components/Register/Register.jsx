@@ -1,14 +1,14 @@
-//Here we have to crate the form and submit values.
-
-import React, {useState, useEffect} from 'react'
-import useStyle from './style'
+import React, {useState, useEffect} from 'react';
+import Register from '../Register/Register';
+import { Form, Button, h1 } from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
-
-import {TextField, Button, Typography, Paper, FormControl} from "@material-ui/core";
 import {createUser} from "../../actions/users";
+import {Container, Paper} from '@material-ui/core';
+//Importing Custom Style Sheet. 
+import styles from './style';
 
-const Register = () => {
-    const classes = useStyle();
+const Post = () => {
+    const classes = styles();
     const dispatch = useDispatch();
 
     //Methods comes here.
@@ -25,47 +25,55 @@ const Register = () => {
        dispatch(createUser(userData));
     }
 
-    useEffect(() => {
-        //Restart the Fields.
-    }, [])
 
-    return (
-    <React.Fragment>
-        <div style={{marginTop: "50%", width: "90%", padding: "10px"}}>
-            <Paper>
-                <h1 className={classes.h1}> Registration Form</h1>
-                <form onSubmit={handleSubmit} className={classes.form}>
-                    <TextField
-                        name="firstName"
-                        label="First Name"
-                        variant="outlined"
-                        fullwidth
-                        value={userData.firstName}
-                        onChange={(e) => setUserData({...userData, firstName: e.target.value})}>
+  return (
+    <Container className={classes.form} maxWidth={"sm"}>
+      <Paper className={classes.paper}>
+      <h3 className={classes.shape}>Login Form </h3>
+    <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="formBasicEmail">
+        <Form.Label>First Name: </Form.Label>
+        <Form.Control type="text" placeholder="FirstName"
 
+          value={userData.firstName}
+          onChange={(e) => setUserData({ ...userData, firstName: e.target.value })}
+          
+        />
+        <Form.Text
 
-                    </TextField>
+          className="text-muted"
 
-                    <TextField
-                        name="LastName"
-                        label="Last Name"
-                        variant="outlined"
-                        fullwidth
-                        value={userData.lastName}
-                        onChange={(e) => setUserData({...userData, lastName: e.target.value})}>
-                    </TextField>
+        >
+          We'll never share your email with anyone else.
+            </Form.Text>
+      </Form.Group>
 
-                    <Button
-                        name="submit"
-                        className={classes.submitButton}
-                        color="secondary"
-                        type= "submit"
-                    > Submit </Button>
-                </form>
-            </Paper>
-        </div>
-    </React.Fragment>
-    )
+      <Form.Group controlId="formBasicPassword">
+        <Form.Label>Last Name: </Form.Label>
+        <Form.Control type="text" placeholder="LastName"
+          value={userData.lastName}
+          onChange={(e) => setUserData({ ...userData, lastName: e.target.value })}
+        />
+        <Form.Text
+
+          className="text-muted"
+        >
+          We'll never share your email with anyone else.
+            </Form.Text>
+
+      </Form.Group>
+      <Form.Group controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+          </Button>
+    </Form>
+    </Paper>
+    </Container>
+  
+  )
+         
 }
 
-export default Register;
+export default Post;
