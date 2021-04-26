@@ -3,22 +3,24 @@ import Register from './components/Register/Register'
 import {BrowserRouter, Route} from 'react-router-dom'  
 import { Container, AppBar, Typography, Grow, Grid, Switch} from "@material-ui/core";
 import Navbar from "./components/Navbar/Navbar";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Posts from './components/TestingComponent/TComp';
 
-export default class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+const App = () => {
+
 //Add the React Router And Create Routings
-    render(){
-        return (<BrowserRouter>
-            <Navbar/>
-            <Switch>
-                <Route path = '/reg'>
-                    <Register/>
-                </Route>
-            </Switch>
-        </BrowserRouter>
+
+        return (
+            <Container maxWidth={"lg"}>
+                <BrowserRouter>
+                    <Navbar/>
+                    <Route path = "/posts" exact component={Posts}/>
+                    <Route exact path = "/register">
+                        <Register/>
+                    </Route>
+                </BrowserRouter>
+            </Container>
         )
-    }
+    
 }
+
+export default App;

@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
-import { Button, Nav, Form, FormControl } from 'react-bootstrap';
 const  Navbar = () => {
     return (
+        <React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">Navbar</a>
@@ -17,7 +17,7 @@ const  Navbar = () => {
                     >Home</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="/AddStudent">Create Student</a>
+                    <a className="nav-link" href="/posts">posts</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="/DisplayStudent">Display Student</a>
@@ -26,6 +26,7 @@ const  Navbar = () => {
                 </div>
             </div>
             </nav>
+            </React.Fragment>
     )
 }
 
