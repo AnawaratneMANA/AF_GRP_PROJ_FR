@@ -42,7 +42,6 @@ const Register = () => {
                         value={userData.firstName}
                         onChange={(e) => setUserData({...userData, firstName: e.target.value})}>
 
-                    >
 
                     </TextField>
 
