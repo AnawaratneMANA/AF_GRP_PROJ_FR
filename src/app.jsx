@@ -1,10 +1,9 @@
 import React from 'react';
 import Register from './components/Register/Register'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import { Container, AppBar, Typography, Grow, Grid} from "@material-ui/core";
 import Navbar from "./components/Navbar/Navbar";
-import Posts from './components/Register/Register';
 import Login from "./components/Login/Login";
+import LoginPage from './components/Pages/LoginPage/LoginPage'
 
 const App = () => {
 
@@ -15,6 +14,7 @@ const App = () => {
                     <Switch>
                     <Route path = "/login" exact component={Login}/>
                     <Route path = "/register" component={Register}/>
+                    <Route path = "/loginpage" component={LoginPage}/>
                     </Switch>
                 </BrowserRouter>
         )  
