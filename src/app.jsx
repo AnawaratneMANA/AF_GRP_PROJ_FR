@@ -7,8 +7,7 @@ import Posts from './components/TestingComponent/TComp';
 
 const App = () => {
 
-//Add the React Router And Create Routings
-
+//Add the React Router And Create Routing
         return (
             <Container maxWidth={"lg"}>
                 <BrowserRouter>
