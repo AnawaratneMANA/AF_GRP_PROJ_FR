@@ -3,9 +3,12 @@ import Register from '../Register/Register';
 import { Form, Button, h1 } from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
 import {createUser} from "../../actions/users";
+import {Container, Paper} from '@material-ui/core';
+//Importing Custom Style Sheet 
+import styles from './style';
 
 const Post = () => {
-
+    const classes = styles();
     const dispatch = useDispatch();
 
     //Methods comes here.
@@ -24,6 +27,9 @@ const Post = () => {
 
 
   return (
+    <Container maxWidth={"sm"}>
+      <Paper className={classes.paper}>
+      <h3 className={classes.shape}>Login Form </h3>
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>First Name: </Form.Label>
@@ -63,6 +69,9 @@ const Post = () => {
         Submit
           </Button>
     </Form>
+    </Paper>
+    </Container>
+  
   )
          
 }
