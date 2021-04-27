@@ -1,8 +1,9 @@
 import React from 'react';
 import Register from './components/Register/Register'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navigation/Navbar";
 import Login from "./components/Login/Login";
+import './App.css';
 import LoginPage from './components/Pages/LoginPage/LoginPage'
 
 const App = () => {
