@@ -1,0 +1,72 @@
+.login-component {
+  background-color: #D7D8DD;
+  border-radius: 20px;
+  width: 395.76px;
+  height: 418px;
+}
+
+.login-border {
+  background-color: #1900ff;
+  height: 95px;
+  opacity: 81%;
+  border-radius: 20px 20px 0px 0px;
+}
+.login-border .header {
+  padding-left: 20px;
+  padding-top: 15px;
+}
+.login-border .header .main-header {
+  font-size: 33px;
+}
+.login-border .header .second-header {
+  font-size: 20.86px;
+  margin-top: -7px;
+  opacity: 60%;
+}
+
+lable {
+  margin: 5px;
+}
+
+.input-wrapper {
+  margin-bottom: 10px;
+}
+
+.login-body {
+  margin-left: 20px;
+  padding: 20px;
+}
+.login-body .input-field {
+  border-radius: 8.38px;
+  height: 45px;
+  width: 305px;
+  border: 1.5px solid black;
+  padding: 8px;
+  font-weight: normal;
+}
+
+.button-group {
+  margin-top: 20px;
+  align-content: center;
+  width: 100%;
+}
+.button-group .button-group-link {
+  color: #5C5C5C;
+  opacity: 60%;
+  text-align: center;
+  margin-left: -20px;
+}
+
+.auth-button {
+  width: 304px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #2552F4;
+  color: #fff;
+  margin-bottom: 10px;
+  border: none;
+}
+
+span {
+  font-size: 20.51px;
+}/*# sourceMappingURL=loginstyle.css.map */
