@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoLandingComponent from './Sections/VideoLandingPage/VideoLandingComponent';
+import Footer from "./Sections/Footer/Footer";
 
 function Home() {
     return (<React.Fragment>
@@ -9,6 +10,7 @@ function Home() {
         <p>Key Note Speakers</p>
         <p>Gallery Page</p>
         <p>Location and Events</p>
+        <Footer/>
     </React.Fragment>)
 }
 
