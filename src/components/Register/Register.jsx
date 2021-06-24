@@ -6,7 +6,6 @@ import {Container, Paper} from '@material-ui/core';
 import '../../CSS/registerstyle.css';
 const Register = () => {
     const dispatch = useDispatch();
-
     //Methods comes here.
     const [userData, setUserData] = useState(
         {
