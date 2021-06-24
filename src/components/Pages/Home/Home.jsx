@@ -1,11 +1,12 @@
 import React from 'react';
 import VideoLandingComponent from './Sections/VideoLandingPage/VideoLandingComponent';
 import Footer from "./Sections/Footer/Footer";
+import DownloadSection from "./Sections/DownloadPage/DownloadSection";
 
 function Home() {
     return (<React.Fragment>
         <VideoLandingComponent/>
-        <p>Recent Activities & Conference</p>
+        <DownloadSection/>
         <p>Recent Activities in Detail</p>
         <p>Key Note Speakers</p>
         <p>Gallery Page</p>

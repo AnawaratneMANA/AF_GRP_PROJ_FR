@@ -4,3 +4,9 @@
 /*    background-attachment: fixed;*/
 /*    background-size: cover;*/
 /*}*/
+
+
+body {
+    background-image: url("./components/Pages/LoginPage/images/Background.svg");    background-attachment: fixed;
+    background-size: cover;
+}
