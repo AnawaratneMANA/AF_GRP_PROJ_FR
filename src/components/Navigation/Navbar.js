@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom';
 import {Button} from "../Button/Button";
 import './Navbar.css'
+import EventPage from "../Pages/Home/Sections/EventPage/EventPage";
 
 function Navbar () {
     const [click, setClick] = useState(false);
@@ -40,7 +41,7 @@ function Navbar () {
                             </Link>
                         </li>
                         <li className= "nav-item">
-                            <Link to= '/services' className ="nav-links" onClick={closeMobileMenu}>
+                            <Link to= '/services' className ="nav-links" onClick={EventPage}>
                                 EVENTS
                             </Link>
                         </li>

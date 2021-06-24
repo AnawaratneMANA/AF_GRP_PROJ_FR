@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from "./components/Navigation/Navbar";
 import Login from "./components/Login/Login";
 import './App.css';
+import EventPage from "./components/Pages/Home/Sections/EventPage/EventPage";
 import Home from './components/Pages/Home/Home';
 import LoginPage from './components/Pages/LoginPage/LoginPage';
 
@@ -17,6 +18,7 @@ const App = () => {
                     <Route path = "/" exact component={Home}/>
                     <Route path = "/register" component={Register}/>
                     <Route path = "/loginpage" component={LoginPage}/>
+                    <Route path = "/services" component={EventPage}/>
                     </Switch>
                 </BrowserRouter>
         )  
