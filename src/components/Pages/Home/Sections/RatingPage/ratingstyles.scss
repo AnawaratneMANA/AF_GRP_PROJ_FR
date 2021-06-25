@@ -1,0 +1,34 @@
+@mixin pain {
+  color: white;
+  font-family: Arial;
+}
+.rating-section {
+  width: 100%;
+  height: 500px;
+  background-color: #8d9bcd;
+}
+.rating-header {
+  padding-left: 60px;
+
+  #{&}-main-header {
+   @include pain;
+    padding-top: 20px;
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  #{&}-second-header {
+    @include pain;
+    font-size: 28.69px;
+    font-weight: lighter;
+    opacity: 60%;
+    margin-top: -15px;
+  }
+}
+
+.line {
+  width: 2px;
+  opacity: 50%;
+  height: 347px;
+  background-color: #242424;
+}
