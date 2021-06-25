@@ -38,6 +38,15 @@
     object-fit: contain;
     margin-bottom: 3%;
 }
+.button{
+    color: #242424;
+    position: absolute;
+    margin-left: 87%;
+    margin-top: 1%;
+
+    width: 5%;
+    border-radius: 20px;
+}
 .mainheader{
     background-color:#8D9BCD;
     /*#8D9BCD*/
