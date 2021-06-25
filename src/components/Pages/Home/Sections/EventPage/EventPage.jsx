@@ -4,14 +4,13 @@ import '../../../../../CSS/event.css';
 import event1 from "../../../../../Images/EventImages/event1.jpg";
 
 function EventPage() {
-    return (
-        <div>
+    return (<React.Fragment>
             
-            <div className="main">      
+            <div className="mainheader">
                 <div className="header">
                     
-                    <h3 className="main1">Download Page</h3>
-                    <p className="second">information</p>
+                    <h3 className="main1">Event Page</h3>
+                    <p className="second">This section contain all the events</p>
                     
                 </div>
                 
@@ -22,11 +21,12 @@ function EventPage() {
                         <EventComponent title1="component2" title2="name2" image={event1}/>
                         <EventComponent title1="component3" title2="name3" image={event1}/>
                         <EventComponent title1="component4" title2="name4" image={event1}/>
+                        {/*<EventComponent title1="component4" title2="name4" image={event1}/>*/}
                     </div>
                 </div>
                 <br/>
             </div>
-        </div>
+        </React.Fragment>
     )
     }
 
