@@ -8,8 +8,8 @@ function EventComponent(props) {
                         <img src={props.image} alt="" className="image" />
                  </div>
                 <div className="event__info">
-                    <h1>{props.title1}</h1>
-                    <h4>{props.title2}</h4>
+                    <h2 className="eventTitle1">{props.title1}</h2>
+                    <p className="eventTitle2">{props.title2}</p>
                 </div>
                 
                 

@@ -21,7 +21,7 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div className="RegisterPage">
         <div className="register-component">
           <div className="login-border">
               <div className="header">
