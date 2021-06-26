@@ -1,6 +1,7 @@
 import './style.css'
 import React from 'react'
 import Login from "../../Login/Login";
+import PaymentPage from "../PaymentPage/PaymentPage";
 const LoginPage = () => {
     return (
         <div className="loginPage">
