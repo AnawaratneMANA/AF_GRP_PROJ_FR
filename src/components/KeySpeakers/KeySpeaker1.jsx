@@ -11,9 +11,9 @@ function KeySpeaker1(){
             <div className="img_top">
                 <img className='photo' src={Speaker}></img>
             </div>
-            <div className="speaker_info">
-                <h3>Akash</h3>
-                <p>Bsc.Software Engineering</p>
+            <div className="speaker-info">
+                <h3 className="speaker-info-header">Akash</h3>
+                <p className="speaker-info-secondary">Bsc.Software Engineering</p>
             </div>
         </div>
     );
