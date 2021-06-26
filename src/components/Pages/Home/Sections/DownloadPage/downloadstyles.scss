@@ -1,20 +1,32 @@
-.main-container {
+.download-main-container {
   &.download {
     background-color: #A1ABCF;
+  }
+  .cardLayout {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-auto-rows: minmax(1px, auto);
+    justify-content: left;
+    align-items: normal;
+    grid-gap: 1%;
+    margin-left: 50px;
+    padding-bottom: 10px;
   }
 }
 
 .header {
   padding-left: 60px;
   padding-top: 20px;
+
   .main {
     font-size: 48px;
     font-weight: bold;
   }
+
   .second {
     margin-top: -19px;
     font-size: 28.69px;
     font-weight: bold;
-    opacity: 60%
+    opacity: 60%;
   }
 }

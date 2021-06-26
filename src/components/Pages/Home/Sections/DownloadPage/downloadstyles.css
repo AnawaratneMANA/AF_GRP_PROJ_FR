@@ -1,5 +1,15 @@
-.main-container.download {
+.download-main-container.download {
   background-color: #A1ABCF;
+}
+.download-main-container .cardLayout {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-auto-rows: minmax(1px, auto);
+  justify-content: left;
+  align-items: normal;
+  grid-gap: 1%;
+  margin-left: 50px;
+  padding-bottom: 10px;
 }
 
 .header {

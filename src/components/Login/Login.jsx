@@ -14,15 +14,22 @@ const Login = () => {
   //Methods comes here.
   const [userData, setUserData] = useState(
     {
-      firstName: '',
-      lastName: ''
+      name: '',
+      password: ''
     }
   );
 
-  function handleSubmit(e) {
+  const [password, setPassword] = useState();
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log(userData);
+  //   dispatch(createUser(userData));
+  // }
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userData);
-    dispatch(createUser(userData));
+
   }
 
 
@@ -39,12 +46,22 @@ const Login = () => {
             <div className="login-body">
               <div className="input-wrapper">
                 <lable>Name</lable><br/>
-                <input className="input-field" placeholder="Enter Name..." type="text"></input>
+                <input className="input-field"
+                       placeholder="Enter Name..."
+                       type="text"
+                       value={userData.name}
+                       onChange={(e) => setUserData({...userData, name:e.target.value})}
+                />
                 <br/>
               </div>
               <div className="input-wrapper">
                 <lable>Password</lable><br/>
-                <input className="input-field" placeholder="Enter Password..." type="text"></input>
+                <input className="input-field"
+                       placeholder="Enter Password..."
+                       type="password"
+                       value={userData.password}
+                       onChange={(e) => setUserData({...userData, password: e.target.value})}
+                />
               </div>
             
             <div className="button-group">
