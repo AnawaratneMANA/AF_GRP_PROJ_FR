@@ -8,6 +8,8 @@ import EventPage from "./components/Pages/Home/Sections/EventPage/EventPage";
 import Home from './components/Pages/Home/Home';
 import LoginPage from './components/Pages/LoginPage/LoginPage';
 import PaymentPage from "./components/Pages/PaymentPage/PaymentPage";
+import DownloadAllPage from './components/Pages/Home/Sections/DownloadPage/DownloadAllPage';
+import DownloadLinkPage from './components/Pages/Home/Sections/DownloadPage/DownloadLinkPage';
 
 const App = () => {
 
@@ -21,6 +23,8 @@ const App = () => {
                     <Route path = "/loginpage" component={LoginPage}/>
                     <Route path = "/services" component={EventPage}/>
                     <Route path = "/payment" component={PaymentPage}/>
+                    <Route path = "/alldownloadPage" component={DownloadAllPage}/>
+                    <Route path = "/alldownloadlinkpage" component={DownloadLinkPage}/>
                     </Switch>
                 </BrowserRouter>
         )  
