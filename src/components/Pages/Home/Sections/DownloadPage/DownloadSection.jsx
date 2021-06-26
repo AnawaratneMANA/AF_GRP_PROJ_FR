@@ -6,6 +6,12 @@ function DownloadSection() {
     return (
         <div className = "download-main-container download">
             <div className="header">
+                
+                <button className="buttonDownload" onClick ={(e) => {
+                        e.preventDefault();
+                        window.location.href='/alldownloadPage';
+                    }}>View All</button>
+
                 <h3 className="main">Download Page</h3>
                 <p className="second">information</p>
             </div>
