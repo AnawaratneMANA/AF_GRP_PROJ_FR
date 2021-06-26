@@ -7,14 +7,25 @@
 .header {
   padding-left: 60px;
   padding-top: 20px;
+
   .main {
     font-size: 48px;
     font-weight: bold;
   }
+
   .second {
     margin-top: -19px;
     font-size: 28.69px;
     font-weight: bold;
-    opacity: 60%
+    opacity: 60%;
   }
+}
+
+.cardLayout {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-auto-rows: minmax(1px, auto);
+  justify-content: left;
+  align-items: normal;
+  grid-gap: 1%;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../../../CSS/event.css';
+import '../../../../../CSS/event.scss';
 function EventComponent(props) {
     return (
         <div>
@@ -7,12 +7,10 @@ function EventComponent(props) {
                 <div className="eventImage">
                         <img src={props.image} alt="" className="image" />
                  </div>
-                <div className="event__info">
-                    <h2 className="eventTitle1">{props.title1}</h2>
-                    <p className="eventTitle2">{props.title2}</p>
+                <div className="event-info">
+                    <h2 className="event-info-main-title">{props.title1}</h2>
+                    <p className="event-info-second-title">{props.title2}</p>
                 </div>
-                
-                
             </div>
         </div>
     )
