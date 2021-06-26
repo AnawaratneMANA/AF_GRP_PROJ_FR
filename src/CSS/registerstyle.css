@@ -4,3 +4,9 @@
   width: 395.76px;
   height: 550px;
 }/*# sourceMappingURL=registerstyle.css.map */
+
+.RegisterPage{
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}

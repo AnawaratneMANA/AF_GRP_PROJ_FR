@@ -1,0 +1,32 @@
+@mixin pain {
+  color: white;
+  font-family: Arial;
+}
+.speaker-section {
+  width: 100%;
+  height: 500px;
+  background-color: #A1ABCF;
+}
+.speaker-header {
+  padding-left: 60px;
+
+  #{&}-main-header {
+    @include pain;
+    padding-top: 20px;
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  #{&}-second-header {
+    @include pain;
+    font-size: 28.69px;
+    font-weight: lighter;
+    opacity: 60%;
+    margin-top: -15px;
+  }
+}
+
+.card-speaker{
+  margin-top: 80px;
+  margin-left: 130px;
+}

@@ -1,7 +1,6 @@
 .main-container {
     height: 500px;
     background-color: rgb(175, 175, 175); //Later remove the background.
-
     video {
         object-fit: cover;
         width: 100%;
@@ -12,8 +11,11 @@
 }
 
 .caption {
-    color: white;
+    padding-top: 300px;
+    padding-left: 60px;
+    color: #ffffff;
     width: 50%;
+
 
     #{&}-header {
         font-size: 50px;
@@ -22,7 +24,7 @@
     #{&}-second {
         font-size: 20px;
         opacity: 60%;
-        margin-top: -1;
+        margin-top: -1px;
     }
 
     .buttons-main{
@@ -34,7 +36,6 @@
         margin: 10px;
         padding: 10px;
         border: none;
-        
     }
 }
 
