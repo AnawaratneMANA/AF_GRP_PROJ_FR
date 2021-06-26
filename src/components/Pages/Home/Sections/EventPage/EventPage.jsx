@@ -22,13 +22,6 @@ function EventPage() {
                         <EventComponent title1="component3" title2="name3" image={event1}/>
                         <EventComponent title1="component4" title2="name4" image={event1}/>
                         <EventComponent title1="component1" title2="name1" image={event1}/>
-                        <EventComponent title1="component2" title2="name2" image={event1}/>
-                        <EventComponent title1="component3" title2="name3" image={event1}/>
-                        <EventComponent title1="component4" title2="name4" image={event1}/>
-                        <EventComponent title1="component1" title2="name1" image={event1}/>
-                        <EventComponent title1="component2" title2="name2" image={event1}/>
-                        <EventComponent title1="component3" title2="name3" image={event1}/>
-                        <EventComponent title1="component4" title2="name4" image={event1}/>
                         {/*<EventComponent title1="component4" title2="name4" image={event1}/>*/}
                     </div>
                 </div>
