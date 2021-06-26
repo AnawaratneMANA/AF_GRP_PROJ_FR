@@ -11,8 +11,8 @@ import EventPage from "./Sections/EventPage/EventPage";
 function Home() {
     return (<React.Fragment>
         <VideoLandingComponent/>
-        <DownloadSection/>
         <EventPage/>
+        <DownloadSection/>
         {/*<p>Recent Activities in Detail</p>*/}
         <RatingPage/>
         <SpeakersPage/>

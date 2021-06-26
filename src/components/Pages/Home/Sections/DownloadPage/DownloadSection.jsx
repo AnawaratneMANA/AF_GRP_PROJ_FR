@@ -3,7 +3,6 @@ import './downloadstyles.css';
 import DownloadComponent from "./DownloadComponent/DownloadComponent";
 
 function DownloadSection() {
-
     return (
         <div className = "main-container download">
             <div className="header">
@@ -11,6 +10,8 @@ function DownloadSection() {
                 <p className="second">information</p>
             </div>
             <div className="cardLayout">
+                <DownloadComponent/>
+                <DownloadComponent/>
                 <DownloadComponent/>
                 <DownloadComponent/>
                 <DownloadComponent/>
