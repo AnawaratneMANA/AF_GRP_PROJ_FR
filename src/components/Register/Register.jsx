@@ -11,11 +11,13 @@ const Register = () => {
     const [password, setPassword] = useState();
     const [rpassword, setrPassword] = useState();
 
+    //Password Hashing.
+
+
     const [userData, setUserData] = useState(
         {
             name: '',
             email: '',
-            password: '',
 
         }
     );
