@@ -18,7 +18,6 @@ function Home() {
         <RatingPage/>
         <SpeakersPage/>
         {/*<Gallery/>*/}
-        <p>Location and Events</p>
         <Footer/>
     </React.Fragment>)
 }

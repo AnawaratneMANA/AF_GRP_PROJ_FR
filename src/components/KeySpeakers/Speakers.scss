@@ -12,9 +12,21 @@
     z-index: 1;
 }
 
-.speaker_info {
+.speaker-info {
     height: 100px;
     margin-bottom: 15px;
+    color: #5C5C5C;
+    margin-top: 10px;
+
+    #{&}-header{
+
+    }
+
+    #{&}-secondary{
+        margin-top: -9px;
+        font-weight: lighter;
+    }
+
 }
 
 .cardLayout{
