@@ -17,7 +17,7 @@ function DownloadComponent() {
                     <button className="download-body-button"
                         onClick ={(e) => {
                             e.preventDefault();
-                            window.location.href='/alldownloadlinkpage';
+                            window.location.href='/alldownloadlinkpage/"title1"';
                         }}>Download</button>
                 </div>
             </div>
