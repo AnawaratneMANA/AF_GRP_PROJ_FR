@@ -24,7 +24,7 @@ const App = () => {
                     <Route path = "/services" component={EventPage}/>
                     <Route path = "/payment" component={PaymentPage}/>
                     <Route path = "/alldownloadPage" component={DownloadAllPage}/>
-                    <Route path = "/alldownloadlinkpage" component={DownloadLinkPage}/>
+                    <Route path = "/alldownloadlinkpage/:value" component={DownloadLinkPage}/>
                     </Switch>
                 </BrowserRouter>
         )  
