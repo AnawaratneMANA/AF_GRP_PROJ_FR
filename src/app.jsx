@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Register from './components/Register/Register';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import Navbar from "./components/Navigation/Navbar";
 import Login from "./components/Login/Login";
 import './App.css';
@@ -11,7 +11,6 @@ import DownloadAllPage from './components/Pages/Home/Sections/DownloadPage/Downl
 import DownloadLinkPage from './components/Pages/Home/Sections/DownloadPage/DownloadLinkPage';
 
 const App = () => {
-
 //Add the React Router And Create Routing
         return (
                 <BrowserRouter>
