@@ -1,10 +1,10 @@
 import React from 'react'
 import {  Link } from 'react-router-dom';
 import './downloadstyles.css';
-function DownloadLinkPage() {
+function DownloadLinkPage(props) {
     return (
         <div className ="downloadlinkpage">
-            <h1>Download link page</h1>
+            <h1>Download link page: {props.match.params.value}</h1>
             <table className="table">
                 <thead>
                     <tr>
