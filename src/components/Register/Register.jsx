@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {createUser} from "../../actions/users";
 import {Container, Paper} from '@material-ui/core';
 import '../../CSS/registerstyle.css';
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 const Register = () => {
     const dispatch = useDispatch();
@@ -20,7 +20,6 @@ const Register = () => {
     );
 
     const history = useHistory();
-
 
     function handleSubmit(e) {
         e.preventDefault();
