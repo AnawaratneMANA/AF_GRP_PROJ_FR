@@ -10,6 +10,7 @@ import LoginPage from './components/Pages/LoginPage/LoginPage';
 import PaymentPage from "./components/Pages/PaymentPage/PaymentPage";
 import DownloadAllPage from './components/Pages/Home/Sections/DownloadPage/DownloadAllPage';
 import DownloadLinkPage from './components/Pages/Home/Sections/DownloadPage/DownloadLinkPage';
+import AdminPage from './components/Pages/AdminPage/AdminPage';
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
                     <Route path = "/payment" component={PaymentPage}/>
                     <Route path = "/alldownloadPage" component={DownloadAllPage}/>
                     <Route path = "/alldownloadlinkpage/:value" component={DownloadLinkPage}/>
+                    <Route path = "/admin" component={AdminPage}/>
                     </Switch>
                 </BrowserRouter>
         )  

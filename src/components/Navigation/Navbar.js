@@ -4,6 +4,7 @@ import {Button} from "../Button/Button";
 import './Navbar.css'
 import EventPage from "../Pages/Home/Sections/EventPage/EventPage";
 import PaymentPage from "../Pages/PaymentPage/PaymentPage";
+import AdminPage from '../Pages/AdminPage/AdminPage';
 
 function Navbar () {
     const [click, setClick] = useState(false);
@@ -56,9 +57,18 @@ function Navbar () {
                         {/*        REGISTER*/}
                         {/*    </Link>*/}
                         {/*</li>*/}
-                        <li className= "nav-item">
+
+                        {/* this is need to be added  */}
+                        {/* <li className= "nav-item">
                             <Link to= '/payment' className ="nav-links" onClick={PaymentPage}>
                                 PAYMENT
+                            </Link>
+                        </li> */}
+                        
+                        {/* just added tempapry */}
+                        <li className= "nav-item">
+                            <Link to= '/admin' className ="nav-links" onClick={AdminPage}>
+                                Admin
                             </Link>
                         </li>
 
