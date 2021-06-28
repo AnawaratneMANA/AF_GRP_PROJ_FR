@@ -27,18 +27,19 @@ const rows = [
     createData('Gingerbread', 356, 16.0, 49),
 ];
 
-function EditorContentTable() {
+
+function EditorContentTable({method, setvalue}) {
     const classes = useStyles();
 
-    const [switchChange, setSwitchChange] = useState(false);
-    const SwitchChangeMethod = (switchChange) => {
-        setSwitchChange(switchChange);
-        if(switchChange){
-            console.log("Trye: " + switchChange);
-        }else{
-            console.log("Tryef: " + switchChange);
-        }
-    }
+    // const [switchChange, setSwitchChange] = useState(false);
+    // const SwitchChangeMethod = (switchChange) => {
+    //     setSwitchChange(switchChange);
+    //     if(switchChange){
+    //         console.log("Trye: " + switchChange);
+    //     }else{
+    //         console.log("Tryef: " + switchChange);
+    //     }
+    // }
     return (
         <div>
             <TableContainer component={Paper} className="editorcontent" >
@@ -63,8 +64,8 @@ function EditorContentTable() {
                                 <TableCell align="right">
                                     <Switch
                                         className="react-switch"
-                                        onChange = {SwitchChangeMethod}
-                                        checked= {switchChange}
+                                        onChange = {method}
+                                        checked= { (value) => {setvalue(value)}}
                                     />
                                 </TableCell>
                             </TableRow>
