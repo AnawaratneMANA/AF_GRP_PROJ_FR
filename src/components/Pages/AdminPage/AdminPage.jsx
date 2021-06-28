@@ -4,6 +4,8 @@ import EditorContentTable from './AdminComponents/EditorContentTable'
 import UserdetailForm from './AdminComponents/UserdetailForm'
 import UserDetailTable from './AdminComponents/UserDetailTable'
 import './AdminPage.scss'
+import TotalDownloadGraph from "./AdminComponents/TotalDownloadGraph";
+import EventGraph from "./AdminComponents/EventGraph";
 function AdminPage() {
     return (<React.Fragment>
             
@@ -13,14 +15,17 @@ function AdminPage() {
                     <h1> Monitoring Section </h1>
                     </di>
                     <di className="admin__row">
-                        <AdminStatistics/>
+                        {/*<AdminStatistics/>*/}
+                        <TotalDownloadGraph/>
+                        <EventGraph/>
                     </di>
                     <di className="admin__row">
                         <EditorContentTable/>
                     </di>
                     <di className="admin__row">
                         <UserDetailTable/>
-                        <UserdetailForm/>
+                        <UserDetailTable/>
+                        {/*<UserdetailForm/>*/}
                     </di>
                 </div>
             </div>

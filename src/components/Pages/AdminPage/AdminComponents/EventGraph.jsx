@@ -26,7 +26,7 @@ function EventGraph() {
     return (
         <div>
            <h1>Event Graph</h1>
-           <Paper>
+           <Paper className= "Paper">
                 <Chart
                     data={chartData}
                 >
