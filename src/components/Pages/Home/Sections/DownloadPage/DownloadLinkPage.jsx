@@ -5,6 +5,13 @@ function DownloadLinkPage(props) {
     return (
         <div className ="downloadlinkpage">
             <h1>Download link page: {props.match.params.value}</h1>
+
+            <h1>File Attachment Form</h1>
+            <form>
+                {/*Add the component here.*/}
+            </form>
+
+
             <table className="table">
                 <thead>
                     <tr>
