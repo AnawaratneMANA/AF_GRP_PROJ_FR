@@ -30,6 +30,7 @@ const App = () => {
                     <Route path = "/alldownloadPage" component={DownloadAllPage}/>
                     <Route path = "/alldownloadlinkpage/:value" component={DownloadLinkPage}/>
                     <Route path = "/admin" component={AdminPage}/>
+                    {/*<Route path = "/allfeedbackpage" component={}/>*/}
                     </Switch>
                 </BrowserRouter>
         )  
