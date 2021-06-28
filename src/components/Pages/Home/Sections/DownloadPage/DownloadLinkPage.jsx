@@ -1,6 +1,7 @@
 import React from 'react'
 import {  Link } from 'react-router-dom';
 import './downloadstyles.css';
+import UploadForm from "./UploadForm/UploadForm";
 function DownloadLinkPage(props) {
     return (
         <div className ="downloadlinkpage">
@@ -8,7 +9,7 @@ function DownloadLinkPage(props) {
 
             <h1>File Attachment Form</h1>
             <form>
-                {/*Add the component here.*/}
+                <UploadForm/>
             </form>
 
 

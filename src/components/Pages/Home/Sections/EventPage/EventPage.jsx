@@ -1,7 +1,7 @@
 import React from 'react'
 import EventComponent from "./EventComponent";
 import '../../../../../CSS/event.scss';
-import event1 from "../../../../../Images/EventImages/event1.jpg";
+import event1 from "../../../../../Images/EventImages/screen6.jpg";
 
 function EventPage() {
     return (<React.Fragment>
