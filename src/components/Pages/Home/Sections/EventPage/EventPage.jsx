@@ -2,6 +2,7 @@ import React from 'react'
 import EventComponent from "./EventComponent";
 import '../../../../../CSS/event.scss';
 import event1 from "../../../../../Images/EventImages/event1.jpg";
+import AddEvent from "../../../Event/AddEvent";
 
 function EventPage() {
     return (<React.Fragment>
@@ -27,6 +28,7 @@ function EventPage() {
                 </div>
                 <br/>
             </div>
+            <AddEvent/>
         </React.Fragment>
     )
     }
