@@ -14,6 +14,10 @@
     "react-uuid": "^1.0.2"
   },
   "dependencies": {
+    "@devexpress/dx-core": "^2.7.6",
+    "@devexpress/dx-react-chart": "^2.7.6",
+    "@devexpress/dx-react-chart-material-ui": "^2.7.6",
+    "@devexpress/dx-react-core": "^2.7.6",
     "@material-ui/core": "^4.11.3",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",

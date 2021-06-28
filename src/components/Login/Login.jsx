@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from "../../actions/users";
 import { Container, Paper } from '@material-ui/core';
 import axios from 'axios'
+import Auth from './ProtectedRoutes/AuthenticationClass';
 
 //Importing Custom Style Sheet. 
 import styles from './style';
@@ -34,6 +35,7 @@ const Login = () => {
         try {
             const {data} = await axios.post("http://localhost:8093/api/v1/validate", userData);
             setToken(data);
+            Auth.login(token, userData);
         } catch (err) {
             console.log("Error");
             console.log(err.message);
