@@ -5,7 +5,7 @@ import './Navbar.css'
 import EventPage from "../Pages/Home/Sections/EventPage/EventPage";
 import PaymentPage from "../Pages/PaymentPage/PaymentPage";
 import AdminPage from '../Pages/AdminPage/AdminPage';
-
+import Auth from '../Login/ProtectedRoutes/AuthenticationClass';
 function Navbar () {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
@@ -62,6 +62,10 @@ function Navbar () {
                         {/* <li className= "nav-item">
                             <Link to= '/payment' className ="nav-links" onClick={PaymentPage}>
                                 PAYMENT
+
+                        <li className= "nav-item">
+                            <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
+                                REGISTER
                             </Link>
                         </li> */}
                         
@@ -71,9 +75,8 @@ function Navbar () {
                                 Admin
                             </Link>
                         </li>
-
                     </ul>
-                    { button  && <Button buttonStyle= "btn--outline"> SIGN UP </Button>}
+                    { button  && <Button onClick={Auth.logout} buttonStyle= "btn--outline"> LOG OUT </Button>}
                 </div>
             </nav>
         </React.Fragment>
