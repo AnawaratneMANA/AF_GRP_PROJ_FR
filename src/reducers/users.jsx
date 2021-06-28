@@ -4,8 +4,10 @@ export default (users = [], action) => {
             return users;
         case 'FETCH_ALL':
             return action.payload;
-        case 'CREATE':
+        case "LOG_IN":
             return [...users, action.payload];
+        case "LOG_OUT":
+            return [...users, null];
         default:
             return users;
     }
