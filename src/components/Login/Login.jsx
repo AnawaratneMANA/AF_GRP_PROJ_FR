@@ -26,22 +26,19 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     login();
-    console.log(token);
   }
 
     const login = async () => {
         try {
             const {data} = await axios.post("http://localhost:8093/api/v1/validate", userData);
-            setToken(data);
+            setToken(data.jwt);
             //Auth.login(token, userData); //Change this to Redux.
             //Create the state object to save in the store.
             const user = {
                "user-name": userData.userName,
-                "user-token": token,
-                "user-type": "user"
+               "user-token": data.jwt,
+               "user-type": "user"
             }
-
-
             dispatch(loginUser(user));
 
         } catch (err) {
@@ -77,8 +74,8 @@ const Login = () => {
                 <input className="input-field"
                        placeholder="Enter Password..."
                        type="password"
-                       value={password}
-                       onChange={(e) => setPassword({...userData, password: e.target.value})}
+                       value={userData.password}
+                       onChange={(e) => setUserData({...userData, password: e.target.value})}
                 />
               </div>
             

@@ -3,14 +3,18 @@ import {Link} from 'react-router-dom';
 import {Button} from "../Button/Button";
 import './Navbar.css'
 import EventPage from "../Pages/Home/Sections/EventPage/EventPage";
-import PaymentPage from "../Pages/PaymentPage/PaymentPage";
 import AdminPage from '../Pages/AdminPage/AdminPage';
 import Auth from '../Login/ProtectedRoutes/AuthenticationClass';
+import {useDispatch} from "react-redux";
+import {logoutUser} from "../../actions/users";
+
 function Navbar () {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
     const  handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+
+    const dispatch = useDispatch();
 
     const showButton = () => {
         if(window.innerWidth <= 960){
@@ -25,6 +29,10 @@ function Navbar () {
     }, [])
 
     window.addEventListener('resize', showButton);
+
+    const logout = () => {
+        dispatch(logoutUser());
+    }
 
     return (
         <React.Fragment>
@@ -76,7 +84,7 @@ function Navbar () {
                             </Link>
                         </li>
                     </ul>
-                    { button  && <Button onClick={Auth.logout} buttonStyle= "btn--outline"> LOG OUT </Button>}
+                    { button  && <Button onClick={logout} buttonStyle= "btn--outline"> LOG OUT </Button>}
                 </div>
             </nav>
         </React.Fragment>
