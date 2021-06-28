@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import Register from '../Register/Register';
-import { Form, Button, h1 } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { createUser } from "../../actions/users";
-import { Container, Paper } from '@material-ui/core';
 import axios from 'axios'
+import {useDispatch} from "react-redux";
+import Auth from './ProtectedRoutes/AuthenticationClass';
 
 //Importing Custom Style Sheet. 
 import styles from './style';
 import '../../CSS/loginstyle.css';
+import {loginUser} from "../../actions/users";
 const Login = () => {
   const classes = styles();
+
   const dispatch = useDispatch();
 
   //Methods comes here.
@@ -27,13 +26,21 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     login();
-    console.log(token);
   }
 
     const login = async () => {
         try {
             const {data} = await axios.post("http://localhost:8093/api/v1/validate", userData);
-            setToken(data);
+            setToken(data.jwt);
+            //Auth.login(token, userData); //Change this to Redux.
+            //Create the state object to save in the store.
+            const user = {
+               "user-name": userData.userName,
+               "user-token": data.jwt,
+               "user-type": "user"
+            }
+            dispatch(loginUser(user));
+
         } catch (err) {
             console.log("Error");
             console.log(err.message);
@@ -67,8 +74,8 @@ const Login = () => {
                 <input className="input-field"
                        placeholder="Enter Password..."
                        type="password"
-                       value={password}
-                       onChange={(e) => setPassword({...userData, password: e.target.value})}
+                       value={userData.password}
+                       onChange={(e) => setUserData({...userData, password: e.target.value})}
                 />
               </div>
             
