@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import {Button} from "../Button/Button";
 import './Navbar.css'
 import EventPage from "../Pages/Home/Sections/EventPage/EventPage";
+import PaymentPage from "../Pages/PaymentPage/PaymentPage";
+import AdminPage from '../Pages/AdminPage/AdminPage';
 import Auth from '../Login/ProtectedRoutes/AuthenticationClass';
 function Navbar () {
     const [click, setClick] = useState(false);
@@ -50,9 +52,27 @@ function Navbar () {
                                 LOGIN
                             </Link>
                         </li>
+                        {/*<li className= "nav-item">*/}
+                        {/*    <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>*/}
+                        {/*        REGISTER*/}
+                        {/*    </Link>*/}
+                        {/*</li>*/}
+
+                        {/* this is need to be added  */}
+                        {/* <li className= "nav-item">
+                            <Link to= '/payment' className ="nav-links" onClick={PaymentPage}>
+                                PAYMENT
+
                         <li className= "nav-item">
                             <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
                                 REGISTER
+                            </Link>
+                        </li> */}
+                        
+                        {/* just added tempapry */}
+                        <li className= "nav-item">
+                            <Link to= '/admin' className ="nav-links" onClick={AdminPage}>
+                                Admin
                             </Link>
                         </li>
                     </ul>
