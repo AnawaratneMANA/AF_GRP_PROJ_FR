@@ -14,7 +14,11 @@ function DownloadComponent() {
                     <p className="download-body-header-details">
                         Documents and Templates Download.
                     </p>
-                    <button className="download-body-button">Download</button>
+                    <button className="download-body-button"
+                        onClick ={(e) => {
+                            e.preventDefault();
+                            window.location.href='/alldownloadlinkpage/"title1"';
+                        }}>Download</button>
                 </div>
             </div>
         </div>)
