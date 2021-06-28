@@ -8,8 +8,7 @@ function AdminStatistics() {
             <h1>Admin Stats</h1>
                 <div className="admin__container">
                     <div className="admin__row">
-                        <TotalDownloadGraph/>
-                        <EventGraph/>
+
                      </div>
                  </div>
         </div>

@@ -30,9 +30,9 @@ function TotalDownloadGraph() {
     ];
 
     return (
-        <div>
+        <div className="totaldownloadgraph">
             <h1>Download Graph</h1>
-            <Paper>
+            <Paper className= "Paper">
                 <Chart
                 data={data}
                 >
