@@ -26,10 +26,9 @@ const App = () => {
                     <Route path = "/loginpage" component={LoginPage}/>
                     <ProtectedRoute exact path = "/services" component={TestingEmptyComponent}/>
                     <Route path = "/alldownloadPage" component={DownloadAllPage}/>
-                    {/*<Route path = "/alldownloadlinkpage" component={DownloadLinkPage}/>*/}
                     <Route path = "/payment" component={PaymentPage}/>
                     <Route path = "/alldownloadlinkpage/:value" component={DownloadLinkPage}/>
-                    <Route path = "/admin" component={AdminPage}/>
+                    <Route exact path  = "/admin" component={AdminPage}/>
                     <ProtectedRoute exact path = "/empty" component={TestingEmptyComponent}/>
                     </Switch>
                 </BrowserRouter>
