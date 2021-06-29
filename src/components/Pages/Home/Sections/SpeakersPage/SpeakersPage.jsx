@@ -1,7 +1,19 @@
 import React from 'react';
 import KeySpeaker1 from "../../../../KeySpeakers/KeySpeaker1";
+import Speaker from '../../../../KeySpeakers/SpeakersImges/profile.webp'
 import './keyspeakers.css'
+
 function SpeakersPage() {
+
+    //Call API here and Replace the Array.
+
+    const rows = [
+        {"name":'Salitha Ekanayaka', "title": 'Bsc', "image": Speaker},
+        {"name":'Nirmith Akash', "title": 'Bsc', "image": Speaker},
+        {"name":'Jason Born', "title": 'SK', "image": Speaker},
+        {"name":'John Doe', "title": 'N/A', "image": Speaker},
+    ];
+
     return (<React.Fragment>
         <div className="speaker-section">
             <div className="speaker-header">
@@ -9,15 +21,11 @@ function SpeakersPage() {
                 <h4 className="speaker-header-second-header">Information</h4>
             </div>
             <div className="cardLayout">
-                <div className="card-speaker">
-                <KeySpeaker1/>
-                </div>
-                <div className="card-speaker">
-                    <KeySpeaker1/>
-                </div>
-                <div className="card-speaker">
-                    <KeySpeaker1/>
-                </div>
+                    {rows.map((row)=> (
+                        <div className="card-speaker">
+                        <KeySpeaker1 rows={row}/>
+                        </div>
+                    ))}
             </div>
         </div>
 
