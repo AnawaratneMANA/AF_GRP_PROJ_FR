@@ -43,6 +43,7 @@ function EditorContentTable() {
             console.log(response);
 
 
+
         } catch (err) {
             console.log("Error");
             console.log(err.message);
