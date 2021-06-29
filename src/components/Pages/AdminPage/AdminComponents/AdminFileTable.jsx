@@ -73,17 +73,25 @@ function AdminFileTable() {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Event id</TableCell>
-                            <TableCell align="right">Event Name</TableCell>
-                            <TableCell align="right">Organizor Name</TableCell>
+                            <TableCell component="th" scope="row">File Name</TableCell>
+                            <TableCell align="right">File Type</TableCell>
+                            <TableCell align="right">Crated Date</TableCell>
+                            <TableCell align="right">Download Link</TableCell>
 
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {docs.map((row) => (
-                            <TableRow key={row.url}>
-                                <TableCell component="th" scope="row"> {row.url}</TableCell>
-                                <TableCell align="right">{row.name}</TableCell>
+                                <TableRow key={row}>
+                                <TableCell component="th" scope="row"> {row.name}</TableCell>
+                                <TableCell align="right">{row.type}</TableCell>
+                                <TableCell align="right">date</TableCell>
+                                <TableCell align="right">
+                                    <button className="download-file-button">
+                                        {/*<Link to={row.url} target="_blank" download>Download</Link>*/}
+                                        <a href={row.url} download={row.name}> Download Here </a>
+                                    </button>
+                                </TableCell>
 
                                 {/*<TableCell align="right">*/}
                                 {/*    <Link onClick={ () => {approve(row.id)}}> <p>Approve</p> </Link>*/}

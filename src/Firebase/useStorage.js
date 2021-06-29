@@ -21,7 +21,7 @@ const useStorage = (file) =>{
             const url = await storageRef.getDownloadURL();
             const createdAt = timestamp();
             //Here add the meta data for the images.
-            await collectionRef.add({url, createdAt, name: file.name}) //Remove Await if not working.
+            await collectionRef.add({url, createdAt, name: file.name, type: file.type}) //Remove Await if not working.
             setUrl(url);
         });
     }, [file])
