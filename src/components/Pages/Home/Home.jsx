@@ -6,6 +6,7 @@ import Footer from "./Sections/Footer/Footer";
 import DownloadSection from "./Sections/DownloadPage/DownloadSection";
 import EventPage from "./Sections/EventPage/EventPage";
 import Gallery from "./Sections/Gallery/Gallery";
+import UploadForm from "./Sections/DownloadPage/UploadForm/UploadForm";
 
 
 

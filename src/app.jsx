@@ -24,10 +24,9 @@ const App = () => {
                     <Route path = "/register" component={Register}/>
                     <Route path = "/loginpage" component={LoginPage}/>
                     <Route path = "/services" component={EventPage}/>
-                    <ProtectedRoute path = "/alldownloadPage" component={DownloadAllPage}/>
-                    <Route path = "/alldownloadlinkpage" component={DownloadLinkPage}/>
-                    <Route path = "/payment" component={PaymentPage}/>
                     <Route path = "/alldownloadPage" component={DownloadAllPage}/>
+                    {/*<Route path = "/alldownloadlinkpage" component={DownloadLinkPage}/>*/}
+                    <Route path = "/payment" component={PaymentPage}/>
                     <Route path = "/alldownloadlinkpage/:value" component={DownloadLinkPage}/>
                     <Route path = "/admin" component={AdminPage}/>
                     </Switch>
