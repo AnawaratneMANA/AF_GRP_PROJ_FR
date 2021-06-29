@@ -7,6 +7,7 @@ import AdminPage from '../Pages/AdminPage/AdminPage';
 import Auth from '../Login/ProtectedRoutes/AuthenticationClass';
 import {useDispatch} from "react-redux";
 import {logoutUser} from "../../actions/users";
+import DownloadLinkPage from "../Pages/Home/Sections/DownloadPage/DownloadLinkPage";
 
 function Navbar () {
     const [click, setClick] = useState(false);
