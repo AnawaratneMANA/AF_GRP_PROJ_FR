@@ -13,6 +13,7 @@ import DownloadLinkPage from './components/Pages/Home/Sections/DownloadPage/Down
 import AdminPage from './components/Pages/AdminPage/AdminPage';
 import {ProtectedRoute} from "./components/Login/ProtectedRoutes/protectedRoute";
 import TestingEmptyComponent from "./components/TestingEmptyComponent/ProtectedEmptyComponent";
+import EventMainPage from "./components/Pages/EventPage/EventMainPage";
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
                     <Route path = "/payment" component={PaymentPage}/>
                     <Route path = "/alldownloadlinkpage/:value" component={DownloadLinkPage}/>
                     <Route exact path  = "/admin" component={AdminPage}/>
+                    <Route exact path  = "/eventpage" component={EventMainPage}/>
                     <ProtectedRoute exact path = "/empty" component={TestingEmptyComponent}/>
                     </Switch>
                 </BrowserRouter>

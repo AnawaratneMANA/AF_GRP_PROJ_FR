@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './AddEvent.style.css'
 import TextField from '@material-ui/core/TextField';
+import FileBase from 'react-file-base64';
 
 const  AddEvent = () =>{
 
@@ -14,6 +15,8 @@ const  AddEvent = () =>{
    const [noOfPeople  , setNoOfPeople ] = useState("");
    const [sponsor   , setSponsor  ] = useState("");
    const [status  , setStatus ] = useState("");
+   const [images  , setImage ] = useState("");
+
 
 
     return(
@@ -73,10 +76,6 @@ const  AddEvent = () =>{
                         <label className="input-lable" data-testid='place-link-field-label'>Place or Link</label>
                     </div>
 
-
-
-
-
                     <div>
                         <TextField
                             id="date"
@@ -121,8 +120,6 @@ const  AddEvent = () =>{
                     </div>
 
                     <button className="auth-button" type="submit" data-testid='add-event-submit-btn'>Send</button>
-
-
                 </form>
             </div>
 
