@@ -39,7 +39,8 @@
     "react-switch": "^6.0.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "react-router": "^5.2.0"
   },
   "browserslist": {
     "production": [
