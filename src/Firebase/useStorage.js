@@ -20,12 +20,18 @@ const useStorage = (file) =>{
         }, async () => {
             const url = await storageRef.getDownloadURL();
             const createdAt = timestamp();
-            await collectionRef.add({url, createdAt}) //Remove Await if not working.
+            //Here add the meta data for the images.
+            await collectionRef.add({url, createdAt, name: file.name}) //Remove Await if not working.
             setUrl(url);
         });
     }, [file])
 
     return {progress, url, error}
 }
+
+/**
+ * To send the meta data to the image file send them to the useStorage hook as
+ * separate data or fetch it from the image itself, this metadata can be used to show
+ *  in the table when displaying.**/
 
 export default useStorage;

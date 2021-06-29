@@ -13,7 +13,8 @@ const FileGrid = () => {
                     <div className="file-wrap" key={doc.id}>
                         {/*<img src={doc.url} alt="uploaded file"/>*/}
                         <tr>
-                            <td></td>
+                            <td>{doc.url}</td>
+                            <td>{doc.name}</td>
                         </tr>
                     </div>
                     </table>
