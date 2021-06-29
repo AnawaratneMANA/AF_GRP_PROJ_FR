@@ -1,6 +1,5 @@
 import '../AdminPage.scss'
 import React, { useState, useEffect } from 'react';
-import Switch from 'react-switch'
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link} from "@material-ui/core";
+import axios from 'axios';
 
 const useStyles = makeStyles({
     table: {
@@ -33,26 +33,36 @@ const rows = [
 function EditorContentTable() {
     const classes = useStyles();
 
-    // const [switchChange, setSwitchChange] = useState(false);
-    // const SwitchChangeMethod = (value) => {
-    //
-    //     setSwitchChange(value);
-    //     if(switchChange){
-    //         console.log("Trye: " + switchChange);
-    //     }else{
-    //         console.log("Tryef: " + switchChange);
-    //     }
-    //
-    //
-    // }
+    const fetchEventDetails = async () => {
+        try {
+            const response = await axios
+                .get("")
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+            console.log(response);
+
+
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        // dispatch(timeEntryActions.getTimeEntryDetail())
+       // fetchEventDetails();
+    }, [])
     
-    const approve = () => {
+    const approve = (id) => {
         let value = "approve";
         console.log(value);
+        console.log(id);
     }
-    const decline = () => {
+    const decline = (id) => {
         let value = "decline";
         console.log(value);
+        console.log(id);
     }
     return (
         <div>
@@ -89,10 +99,10 @@ function EditorContentTable() {
                                     {/*   checked= {switchChange}*/}
                                     {/*    onChange = { SwitchChangeMethod}*/}
                                     {/*/>*/}
-                                    <Link onClick={approve}> <p>Approve</p> </Link>
+                                    <Link onClick={ () => {approve(row.id)}}> <p>Approve</p> </Link>
                                 </TableCell>
                                 <TableCell align="right">
-                                    <Link onClick={decline}> <p>Decline</p> </Link>
+                                    <Link onClick={() => {decline(row.id)}}> <p>Decline</p> </Link>
                                 </TableCell>
                             </TableRow>
                         ))}
