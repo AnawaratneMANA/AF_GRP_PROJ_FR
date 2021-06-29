@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import ProgressBar from "../../../../../../Firebase/progressBar";
-
+// import './UploadForm.css'
 const UploadFrom = () => {
 
     const [file, setFile] = useState(null);
@@ -27,7 +27,10 @@ const UploadFrom = () => {
     return (
         <form>
             <h1>Upload Form</h1>
-            <input type="file" onChange={changeHandler}/>
+            <div className="file-input">
+            <input size="60" name="file" type="file" className="file-input-selector" onChange={changeHandler}/>
+            <label for="file"> Choose File To Upload </label>
+            </div>
             <div className="output">
                 {error && <div className="file error">{error}</div>}
                 {file && <div className="file file-name">{file.name}</div>}
