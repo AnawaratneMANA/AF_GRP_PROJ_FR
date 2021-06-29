@@ -32,10 +32,6 @@ const Login = () => {
 
     const login = async () => {
         try {
-            //Testing.
-            // console.log(users.userName);
-            // console.log(users.userToken);
-            // console.log(users.userType);
 
             const {data} = await axios.post("http://localhost:8093/api/v1/validate", userData);
             setToken(data.jwt);
@@ -50,6 +46,8 @@ const Login = () => {
                "userType": decode.userType
             }
             dispatch(loginUser(user));
+            //Auth.login(decode.sub, data.jwt, decode.userType);
+
 
         } catch (err) {
             console.log("Login Error");

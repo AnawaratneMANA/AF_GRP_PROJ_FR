@@ -1,9 +1,9 @@
 import React from 'react'
-const LoginPage = () => {
+const TestingEmptyComponent = () => {
     return (
-        <div className="loginPage">
+        <div className="testing-dev">
             This is a Empty Component Do Not add Data.
         </div>
     )
 }
-export default LoginPage;
+export default TestingEmptyComponent;

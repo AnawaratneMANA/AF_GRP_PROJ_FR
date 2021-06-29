@@ -1,36 +1,31 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Route, Redirect } from  'react-router-dom';
 import Auth from "./AuthenticationClass";
 import {useSelector} from "react-redux";
 export const ProtectedRoute = ({component: Component, ...rest}) => {
 
-    //Create UseState Hooks to store the token.
-    const [token, setToken] = useState(null);
-    //Extra information in case if wanted.
-    const [userName, setUserName] = useState(null);
-    const [userType, setUserType] = useState(null);
-
     //Global Redux State to keep the user details.
     const users = useSelector((state) => state.users);
-    setToken(users.userToken);
-    setUserName(users.userName);
-    setUserType(users.userType);
+
+    /**
+     * Becarefull using useStates without useEffect hook, can end up creating infinite loops
+     * When loading the components, when setting the state component get reload once.
+     * **/
 
     //Testing
-    console.log(token);
-    console.log(Auth.isAuthenticated());
+    console.log(users);
 
     return (
         <Route
             {...rest}
             render={
                 (props) => {
-                    console.log("Above the if " + token);
-                    if (Auth.isAuthenticated()) {
-                        console.log("If" + token);
+                    console.log("Above the if " + Auth.isAuthenticated());
+                    if (users.userName) {
+                        console.log("If" + Auth.isAuthenticated());
                         return <Component {...rest}/>;
                     } else {
-                        console.log("Else" + token);
+                        console.log("Else" + Auth.isAuthenticated());
                         return (<Redirect to={
                             {
                                 pathname: "/loginpage",

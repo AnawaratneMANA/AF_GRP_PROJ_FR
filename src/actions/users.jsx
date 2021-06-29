@@ -13,9 +13,9 @@ export const loginUser = (user) => async (dispatch) => {
 };
 
 //Dispatch method for user log out.
-export const logoutUser = () => async (dispatch) => {
+export const logoutUser = (users) => async (dispatch) => {
     try {
-        dispatch({type: 'LOG_OUT', payload: null});
+        dispatch({type: 'LOG_OUT', payload: users});
     } catch (error) {
         console.log(error);
     }
