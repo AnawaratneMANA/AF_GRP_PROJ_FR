@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField} from "@material-ui/core";
+import { Grid, Paper, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from '@material-ui/core';
 import {useDispatch, useSelector} from 'react-redux';
@@ -7,11 +7,10 @@ import Star from "../Star/Star";
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
-        // margin: theme.spacing(5),
         padding: theme.spacing(3),
         margin: theme.spacing(2),
         width: theme.spacing(70),
-        height: theme.spacing(75)
+        height: theme.spacing(60)
     }
 }))
 
@@ -46,14 +45,14 @@ function FeedBackForm(){
         }
     }
 
-
     return (
         <div>
             <Paper className={classes.pageContent}>
                 <h3>FeedBack Form</h3>
+                <Star/>
                 <form className={classes2.root} onSubmit={handleSubmit}>
                     <Grid container>
-                        <Grid item xs={6}>
+                        <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
                                 label="Name"
@@ -70,11 +69,7 @@ function FeedBackForm(){
                                 value={feedback}
                                 onChange={(e) => setFeedback(e.target.value)}
                             />
-                            <div style={{marginLeft:"30px"}}>
-                                <Star/>
-                            </div>
-
-                            <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginLeft:"150px", marginTop:"40px"}} >
+                            <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginTop:"40px"}} >
                                 SUBMIT
                             </Button>
                         </Grid>

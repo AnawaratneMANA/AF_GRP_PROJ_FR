@@ -6,10 +6,16 @@ import FeedBackForm from "../../Ratings/FeedBackForm/FeedBackForm";
 function FeedBackAllPage() {
     return (
         <div className="downloadallpage">
-            <h1>All Feedback page</h1>
-            <FeedBackForm/>
+            {/*<h1>All Feedback page</h1>*/}
+            {/*<div>*/}
+            {/*    <FeedBackForm/>*/}
+            {/*</div>*/}
             <div className="alldownloadlist">
+                <div>
+                    <FeedBackForm/>
+                </div>
                 <div className="alldownloadrow">
+
                     <Ratings1/>
                     <Ratings1/>
                     <Ratings1/>
