@@ -6,6 +6,7 @@ import './AdminPage.css'
 import TotalDownloadGraph from "./AdminComponents/TotalDownloadGraph";
 import EventGraph from "./AdminComponents/EventGraph";
 import AdminFileTable from "./AdminComponents/AdminFileTable";
+import CollapsComponent from "./CollapsComponent/CollapsComponent";
 
 const AdminPage = () => {
     //const [userID, setUserID] = useState("");
@@ -15,33 +16,38 @@ const AdminPage = () => {
     }, [])
     
     return (<React.Fragment>
-            
-            {/*<div className="adminInterface">*/}
-            {/*    <div className="admin__container">*/}
-            {/*        <div className="admin__row">*/}
-            {/*        <h1> Monitoring Section </h1>*/}
-            {/*        </div>*/}
-            {/*        <div className="admin__row">*/}
-            {/*            /!*<AdminStatistics/>*!/*/}
-            {/*            <TotalDownloadGraph/>*/}
-            {/*            <EventGraph/>*/}
-            {/*        </div>*/}
-            {/*        <div className="admin__row">*/}
-            {/*            <EditorContentTable/>*/}
-            {/*            /!*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*!/*/}
-            {/*        </div>*/}
-            {/*        <div className="admin__row">*/}
-            {/*            /!*<UserDetailTable method={setUserID}/>*!/*/}
-            {/*            /!*<UserdetailForm value={userID}/>*!/*/}
-            {/*        </div>*/}
-            {/*        <div className="admin__row">*/}
-            {/*            <AdminFileTable/>*/}
-            {/*            /!*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*!/*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className="adminInterface">
+                <div className="admin__container">
+                    <di className="admin__row">
+                    <h1> Monitoring Section </h1>
+                    </di>
+                    <di className="admin__row1">
+                        {/*<AdminStatistics/>*/}
+                        <CollapsComponent/>
+                        <CollapsComponent/>
+                        <CollapsComponent/>
+                    </di>
+
+                    <di className="admin__row">
+                        {/*<AdminStatistics/>*/}
+                        <TotalDownloadGraph/>
+                        <EventGraph/>
+                    </di>
+                    <di className="admin__row">
+                        <EditorContentTable/>
+                        {/*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*/}
+                    </di>
+                    <di className="admin__row">
+                        <UserDetailTable/>
+                        <UserdetailForm/>
+                    </di>
+                    <di className="admin__row">
+                        <AdminFileTable/>
+                        {/*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*/}
+                    </di>
+                </div>
+            </div>
         </React.Fragment>
     )
 }
-
 export default AdminPage

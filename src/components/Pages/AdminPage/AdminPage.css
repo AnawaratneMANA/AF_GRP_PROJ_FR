@@ -1,3 +1,44 @@
+.admin__row {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-rows: minmax(1px, auto);
+  justify-content: center;
+  align-items: normal;
+  grid-gap: 10%;
+  width: 1520px;
+}
 
+.admin__row1 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-auto-rows: minmax(1px, auto);
+  justify-content: center;
+  align-items: normal;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 200px;
+  grid-gap: 5%;
+  width: 100%;
+}
+
+.admin__container {
+  width: 1520px;
+  background-color: #4FBCB9;
+}
+
+.Paper {
+  width: 600px;
+}
+
+.editorcontent {
+  margin-top: 1%;
+  margin-left: 5.5%;
+  display: grid;
+  justify-content: center;
+}
+
+.userdetailtable {
+  margin-top: 1%;
+}
 
 /*# sourceMappingURL=AdminPage.css.map */
