@@ -18,10 +18,8 @@ const useStyles = makeStyles({
     },
 });
 
-
-
 //const authAxios =
-function UserDetailTable() {
+function UserDetailTable({method}) {
     axios.interceptors.request.use(
         config => {
             config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
@@ -56,6 +54,7 @@ function UserDetailTable() {
 
     const updateUser = (id) => {
         console.log(id);
+        method(id)
     }
     const deleteUser = (id) => {
         console.log(id);
@@ -80,7 +79,7 @@ function UserDetailTable() {
                                 <TableCell component="th" scope="row"> {row.firstName + " " + row.lastName}</TableCell>
                                 <TableCell align="right">{row.type}</TableCell>
                                 <TableCell align="right">
-                                    <Link onClick={ () => {updateUser(row.id)}}> <p>Update</p> </Link>
+                                    <Link onClick={ () => {updateUser(row)}}> <p>Update</p> </Link>
                                 </TableCell>
                                 <TableCell align="right">
                                     <Link onClick={ () => {deleteUser(row.id)}}> <p>Delete</p> </Link>

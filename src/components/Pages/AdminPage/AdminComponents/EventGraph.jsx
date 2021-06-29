@@ -1,5 +1,5 @@
 import '../AdminPage.scss'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Paper from '@material-ui/core/Paper';
 import {
     Chart,
@@ -35,6 +35,10 @@ function EventGraph() {
 
     const [chartData, setchartData] = useState(data)
 
+
+    // useEffect(() => {
+    //     fetchEventDetails();
+    // }, [])
     return (
         <div>
            <h1>Event Graph</h1>

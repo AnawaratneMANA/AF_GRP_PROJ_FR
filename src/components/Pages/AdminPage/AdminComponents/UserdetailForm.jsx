@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import '../AdminPage.scss'
 import {FormControl, Grid, InputLabel, MenuItem, Select, TextField} from '@material-ui/core';
 import {Paper, makeStyles} from '@material-ui/core';
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(3),
         margin: theme.spacing(2),
         width: theme.spacing(70),
-        height: theme.spacing(75)
+        height: theme.spacing(90)
     }
 }))
 
@@ -24,7 +24,8 @@ const useStyle = makeStyles(theme => ({
     }
 }))
 
-function UserdetailForm(){
+function UserdetailForm({value}){
+    console.log(value);
     axios.interceptors.request.use(
         config => {
             config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
@@ -39,25 +40,32 @@ function UserdetailForm(){
     const classes = useStyles();
     const classes2 = useStyle();
     const dispatch = useDispatch();
+    const[firstName, setFirstName] = useState("");
+    const[lastName, setLastname] = useState("");
+    const[userName, setUserName] = useState("");
+    const[password, setPassword] = useState("");
+    const[type, setType] = useState("");
 
-    const[firstName, setFirstName] = useState();
-    const[lastName, setLastname] = useState();
-    const[userName, setUserName] = useState();
-    const[password, setPassword] = useState();
-    const[type, setType] = useState('');
 
-    //submit the data
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log(e.userName);
         const userData = {
             firstName,
             lastName,
             userName,
-            password,type
+            password,
+            type
 
         }
 
+        console.log(userData);
+        // axios.put('http://localhost:8073/updateCreditCardDetailsById/'+this.props.match.params.id, payment).then(() => {
+        //     alert("payment updated");
+        //     window.location = '/payment';
+        // }).catch((err) => {
+        //     console.log(err);
+        // })
         //call the url
         // dispatch()
 
@@ -70,40 +78,47 @@ function UserdetailForm(){
             <form className={classes2.root} onSubmit={handleSubmit}>
                 <Grid container>
                     <Grid item xs={6}>
+                        <InputLabel> First Name</InputLabel>
                         <TextField
                             variant="outlined"
-                            label="First Name"
                             name="firstName"
+                            defaultValue={value.firstName}
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                         />
+                        <InputLabel> Last Name</InputLabel>
                         <TextField
                             variant="outlined"
-                            label="Last Name"
                             name="lastName"
+                            label="last name"
+                            defaultValue={value.lastName}
                             value={lastName}
                             onChange={(e) => setLastname(e.target.value)}
                         />
+                        <InputLabel> User Name</InputLabel>
                         <TextField
                             variant="outlined"
-                            label="User Name"
                             name="userName"
-                            value={userName}
+                            defaultValue={value.userName}
+                            value={value.userName}
                             onChange={(e) => setUserName(e.target.value)}
                         />
+                        <InputLabel> Password</InputLabel>
                         <TextField
                             variant="outlined"
-                            label="Password"
                             name="password"
                             type="password"
-                            value={password}
+                            defaultValue={value.password}
+                            value={value.password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
+                        <InputLabel> Type </InputLabel>
                         <FormControl variant="outlined" >
                             <InputLabel id="demo-simple-select-outlined-label">Type</InputLabel>
                             <Select
                                 labelId="demo-simple-select-outlined-label"
                                 id="demo-simple-select-outlined"
+                                defaultValue={value.type}
                                 value={type}
                                 onChange={(e) => setType(e.target.value)}
                                 label="Age"
@@ -111,9 +126,10 @@ function UserdetailForm(){
                                 <MenuItem value="">
                                     <em>None</em>
                                 </MenuItem>
-                                <MenuItem value={10}>Typ1</MenuItem>
-                                <MenuItem value={20}>Typ2</MenuItem>
-                                <MenuItem value={30}>Typ3</MenuItem>
+                                <MenuItem value={10}>Reviewer</MenuItem>
+                                <MenuItem value={20}>Admin</MenuItem>
+                                <MenuItem value={30}>Researcher</MenuItem>
+                                <MenuItem value={30}>Editor</MenuItem>
                             </Select>
                         </FormControl>
                         <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginLeft:"13px"}} >

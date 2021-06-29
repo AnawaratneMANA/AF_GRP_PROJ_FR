@@ -4,6 +4,8 @@ import '../../../../../CSS/event.scss';
 import event1 from "../../../../../Images/EventImages/screen6.jpg";
 
 function EventPage() {
+
+
     return (<React.Fragment>
             
             <div className="mainheader">
