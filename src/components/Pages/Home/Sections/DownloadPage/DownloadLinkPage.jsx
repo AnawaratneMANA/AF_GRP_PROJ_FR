@@ -16,5 +16,4 @@ function DownloadLinkPage(props) {
         </div>
     )
 }
-
 export default DownloadLinkPage
