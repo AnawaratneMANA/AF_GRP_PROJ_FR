@@ -14,7 +14,9 @@ const UploadFrom = () => {
     const changeHandler = (e) => {
         let selected = e.target.files[0];
         if (selected && types.includes(selected.type)){
+            console.log(selected)
             setFile(selected);
+            setError('');
         } else {
             setFile(null);
             setError("Selected the Correct Type of File");
@@ -25,6 +27,10 @@ const UploadFrom = () => {
         <form>
             <h1>Upload Form</h1>
             <input type="file" onChange={changeHandler}/>
+            <div className="output">
+                {error && <div className="file error">{error}</div>}
+                {file && <div className="file file-name">{file.name}</div>}
+            </div>
         </form>
     )
 }
