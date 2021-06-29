@@ -14,6 +14,14 @@ function DownloadSection() {
         history.push('/alldownloadPage');
     }
 
+    const rows = [
+        {"header":'Templates', "description": 'Empty Templates'},
+        {"header":'Research Papers', "description": 'Empty Research Papers'},
+        {"header":'Research Papers', "description": 'Completed Research Papers'},
+        {"header":'PDF Documents', "description": 'Attached PDF document files'},
+        {"header":'Video Files', "description": 'Attached Video Files'}
+    ];
+
     return (
         <div className = "download-main-container download">
             <div className="header">
@@ -27,10 +35,9 @@ function DownloadSection() {
                 <p className="second">information</p>
             </div>
             <div className="cardLayout">
-                <DownloadComponent/>
-                <DownloadComponent/>
-                <DownloadComponent/>
-                <DownloadComponent/>
+            {rows.map((row) => (
+                <DownloadComponent header={row.header} description={row.description}/>
+            ))}
             </div>
     </div>)
 }

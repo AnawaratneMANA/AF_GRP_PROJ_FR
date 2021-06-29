@@ -1,6 +1,13 @@
 import React from 'react';
 import './downloadcompostyles.css'
-function DownloadComponent() {
+import {useHistory} from "react-router-dom";
+function DownloadComponent({header, description}) {
+
+    const history = useHistory();
+
+    const handleHistory = (header) => {
+        history.push(`/alldownloadlinkpage/${header}`);
+    }
 
     return (
         <div className = "download-component">
@@ -9,15 +16,15 @@ function DownloadComponent() {
             <div className="download-body">
                 <div className="download-body-header">
                     <p className="download-body-header-main">
-                        Download Templates.
+                        {header}
                     </p>
                     <p className="download-body-header-details">
-                        Documents and Templates Download.
+                        {description}
                     </p>
                     <button className="download-body-button"
                         onClick ={(e) => {
                             e.preventDefault();
-                            window.location.href='/alldownloadlinkpage/"title1"';
+                            handleHistory(header)
                         }}>Download</button>
                 </div>
             </div>
