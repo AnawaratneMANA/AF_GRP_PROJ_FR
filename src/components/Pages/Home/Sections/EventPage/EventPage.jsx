@@ -1,19 +1,19 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import EventComponent from "./EventComponent";
 import '../../../../../CSS/event.scss';
+import event1 from "../../../../../Images/EventImages/event1.jpg";
+import AddEvent from "../../../Event/AddEvent";
+function EventPage() {
 import event1 from "../../../../../Images/EventImages/screen6.jpg";
 function EventPage() {
 const EventPage = () => {
     return (<React.Fragment>
-            
             <div className="mainheader">
                 <div className="header">
                     <button className="button">View All</button>
                     <h3 className="main1">Event Page</h3>
                     <p className="second">This section contain all the events</p>
-                    
                 </div>
-                
                 <br />
                 <div className="home__container">
                     <div className="home__row">
@@ -27,6 +27,7 @@ const EventPage = () => {
                 </div>
                 <br/>
             </div>
+            <AddEvent/>
         </React.Fragment>
     )
     }
