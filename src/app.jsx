@@ -23,7 +23,7 @@ const App = () => {
                     <Route path = "/" exact component={Home}/>
                     <Route path = "/register" component={Register}/>
                     <Route path = "/loginpage" component={LoginPage}/>
-                    <Route path = "/services" component={EventPage}/>
+                    <Route exact path = "/services" component={EventPage}/>
                     <Route path = "/alldownloadPage" component={DownloadAllPage}/>
                     {/*<Route path = "/alldownloadlinkpage" component={DownloadLinkPage}/>*/}
                     <Route path = "/payment" component={PaymentPage}/>
