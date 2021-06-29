@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {Link} from "@material-ui/core";
 
 const useStyles = makeStyles({
     table: {
@@ -16,30 +17,43 @@ const useStyles = makeStyles({
     },
 });
 
-function createData(id, name, organizor, type) {
-    return { id, name, organizor, type};
+function createData(id, name, organizor, type, status) {
+    return { id, name, organizor, type, status};
 }
 const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24),
-    createData('Ice cream sandwich', 237, 9.0, 37),
-    createData('Eclair', 262, 16.0, 24),
-    createData('Cupcake', 305, 3.7, 67),
-    createData('Gingerbread', 356, 16.0, 49),
+    createData('Frozen yoghurt', 159, 6.0, 24, 'notdefined'),
+    createData('Ice cream sandwich', 237, 9.0, 37, 'notdefined'),
+    createData('Eclair', 262, 16.0, 24, 'notdefined'),
+    createData('Cupcake', 305, 3.7, 67, 'notdefined'),
+    createData('Gingerbread', 356, 16.0, 49, 'notdefined'),
 ];
 
+//function EditorContentTable({method, setvalue}) {
 
-function EditorContentTable({method, setvalue}) {
+function EditorContentTable() {
     const classes = useStyles();
 
     // const [switchChange, setSwitchChange] = useState(false);
-    // const SwitchChangeMethod = (switchChange) => {
-    //     setSwitchChange(switchChange);
+    // const SwitchChangeMethod = (value) => {
+    //
+    //     setSwitchChange(value);
     //     if(switchChange){
     //         console.log("Trye: " + switchChange);
     //     }else{
     //         console.log("Tryef: " + switchChange);
     //     }
+    //
+    //
     // }
+    
+    const approve = () => {
+        let value = "approve";
+        console.log(value);
+    }
+    const decline = () => {
+        let value = "decline";
+        console.log(value);
+    }
     return (
         <div>
             <TableContainer component={Paper} className="editorcontent" >
@@ -51,7 +65,9 @@ function EditorContentTable({method, setvalue}) {
                             <TableCell align="right">Event Name</TableCell>
                             <TableCell align="right">Organizor Name</TableCell>
                             <TableCell align="right">Event type</TableCell>
-                            <TableCell align="right">Status (Approve/ Reject)</TableCell>
+                            <TableCell align="right">Status</TableCell>
+                            <TableCell align="right">Approve</TableCell>
+                            <TableCell align="right">Reject</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -61,12 +77,22 @@ function EditorContentTable({method, setvalue}) {
                                 <TableCell align="right">{row.name}</TableCell>
                                 <TableCell align="right">{row.organizor}</TableCell>
                                 <TableCell align="right">{row.type}</TableCell>
+                                <TableCell align="right">{row.status}</TableCell>
                                 <TableCell align="right">
-                                    <Switch
-                                        className="react-switch"
-                                        onChange = {method}
-                                        checked= { (value) => {setvalue(value)}}
-                                    />
+                                    {/*<Switch*/}
+                                    {/*    className="react-switch"*/}
+                                    {/*    onChange = {method}*/}
+                                    {/*    checked= { (value) => {setvalue(value)}}*/}
+                                    {/*/>*/}
+                                    {/*<Switch*/}
+                                    {/*    className="react-switch"*/}
+                                    {/*   checked= {switchChange}*/}
+                                    {/*    onChange = { SwitchChangeMethod}*/}
+                                    {/*/>*/}
+                                    <Link onClick={approve}> <p>Approve</p> </Link>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Link onClick={decline}> <p>Decline</p> </Link>
                                 </TableCell>
                             </TableRow>
                         ))}
