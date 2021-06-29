@@ -6,12 +6,12 @@ import FeedBackForm from "../../Ratings/FeedBackForm/FeedBackForm";
 function FeedBackAllPage() {
     return (
         <div className="downloadallpage">
-            {/*<h1>All Feedback page</h1>*/}
+            <h1>All Feedback page</h1>
             {/*<div>*/}
             {/*    <FeedBackForm/>*/}
             {/*</div>*/}
             <div className="alldownloadlist">
-                <div>
+                <div className={"feedbackform"}>
                     <FeedBackForm/>
                 </div>
                 <div className="alldownloadrow">
@@ -28,14 +28,14 @@ function FeedBackAllPage() {
                     <Ratings1/>
                     <Ratings1/>
                     <Ratings1/>
-                    <Ratings1/>
-                    <Ratings1/>
-                    <Ratings1/>
-                    <Ratings1/>
-                    <Ratings1/>
-                    <Ratings1/>
-                    <Ratings1/>
-                    <Ratings1/>
+                    {/*<Ratings1/>*/}
+                    {/*<Ratings1/>*/}
+                    {/*<Ratings1/>*/}
+                    {/*<Ratings1/>*/}
+                    {/*<Ratings1/>*/}
+                    {/*<Ratings1/>*/}
+                    {/*<Ratings1/>*/}
+                    {/*<Ratings1/>*/}
                 </div>
             </div>
         </div>
