@@ -1,0 +1,15 @@
+.download-link-page-container{
+  color: white;
+  margin-top: 30px;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+
+  #{&}-header{
+
+  }
+
+  #{&}-second{
+    opacity: 60%;
+  }
+}

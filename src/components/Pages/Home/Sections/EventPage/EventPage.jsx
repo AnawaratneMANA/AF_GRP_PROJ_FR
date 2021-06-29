@@ -1,20 +1,29 @@
 import React from 'react'
 import EventComponent from "./EventComponent";
 import '../../../../../CSS/event.scss';
-import event1 from "../../../../../Images/EventImages/event1.jpg";
 import AddEvent from "../../../Event/AddEvent";
+import event1 from "../../../../../Images/EventImages/screen6.jpg";
+import {BrowserRouter as Router, useHistory} from 'react-router-dom';
 
-function EventPage() {
+const EventPage = () => {
+
+    const history = useHistory();
+
+    const handleHistory = () => {
+        history.push('/eventpage');
+    }
+
     return (<React.Fragment>
-            
             <div className="mainheader">
                 <div className="header">
-                    <button className="button">View All</button>
+                    <button className="button"
+                            onClick ={(e) => {
+                                e.preventDefault();
+                                handleHistory();
+                            }}>View All</button>
                     <h3 className="main1">Event Page</h3>
                     <p className="second">This section contain all the events</p>
-                    
                 </div>
-                
                 <br />
                 <div className="home__container">
                     <div className="home__row">
@@ -28,9 +37,8 @@ function EventPage() {
                 </div>
                 <br/>
             </div>
-            <AddEvent/>
         </React.Fragment>
     )
-    }
+}
 
 export default EventPage
