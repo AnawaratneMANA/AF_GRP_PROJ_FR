@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import ProgressBar from "../../../../../../Firebase/progressBar";
 
 const UploadFrom = () => {
 
@@ -30,6 +31,7 @@ const UploadFrom = () => {
             <div className="output">
                 {error && <div className="file error">{error}</div>}
                 {file && <div className="file file-name">{file.name}</div>}
+                {file && <ProgressBar file={file} setFile={setFile}/> }
             </div>
         </form>
     )
