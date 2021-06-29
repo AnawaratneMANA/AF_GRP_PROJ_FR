@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import AdminStatistics from './AdminComponents/AdminStatistics'
 import EditorContentTable from './AdminComponents/EditorContentTable'
 import UserdetailForm from './AdminComponents/UserdetailForm'
 import UserDetailTable from './AdminComponents/UserDetailTable'

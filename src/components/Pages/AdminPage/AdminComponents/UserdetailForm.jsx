@@ -4,6 +4,7 @@ import {FormControl, Grid, InputLabel, MenuItem, Select, TextField} from '@mater
 import {Paper, makeStyles} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import {useDispatch, useSelector} from 'react-redux';
+import axios from "axios";
 const useStyles = makeStyles(theme => ({
     pageContent: {
         // margin: theme.spacing(5),
@@ -24,7 +25,17 @@ const useStyle = makeStyles(theme => ({
 }))
 
 function UserdetailForm(){
-
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
+                'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
+                'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
     const classes = useStyles();
     const classes2 = useStyle();
     const dispatch = useDispatch();

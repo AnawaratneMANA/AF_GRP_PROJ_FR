@@ -17,31 +17,32 @@ const useStyles = makeStyles({
     },
 });
 
-function createData(id, name, organizor, type, status) {
-    return { id, name, organizor, type, status};
-}
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 'notdefined'),
-    createData('Ice cream sandwich', 237, 9.0, 37, 'notdefined'),
-    createData('Eclair', 262, 16.0, 24, 'notdefined'),
-    createData('Cupcake', 305, 3.7, 67, 'notdefined'),
-    createData('Gingerbread', 356, 16.0, 49, 'notdefined'),
-];
-
 //function EditorContentTable({method, setvalue}) {
 
 function EditorContentTable() {
-    const classes = useStyles();
 
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
+                'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
+                'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
+    const classes = useStyles();
+    const [eventData, seteventData] = useState([]);
     const fetchEventDetails = async () => {
         try {
             const response = await axios
-                .get("")
+                .get("http://localhost:8093/api/v1/events")
                 .catch((error) => {
                     console.log("Error", error);
                 });
-            console.log(response);
-
+            console.log(response.data);
+            seteventData(response.data)
 
 
         } catch (err) {
@@ -51,8 +52,7 @@ function EditorContentTable() {
     }
 
     useEffect(() => {
-        // dispatch(timeEntryActions.getTimeEntryDetail())
-       // fetchEventDetails();
+       fetchEventDetails();
     }, [])
     
     const approve = (id) => {
@@ -72,7 +72,7 @@ function EditorContentTable() {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Event id</TableCell>
+                            <TableCell align="left">Event id</TableCell>
                             <TableCell align="right">Event Name</TableCell>
                             <TableCell align="right">Organizor Name</TableCell>
                             <TableCell align="right">Event type</TableCell>
@@ -82,24 +82,14 @@ function EditorContentTable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {eventData.map((row) => (
                             <TableRow key={row.id}>
-                                <TableCell component="th" scope="row"> {row.id}</TableCell>
-                                <TableCell align="right">{row.name}</TableCell>
-                                <TableCell align="right">{row.organizor}</TableCell>
-                                <TableCell align="right">{row.type}</TableCell>
+                                <TableCell align="left">{row.id}</TableCell>
+                                <TableCell align="right">{row.eventName}</TableCell>
+                                <TableCell align="right">{row.organizerName}</TableCell>
+                                <TableCell align="right">{row.eventType}</TableCell>
                                 <TableCell align="right">{row.status}</TableCell>
                                 <TableCell align="right">
-                                    {/*<Switch*/}
-                                    {/*    className="react-switch"*/}
-                                    {/*    onChange = {method}*/}
-                                    {/*    checked= { (value) => {setvalue(value)}}*/}
-                                    {/*/>*/}
-                                    {/*<Switch*/}
-                                    {/*    className="react-switch"*/}
-                                    {/*   checked= {switchChange}*/}
-                                    {/*    onChange = { SwitchChangeMethod}*/}
-                                    {/*/>*/}
                                     <Link onClick={ () => {approve(row.id)}}> <p>Approve</p> </Link>
                                 </TableCell>
                                 <TableCell align="right">
