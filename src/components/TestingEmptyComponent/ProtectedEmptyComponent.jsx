@@ -6,7 +6,7 @@ const TestingEmptyComponent = () => {
 
     //Add this to protected Components to avoid unauthorized users from comming.
     useEffect(()=> {
-        if(users.userType === "admin"){
+        if(users.userType === "yyyuu"){
             window.location.href='/loginpage';
         } else {
             setFlag(true);
