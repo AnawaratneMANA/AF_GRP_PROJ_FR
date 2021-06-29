@@ -1,93 +1,88 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import {makeStyles} from '@material-ui/core';
+import {useDispatch, useSelector} from 'react-redux';
+import Star from "../Star/Star";
+
+const useStyles = makeStyles(theme => ({
+    pageContent: {
+        // margin: theme.spacing(5),
+        padding: theme.spacing(3),
+        margin: theme.spacing(2),
+        width: theme.spacing(70),
+        height: theme.spacing(75)
+    }
+}))
+
+const useStyle = makeStyles(theme => ({
+    root:{
+        '& .MuiFormControl-root':{
+            width: theme.spacing(50),
+            margin:theme.spacing(2)
+        }
+    }
+}))
+
 
 function FeedBackForm(){
 
-    // const classes4 = useStyles();
-    // const classes2 = useStyle();
-    // const dispatch = useDispatch();
-    //
-    // const[firstName, setFirstName] = useState();
-    // const[lastName, setLastname] = useState();
-    // const[userName, setUserName] = useState();
-    // const[password, setPassword] = useState();
-    // const[type, setType] = useState('');
-    //
-    // //submit the data
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //
-    //     const userData = {
-    //         firstName,
-    //         lastName,
-    //         userName,
-    //         password,type
-    //
-    //     }
-    // }
+    const classes = useStyles();
+    const classes2 = useStyle();
+    const dispatch = useDispatch();
+
+    const[name, setName] = useState();
+    const[feedback, setFeedback] = useState();
+    const[rating, setRating] = useState();
+
+
+    //submit the data
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const userData = {
+
+
+        }
+    }
 
 
     return (
         <div>
-            <h1>Form</h1>
+            <Paper className={classes.pageContent}>
+                <h3>FeedBack Form</h3>
+                <form className={classes2.root} onSubmit={handleSubmit}>
+                    <Grid container>
+                        <Grid item xs={6}>
+                            <TextField
+                                variant="outlined"
+                                label="Name"
+                                name="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <TextField
+                                id="outlined-multiline-static"
+                                label="Feed Back"
+                                multiline
+                                rows={3}
+                                variant="outlined"
+                                value={feedback}
+                                onChange={(e) => setFeedback(e.target.value)}
+                            />
+                            <div style={{marginLeft:"30px"}}>
+                                <Star/>
+                            </div>
+
+                            <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginLeft:"150px", marginTop:"40px"}} >
+                                SUBMIT
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </form>
+            </Paper>
         </div>
-        // <Paper className={classes4.pageContent}>
-        //     <h3>User Entry Form</h3>
-        //     <form className={classes2.root} onSubmit={handleSubmit}>
-        //         <Grid container>
-        //             <Grid item xs={6}>
-        //                 <TextField
-        //                     variant="outlined"
-        //                     label="First Name"
-        //                     name="firstName"
-        //                     value={firstName}
-        //                     onChange={(e) => setFirstName(e.target.value)}
-        //                 />
-        //                 <TextField
-        //                     variant="outlined"
-        //                     label="Last Name"
-        //                     name="lastName"
-        //                     value={lastName}
-        //                     onChange={(e) => setLastname(e.target.value)}
-        //                 />
-        //                 <TextField
-        //                     variant="outlined"
-        //                     label="User Name"
-        //                     name="userName"
-        //                     value={userName}
-        //                     onChange={(e) => setUserName(e.target.value)}
-        //                 />
-        //                 <TextField
-        //                     variant="outlined"
-        //                     label="Password"
-        //                     name="password"
-        //                     type="password"
-        //                     value={password}
-        //                     onChange={(e) => setPassword(e.target.value)}
-        //                 />
-        //                 <FormControl variant="outlined" >
-        //                     <InputLabel id="demo-simple-select-outlined-label">Type</InputLabel>
-        //                     <Select
-        //                         labelId="demo-simple-select-outlined-label"
-        //                         id="demo-simple-select-outlined"
-        //                         value={type}
-        //                         onChange={(e) => setType(e.target.value)}
-        //                         label="Age"
-        //                     >
-        //                         <MenuItem value="">
-        //                             <em>None</em>
-        //                         </MenuItem>
-        //                         <MenuItem value={10}>Typ1</MenuItem>
-        //                         <MenuItem value={20}>Typ2</MenuItem>
-        //                         <MenuItem value={30}>Typ3</MenuItem>
-        //                     </Select>
-        //                 </FormControl>
-        //                 <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginLeft:"13px"}} >
-        //                     SUBMIT
-        //                 </Button>
-        //             </Grid>
-        //         </Grid>
-        //     </form>
-        // </Paper>
+
 
 
 
