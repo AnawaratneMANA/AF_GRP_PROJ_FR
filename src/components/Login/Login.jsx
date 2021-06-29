@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Register from '../Register/Register';
-import { Form, Button, h1 } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { createUser } from "../../actions/users";
-import { Container, Paper } from '@material-ui/core';
+import jwt from 'jwt-decode'
 import axios from 'axios'
+import {useDispatch, useSelector} from "react-redux";
 import Auth from './ProtectedRoutes/AuthenticationClass';
 
 //Importing Custom Style Sheet. 
 import styles from './style';
 import '../../CSS/loginstyle.css';
+import {loginUser} from "../../actions/users";
 const Login = () => {
   const classes = styles();
+    const users = useSelector((state) => state.users);
+
   const dispatch = useDispatch();
 
   //Methods comes here.
@@ -28,16 +28,30 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     login();
-    console.log(token);
   }
 
     const login = async () => {
         try {
+
             const {data} = await axios.post("http://localhost:8093/api/v1/validate", userData);
-            setToken(data);
-            Auth.login(token, userData);
+            setToken(data.jwt);
+            //Decode the JWT and get User type.
+            const decode = jwt(data.jwt);
+            console.log(decode);
+
+            //Create the state object to save in the store.
+            const user = {
+               "userName": decode.sub,
+               "userToken": data.jwt,
+               "userType": decode.userType
+            }
+            dispatch(loginUser(user));
+            localStorage.setItem('userName', user.userName);
+            //Auth.login(decode.sub, data.jwt, decode.userType);
+
+
         } catch (err) {
-            console.log("Error");
+            console.log("Login Error");
             console.log(err.message);
         }
     }
@@ -69,8 +83,8 @@ const Login = () => {
                 <input className="input-field"
                        placeholder="Enter Password..."
                        type="password"
-                       value={password}
-                       onChange={(e) => setPassword({...userData, password: e.target.value})}
+                       value={userData.password}
+                       onChange={(e) => setUserData({...userData, password: e.target.value})}
                 />
               </div>
             

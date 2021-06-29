@@ -10,7 +10,10 @@ import LoginPage from './components/Pages/LoginPage/LoginPage';
 import PaymentPage from "./components/Pages/PaymentPage/PaymentPage";
 import DownloadAllPage from './components/Pages/Home/Sections/DownloadPage/DownloadAllPage';
 import DownloadLinkPage from './components/Pages/Home/Sections/DownloadPage/DownloadLinkPage';
+import AdminPage from './components/Pages/AdminPage/AdminPage';
 import {ProtectedRoute} from "./components/Login/ProtectedRoutes/protectedRoute";
+import TestingEmptyComponent from "./components/TestingEmptyComponent/ProtectedEmptyComponent";
+
 
 const App = () => {
 //Add the React Router And Create Routing
@@ -21,16 +24,15 @@ const App = () => {
                     <Route path = "/" exact component={Home}/>
                     <Route path = "/register" component={Register}/>
                     <Route path = "/loginpage" component={LoginPage}/>
-                    <Route path = "/services" component={EventPage}/>
-                    <ProtectedRoute path = "/alldownloadPage" component={DownloadAllPage}/>
-                    <Route path = "/alldownloadlinkpage" component={DownloadLinkPage}/>
-                    <Route path = "/payment" component={PaymentPage}/>
+                    <ProtectedRoute exact path = "/services" component={TestingEmptyComponent}/>
                     <Route path = "/alldownloadPage" component={DownloadAllPage}/>
+                    {/*<Route path = "/alldownloadlinkpage" component={DownloadLinkPage}/>*/}
+                    <Route path = "/payment" component={PaymentPage}/>
                     <Route path = "/alldownloadlinkpage/:value" component={DownloadLinkPage}/>
-
+                    <Route path = "/admin" component={AdminPage}/>
+                    <ProtectedRoute exact path = "/empty" component={TestingEmptyComponent}/>
                     </Switch>
                 </BrowserRouter>
         )  
 }
-
 export default App;

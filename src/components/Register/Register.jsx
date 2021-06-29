@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Form, Button, h1} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
-import {createUser} from "../../actions/users";
+import {loginUser} from "../../actions/users";
 import {Container, Paper} from '@material-ui/core';
 import '../../CSS/registerstyle.css';
 import { Redirect } from "react-router-dom";
