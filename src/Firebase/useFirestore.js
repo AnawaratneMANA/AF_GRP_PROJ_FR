@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import { projectFirestore } from "./config";
 
 const useFirestore = (collection) => {
+    //Collection of All the file in case need to show in another location.
     const [docs, setDocs] = useState([]);
 
     useEffect(() => {
