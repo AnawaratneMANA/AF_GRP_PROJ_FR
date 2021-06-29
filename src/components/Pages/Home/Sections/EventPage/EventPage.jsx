@@ -12,7 +12,6 @@ const EventPage = () => {
                     <button className="button">View All</button>
                     <h3 className="main1">Event Page</h3>
                     <p className="second">This section contain all the events</p>
-                    
                 </div>
                 
                 <br />
