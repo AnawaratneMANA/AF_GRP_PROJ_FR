@@ -20,8 +20,6 @@ function RatingPage() {
             <Ratings1/>
         </div>
         </div>
-
-
     </React.Fragment>)
 }
 
