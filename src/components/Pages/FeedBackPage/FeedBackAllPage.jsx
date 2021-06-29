@@ -30,6 +30,7 @@ function FeedBackAllPage() {
                     <Ratings1/>
                     <Ratings1/>
                     <Ratings1/>
+
                 </div>
             </div>
         </div>
