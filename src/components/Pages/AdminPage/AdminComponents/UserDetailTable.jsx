@@ -35,7 +35,7 @@ function UserDetailTable() {
     const fetchUserDetails = async () => {
         try {
             const response = await axios
-                .get("")
+                .get("http://localhost:8093/api/v1/users")
                 .catch((error) => {
                     console.log("Error", error);
                 });
@@ -50,8 +50,7 @@ function UserDetailTable() {
     }
 
     useEffect(() => {
-        // dispatch(timeEntryActions.getTimeEntryDetail())
-        // fetchUserDetails();
+        fetchUserDetails();
     }, [])
 
     const updateUser = (id) => {
