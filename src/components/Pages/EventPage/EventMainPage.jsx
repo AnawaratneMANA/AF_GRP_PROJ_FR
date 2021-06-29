@@ -1,6 +1,6 @@
 import React from 'react'
 import AddEvent from "../Event/AddEvent";
-import './EventMainPage.css'
+import '../EventPage/EventMainPage.scss'
 import EventPage from "../Home/Sections/EventPage/EventPage";
 
 const EventMainPage = () => {
