@@ -6,6 +6,8 @@ import UserDetailTable from './AdminComponents/UserDetailTable'
 import './AdminPage.scss'
 import TotalDownloadGraph from "./AdminComponents/TotalDownloadGraph";
 import EventGraph from "./AdminComponents/EventGraph";
+import AdminFileTable from "./AdminComponents/AdminFileTable";
+
 function AdminPage() {
     // const [switchChange, setSwitchChange] = useState(false);
     // const SwitchChangeMethod = (switchChange) => {
@@ -34,8 +36,11 @@ function AdminPage() {
                     </di>
                     <di className="admin__row">
                         <UserDetailTable/>
-                        <UserDetailTable/>
-                        {/*<UserdetailForm/>*/}
+                        <UserdetailForm/>
+                    </di>
+                    <di className="admin__row">
+                        <AdminFileTable/>
+                        {/*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*/}
                     </di>
                 </div>
             </div>

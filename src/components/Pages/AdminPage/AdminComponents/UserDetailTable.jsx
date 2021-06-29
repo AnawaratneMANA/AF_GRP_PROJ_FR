@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Button, Link} from "@material-ui/core";
+import axios from "axios";
 
 const useStyles = makeStyles({
     table: {
@@ -31,6 +32,34 @@ const rows = [
 function UserDetailTable() {
     const classes = useStyles();
 
+    const fetchUserDetails = async () => {
+        try {
+            const response = await axios
+                .get("http://localhost:8093/api/v1/users")
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+            console.log(response);
+
+
+
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchUserDetails();
+    }, [])
+
+    const updateUser = (id) => {
+        console.log(id);
+    }
+    const deleteUser = (id) => {
+        console.log(id);
+    }
+
     return (
         <div>
             <TableContainer component={Paper} className="userdetailtable" >
@@ -50,10 +79,10 @@ function UserDetailTable() {
                                 <TableCell component="th" scope="row"> {row.name}</TableCell>
                                 <TableCell align="right">{row.type}</TableCell>
                                 <TableCell align="right">
-                                    <Link> <p>Update</p> </Link>
+                                    <Link onClick={ () => {updateUser(row.id)}}> <p>Update</p> </Link>
                                 </TableCell>
                                 <TableCell align="right">
-                                    <Link> <p>Delete</p> </Link>
+                                    <Link onClick={ () => {deleteUser(row.id)}}> <p>Delete</p> </Link>
                                 </TableCell>
                             </TableRow>
                         ))}

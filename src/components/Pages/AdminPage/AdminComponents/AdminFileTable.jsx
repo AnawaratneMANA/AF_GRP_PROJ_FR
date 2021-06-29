@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link} from "@material-ui/core";
 import axios from 'axios';
+import useFirestore from "../../../../Firebase/useFirestore";
 
 const useStyles = makeStyles({
     table: {
@@ -30,10 +31,10 @@ const rows = [
 
 //function EditorContentTable({method, setvalue}) {
 
-function EditorContentTable() {
+function AdminFileTable() {
     const classes = useStyles();
-
-    const fetchEventDetails = async () => {
+    const { docs } = useFirestore('images');
+    const fetchResourceDetails = async () => {
         try {
             const response = await axios
                 .get("")
@@ -52,9 +53,9 @@ function EditorContentTable() {
 
     useEffect(() => {
         // dispatch(timeEntryActions.getTimeEntryDetail())
-       // fetchEventDetails();
+        // fetchResourceDetails();
     }, [])
-    
+
     const approve = (id) => {
         let value = "approve";
         console.log(value);
@@ -75,36 +76,21 @@ function EditorContentTable() {
                             <TableCell>Event id</TableCell>
                             <TableCell align="right">Event Name</TableCell>
                             <TableCell align="right">Organizor Name</TableCell>
-                            <TableCell align="right">Event type</TableCell>
-                            <TableCell align="right">Status</TableCell>
-                            <TableCell align="right">Approve</TableCell>
-                            <TableCell align="right">Reject</TableCell>
+
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
-                            <TableRow key={row.id}>
-                                <TableCell component="th" scope="row"> {row.id}</TableCell>
+                        {docs.map((row) => (
+                            <TableRow key={row.url}>
+                                <TableCell component="th" scope="row"> {row.url}</TableCell>
                                 <TableCell align="right">{row.name}</TableCell>
-                                <TableCell align="right">{row.organizor}</TableCell>
-                                <TableCell align="right">{row.type}</TableCell>
-                                <TableCell align="right">{row.status}</TableCell>
-                                <TableCell align="right">
-                                    {/*<Switch*/}
-                                    {/*    className="react-switch"*/}
-                                    {/*    onChange = {method}*/}
-                                    {/*    checked= { (value) => {setvalue(value)}}*/}
-                                    {/*/>*/}
-                                    {/*<Switch*/}
-                                    {/*    className="react-switch"*/}
-                                    {/*   checked= {switchChange}*/}
-                                    {/*    onChange = { SwitchChangeMethod}*/}
-                                    {/*/>*/}
-                                    <Link onClick={ () => {approve(row.id)}}> <p>Approve</p> </Link>
-                                </TableCell>
-                                <TableCell align="right">
-                                    <Link onClick={() => {decline(row.id)}}> <p>Decline</p> </Link>
-                                </TableCell>
+
+                                {/*<TableCell align="right">*/}
+                                {/*    <Link onClick={ () => {approve(row.id)}}> <p>Approve</p> </Link>*/}
+                                {/*</TableCell>*/}
+                                {/*<TableCell align="right">*/}
+                                {/*    <Link onClick={() => {decline(row.id)}}> <p>Decline</p> </Link>*/}
+                                {/*</TableCell>*/}
                             </TableRow>
                         ))}
                     </TableBody>
@@ -114,4 +100,4 @@ function EditorContentTable() {
     )
 }
 
-export default EditorContentTable
+export default AdminFileTable
