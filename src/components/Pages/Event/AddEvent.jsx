@@ -1,9 +1,22 @@
 import React, {useState} from "react";
 import './AddEvent.style.css'
 import TextField from '@material-ui/core/TextField';
-// import FileBase from 'react-file-base64';
+import FileBase from 'react-file-base64';
+import axios from "axios";
 
 const  AddEvent = () =>{
+
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBa2FzaCIsIn' +
+                'VzZXJUeXBlIjoieXl5dXUiLCJleHAiOjE2MjUwMjkwNTksImlhdCI6MTYyNDk5MzA1OX0.' +
+                'bGKQ7C8npwjQFoa2tDNrzThKXrcsufFZsDKBsvtt9ho';
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
 
    const [eventType , setEventType] = useState("");
    const [eventName , setEventName] = useState("");
@@ -14,7 +27,7 @@ const  AddEvent = () =>{
    const [description  , setDescription ] = useState("");
    const [limitOfPeople  , setNoOfPeople ] = useState("");
    const [sponsor   , setSponsor  ] = useState("");
-   const [status  , setStatus ] = useState("");
+   const [status  , setStatus ] = useState("reject");
    const [image  , setImage ] = useState("");
 
     const onHandle = (e) => {
@@ -32,6 +45,12 @@ const  AddEvent = () =>{
             status,
             image
         }
+        console.log(data)
+        axios.post('http://localhost:8093/api/v1/event', data).then(() => {
+        }).catch((err) => {
+            console.log(err);
+            alert("event data not inserted");
+        })
     }
 
     return(
@@ -40,13 +59,13 @@ const  AddEvent = () =>{
                 <form data-testid='add-event-form' onSubmit={onHandle}>
                     <h1 className="event-header" data-testid='add-event-header'>Add Event</h1>
                     <div className="btn-group" role="group" aria-label="Basic radio toggle button group" data-testid='radio-button-field'>
-                        <input type="radio" className="btn-check" name="btnradio" id="btnradio1" />
+                        <input type="radio" className="btn-check" name="btnradio" id="btnradio1" value={eventType} onClick={(e) => setEventType(e.target.value)}/>
                         <label className="btn btn-outline-primary" htmlFor="btnradio1">Conference</label>
 
-                        <input type="radio" className="btn-check" name="btnradio" id="btnradio2" />
+                        <input type="radio" className="btn-check" name="btnradio" id="btnradio2" value={eventType} onClick={(e) => setEventType(e.target.value)}/>
                         <label className="btn btn-outline-primary" htmlFor="btnradio2">Research Paper</label>
 
-                        <input type="radio" className="btn-check" name="btnradio" id="btnradio3" />
+                        <input type="radio" className="btn-check" name="btnradio" id="btnradio3" value={eventType} onClick={(e) => setEventType(e.target.value)} />
                         <label className="btn btn-outline-primary" htmlFor="btnradio3">Workshop</label>
                     </div>
                     <div className="material-textfield" data-testid='event-name-field-div'>
@@ -93,11 +112,13 @@ const  AddEvent = () =>{
 
                     <div>
                         <TextField
+                            value={dateTime}
                             id="date"
                             type="date"
                             label="Select a date"
                             defaultValue="yyyy-mm-dd"
                             className="textField-clock"
+                            onChange={(e) => setDateTime(e.target.value)}
                             InputLabelProps={{
                                 shrink: true,
                             }}
