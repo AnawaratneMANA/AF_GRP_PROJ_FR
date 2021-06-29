@@ -38,6 +38,7 @@ function Navbar () {
             "userType": null
         }
         dispatch(logoutUser(user));
+        localStorage.setItem('userName', user.userName);
     }
 
     return (

@@ -46,6 +46,7 @@ const Login = () => {
                "userType": decode.userType
             }
             dispatch(loginUser(user));
+            localStorage.setItem('userName', user.userName);
             //Auth.login(decode.sub, data.jwt, decode.userType);
 
 

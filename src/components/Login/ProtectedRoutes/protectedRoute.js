@@ -15,17 +15,24 @@ export const ProtectedRoute = ({component: Component, ...rest}) => {
     //Testing
     console.log(users);
 
+    //Considering LocalStorage (Refresh Fix)
+    var flag = false;
+    flag = !(localStorage.getItem("userName") === null || localStorage.getItem("userName") === undefined);
+
+    //Testing.
+    console.log(flag)
+    const vari = localStorage.getItem("userName")
+    console.log(vari)
+
+
     return (
         <Route
             {...rest}
             render={
                 (props) => {
-                    console.log("Above the if " + Auth.isAuthenticated());
                     if (users.userName) {
-                        console.log("If" + Auth.isAuthenticated());
                         return <Component {...rest}/>;
                     } else {
-                        console.log("Else" + Auth.isAuthenticated());
                         return (<Redirect to={
                             {
                                 pathname: "/loginpage",
