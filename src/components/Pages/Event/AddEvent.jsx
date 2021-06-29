@@ -17,11 +17,11 @@ const  AddEvent = () =>{
 
 
     return(
-        <div className="card">
-            <div className="form-wrapper">
-                <form>
-                    <h1 className="event-header">Add Event</h1>
-                    <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <div className="card" data-testid='add-event-card'>
+            <div className="form-wrapper" data-testid='add-event-wrapper'>
+                <form data-testid='add-event-form'>
+                    <h1 className="event-header" data-testid='add-event-header'>Add Event</h1>
+                    <div className="btn-group" role="group" aria-label="Basic radio toggle button group" data-testid='radio-button-field'>
                         <input type="radio" className="btn-check" name="btnradio" id="btnradio1" />
                         <label className="btn btn-outline-primary" htmlFor="btnradio1">Conference</label>
 
@@ -31,7 +31,7 @@ const  AddEvent = () =>{
                         <input type="radio" className="btn-check" name="btnradio" id="btnradio3" />
                         <label className="btn btn-outline-primary" htmlFor="btnradio3">Workshop</label>
                     </div>
-                    <div className="material-textfield" data-testid='event-name-field'>
+                    <div className="material-textfield" data-testid='event-name-field-div'>
                         <input value={eventName}
                                onChange={(e) => setEventName(e.target.value)}
                                className="input-fields"
@@ -41,7 +41,7 @@ const  AddEvent = () =>{
                                data-testid='event-name-field'/>
                         <label className="input-lable" data-testid='event-name-field-label'>Event Name</label>
                     </div>
-                    <div className="material-textfield" data-testid='organizer-name-field'>
+                    <div className="material-textfield" data-testid='organizer-name-field-div'>
                         <input value={organizerName}
                                onChange={(e) => setOrganizerName(e.target.value)}
                                className="input-fields"
@@ -51,7 +51,7 @@ const  AddEvent = () =>{
                                data-testid='organizer-name-field'/>
                         <label className="input-lable" data-testid='organizer-name-field-label'>Organizer Name</label>
                     </div>
-                    <div className="material-textfield" data-testid='mainspeaker-name-field'>
+                    <div className="material-textfield" data-testid='mainspeaker-name-field-div'>
                         <input value={mainSpeakerName}
                                onChange={(e) => setMainSpeakerName(e.target.value)}
                                className="input-fields"
@@ -62,7 +62,7 @@ const  AddEvent = () =>{
                                id='userName' />
                         <label className="input-lable" data-testid='mainspeaker-name-field-label'>Main Speaker Name</label>
                     </div>
-                    <div className="material-textfield" data-testid='place-link-field'>
+                    <div className="material-textfield" data-testid='place-link-field-div'>
                         <input value={place_Link}
                                onChange={(e) => setPlace_Link(e.target.value)}
                                className="input-fields"
@@ -89,7 +89,7 @@ const  AddEvent = () =>{
                             }}
                         />
                     </div>
-                    <div className="material-textfield" data-testid='description-field'>
+                    <div className="material-textfield" data-testid='description-field-div'>
                         <textarea value={description}
                                onChange={(e) => setDescription(e.target.value)}
                                className="input-fields"
@@ -98,17 +98,18 @@ const  AddEvent = () =>{
                                name='description'
                                data-testid='description-field'/>
                         <label className="input-lable" data-testid='description-field-label'>Description</label>
-                    </div><div className="material-textfield" data-testid='sponsor-field'>
+                    </div>
+                    <div className="material-textfield" data-testid='sponsor-field-div'>
                         <input value={sponsor}
                                onChange={(e) => setSponsor(e.target.value)}
                                className="input-fields"
                                type='text'
                                placeholder=' '
                                name='sponsor'
-                               data-testid='place-link-field'/>
-                        <label className="input-lable" data-testid='sponsor-field-label'>Sponsor </label>
+                               data-testid='sponsor-field'/>
+                        <label className="input-lable" data-testid='sponsor-field-label'>Sponsor</label>
                     </div>
-                    <div className="material-textfield" data-testid='noOfPeople-field'>
+                    <div className="material-textfield" data-testid='noOfPeople-field-div'>
                     <input value={noOfPeople}
                            onChange={(e) => setNoOfPeople(e.target.value)}
                            className="input-fields"
@@ -119,7 +120,7 @@ const  AddEvent = () =>{
                     <label className="input-lable" data-testid='noOfPeople-field-label'>Limit of people</label>
                     </div>
 
-                    <button className="auth-button" type="submit">Send</button>
+                    <button className="auth-button" type="submit" data-testid='add-event-submit-btn'>Send</button>
 
 
                 </form>
