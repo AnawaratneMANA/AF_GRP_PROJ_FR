@@ -5,6 +5,10 @@ function RatingPage() {
     return (<React.Fragment>
         <div className="rating-section">
         <div className="rating-header">
+            <button className="buttonDownload" onClick ={(e) => {
+                e.preventDefault();
+                window.location.href='/allFeedbackPage';
+            }}>View All</button>
             <h2 className="rating-header-main-header">Register</h2>
             <h4 className="rating-header-second-header">Information</h4>
         </div>

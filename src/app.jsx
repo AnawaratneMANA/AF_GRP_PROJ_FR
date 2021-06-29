@@ -12,6 +12,7 @@ import DownloadAllPage from './components/Pages/Home/Sections/DownloadPage/Downl
 import DownloadLinkPage from './components/Pages/Home/Sections/DownloadPage/DownloadLinkPage';
 import AdminPage from './components/Pages/AdminPage/AdminPage';
 import {ProtectedRoute} from "./components/Login/ProtectedRoutes/protectedRoute";
+import FeedBackAllPage from "./components/Pages/FeedBackPage/FeedBackAllPage";
 
 
 const App = () => {
@@ -30,7 +31,7 @@ const App = () => {
                     <Route path = "/alldownloadPage" component={DownloadAllPage}/>
                     <Route path = "/alldownloadlinkpage/:value" component={DownloadLinkPage}/>
                     <Route path = "/admin" component={AdminPage}/>
-                    {/*<Route path = "/allfeedbackpage" component={}/>*/}
+                    <Route path = "/allfeedbackpage" component={FeedBackAllPage}/>
                     </Switch>
                 </BrowserRouter>
         )  

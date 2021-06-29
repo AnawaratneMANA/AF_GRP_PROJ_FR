@@ -1,31 +1,35 @@
 import React from 'react'
-// import './downloadstyles.css';
-// import DownloadComponent from './DownloadComponent/DownloadComponent';
+import Ratings1 from "../../Ratings/Ratings1";
+import './feedbackstyles.scss';
+import FeedBackForm from "../../Ratings/FeedBackForm/FeedBackForm";
+
 function FeedBackAllPage() {
     return (
         <div className="downloadallpage">
-            <input type="search" name="" id="" className="searchdownloads" placeholder="search downloads" /><br />
-            <h1>All Download page</h1>
+            <h1>All Feedback page</h1>
+            <FeedBackForm/>
             <div className="alldownloadlist">
                 <div className="alldownloadrow">
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
-                    {/*<DownloadComponent/>*/}
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
+                    <Ratings1/>
                 </div>
             </div>
         </div>
