@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import jwt from 'jwt-decode'
 import axios from 'axios'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Auth from './ProtectedRoutes/AuthenticationClass';
 
 //Importing Custom Style Sheet. 
@@ -9,6 +10,7 @@ import '../../CSS/loginstyle.css';
 import {loginUser} from "../../actions/users";
 const Login = () => {
   const classes = styles();
+    const users = useSelector((state) => state.users);
 
   const dispatch = useDispatch();
 
@@ -30,19 +32,26 @@ const Login = () => {
 
     const login = async () => {
         try {
+
             const {data} = await axios.post("http://localhost:8093/api/v1/validate", userData);
             setToken(data.jwt);
-            //Auth.login(token, userData); //Change this to Redux.
+            //Decode the JWT and get User type.
+            const decode = jwt(data.jwt);
+            console.log(decode);
+
             //Create the state object to save in the store.
             const user = {
-               "user-name": userData.userName,
-               "user-token": data.jwt,
-               "user-type": "user"
+               "userName": decode.sub,
+               "userToken": data.jwt,
+               "userType": decode.userType
             }
             dispatch(loginUser(user));
+            localStorage.setItem('userName', user.userName);
+            //Auth.login(decode.sub, data.jwt, decode.userType);
+
 
         } catch (err) {
-            console.log("Error");
+            console.log("Login Error");
             console.log(err.message);
         }
     }
