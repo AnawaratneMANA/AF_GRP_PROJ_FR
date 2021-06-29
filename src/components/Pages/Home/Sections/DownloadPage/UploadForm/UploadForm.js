@@ -1,9 +1,24 @@
-import  React from 'react';
+import React, {useState} from 'react';
 
 const UploadFrom = () => {
 
-    const changeHandler = () => {
-        console.log("change");
+    const [file, setFile] = useState(null);
+    const [error, setError] = useState(null);
+
+    const types = [
+        'image/png',
+        "image/jpeg",
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+
+    const changeHandler = (e) => {
+        let selected = e.target.files[0];
+        if (selected && types.includes(selected.type)){
+            setFile(selected);
+        } else {
+            setFile(null);
+            setError("Selected the Correct Type of File");
+        }
     }
 
     return (
