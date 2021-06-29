@@ -21,32 +21,32 @@ function AdminPage() {
     // }
     return (<React.Fragment>
             
-            <div className="adminInterface">
-                <div className="admin__container">
-                    <di className="admin__row">
-                    <h1> Monitoring Section </h1>
+            <div className="adminInterface" data-testid="admin-interface">
+                <div className="admin__container" data-testid="admin-container">
+                    <di className="admin__row" data-testid="admin-row1">
+                    <h1 data-testid="admin-heading"> Monitoring Section </h1>
                     </di>
-                    <di className="admin__row1">
+                    <di className="admin__row1" data-testid="admin-row2">
                         {/*<AdminStatistics/>*/}
                         <CollapsComponent/>
                         <CollapsComponent/>
                         <CollapsComponent/>
                     </di>
 
-                    <di className="admin__row">
+                    <di className="admin__row" data-testid="admin-row3">
                         {/*<AdminStatistics/>*/}
                         <TotalDownloadGraph/>
                         <EventGraph/>
                     </di>
-                    <di className="admin__row">
+                    <di className="admin__row" data-testid="admin-row4">
                         <EditorContentTable/>
                         {/*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*/}
                     </di>
-                    <di className="admin__row">
+                    <di className="admin__row" data-testid="admin-row5">
                         <UserDetailTable/>
                         <UserdetailForm/>
                     </di>
-                    <di className="admin__row">
+                    <di className="admin__row" data-testid="admin-row6">
                         <AdminFileTable/>
                         {/*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*/}
                     </di>
