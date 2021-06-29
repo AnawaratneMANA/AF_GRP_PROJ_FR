@@ -7,6 +7,7 @@ import './AdminPage.scss'
 import TotalDownloadGraph from "./AdminComponents/TotalDownloadGraph";
 import EventGraph from "./AdminComponents/EventGraph";
 import AdminFileTable from "./AdminComponents/AdminFileTable";
+import CollapsComponent from "./CollapsComponent/CollapsComponent";
 
 function AdminPage() {
     // const [switchChange, setSwitchChange] = useState(false);
@@ -25,6 +26,13 @@ function AdminPage() {
                     <di className="admin__row">
                     <h1> Monitoring Section </h1>
                     </di>
+                    <di className="admin__row1">
+                        {/*<AdminStatistics/>*/}
+                        <CollapsComponent/>
+                        <CollapsComponent/>
+                        <CollapsComponent/>
+                    </di>
+
                     <di className="admin__row">
                         {/*<AdminStatistics/>*/}
                         <TotalDownloadGraph/>
