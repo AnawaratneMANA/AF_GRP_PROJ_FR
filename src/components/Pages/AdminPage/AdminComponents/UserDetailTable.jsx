@@ -28,10 +28,22 @@ const rows = [
     createData('Cupcake', 305, 3.7),
     createData('Gingerbread', 356, 16.0),
 ];
+axios.interceptors.request.use(
+    config => {
+        config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
+            'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
+            'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
+        return config;
+    },
+    error => {
+        return Promise.reject(error);
+    }
+)
 
+//const authAxios =
 function UserDetailTable() {
     const classes = useStyles();
-
+    const [userData, setuserData] = useState([]);
     const fetchUserDetails = async () => {
         try {
             const response = await axios
@@ -39,9 +51,10 @@ function UserDetailTable() {
                 .catch((error) => {
                     console.log("Error", error);
                 });
-            console.log(response);
+            setuserData(response.data)
 
 
+            console.log(userData);
 
         } catch (err) {
             console.log("Error");
@@ -74,9 +87,10 @@ function UserDetailTable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {userData.map((row) => (
+                            console.log(row),
                             <TableRow key={row.id}>
-                                <TableCell component="th" scope="row"> {row.name}</TableCell>
+                                <TableCell component="th" scope="row"> {row.firstName + " " + row.lastName}</TableCell>
                                 <TableCell align="right">{row.type}</TableCell>
                                 <TableCell align="right">
                                     <Link onClick={ () => {updateUser(row.id)}}> <p>Update</p> </Link>
