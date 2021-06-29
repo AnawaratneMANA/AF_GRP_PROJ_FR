@@ -2,9 +2,8 @@ import React, {useEffect} from 'react'
 import EventComponent from "./EventComponent";
 import '../../../../../CSS/event.scss';
 import event1 from "../../../../../Images/EventImages/screen6.jpg";
-
+function EventPage() {
 const EventPage = () => {
-
     return (<React.Fragment>
             
             <div className="mainheader">

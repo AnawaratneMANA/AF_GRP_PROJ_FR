@@ -1,5 +1,5 @@
 import '../AdminPage.scss'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Paper from '@material-ui/core/Paper';
 import {
     Chart,
@@ -9,8 +9,20 @@ import {
     ValueAxis,
 } from '@devexpress/dx-react-chart-material-ui';
 import { Animation } from '@devexpress/dx-react-chart';
+import axios from "axios";
 
 function EventGraph() {
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
+                'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
+                'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
     const data = [
         { year: '1950', population: 2.525 },
         { year: '1960', population: 3.018 },
@@ -23,6 +35,10 @@ function EventGraph() {
 
     const [chartData, setchartData] = useState(data)
 
+
+    // useEffect(() => {
+    //     fetchEventDetails();
+    // }, [])
     return (
         <div>
            <h1>Event Graph</h1>
