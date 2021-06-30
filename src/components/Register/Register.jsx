@@ -20,7 +20,7 @@ const Register = () => {
     }
 
     const dbcall = async () => {
-        const {data} = await axios.post("http://localhost:8093/api/v1/register", values).then(
+        const data = await axios.post("http://localhost:8093/api/v1/user", values).then(
             (data) => {console.log(data)}
         ). catch (
             (error)=> {
@@ -32,12 +32,8 @@ const Register = () => {
     }
 
     if(isSubmitted){
-       dbcall;
-       if(data){
-           navigation();
-       } else {
-           console.log("Error Navigating to the page");
-       }
+        console.log("Calling DB")
+            dbcall();
     }
 
     /**
@@ -68,6 +64,34 @@ const Register = () => {
                                 onChange={handleChange}
                             />
                             {errors.username && <p className="error-message">{errors.username}</p>}
+                            <br/>
+                        </div>
+                        <div className="input-wrapper">
+                            <lable>First name</lable>
+                            <br/>
+                            <input
+                                className="input-field"
+                                placeholder="Enter Firstname..."
+                                type="text"
+                                name="firstName"
+                                value={values.firstName}
+                                onChange={handleChange}
+                            />
+                            <br/>
+                        </div>
+                        <div className="input-wrapper">
+                            <lable>Last name</lable>
+                            <br/>
+
+                            <input
+                                className="input-field"
+                                placeholder="Enter Lastname..."
+                                type="text"
+                                name="lastName"
+                                value={values.lastName}
+                                onChange={handleChange}
+                            />
+
                             <br/>
                         </div>
                         <div className="input-wrapper">
