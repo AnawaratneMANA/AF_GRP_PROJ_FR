@@ -77,10 +77,6 @@ function FeedBackForm(){
                 </form>
             </Paper>
         </div>
-
-
-
-
     )
 }
 
