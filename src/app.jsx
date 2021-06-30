@@ -12,8 +12,10 @@ import DownloadAllPage from './components/Pages/Home/Sections/DownloadPage/Downl
 import DownloadLinkPage from './components/Pages/Home/Sections/DownloadPage/DownloadLinkPage';
 import AdminPage from './components/Pages/AdminPage/AdminPage';
 import {ProtectedRoute} from "./components/Login/ProtectedRoutes/protectedRoute";
+
 import TestingEmptyComponent from "./components/TestingEmptyComponent/ProtectedEmptyComponent";
 import EventMainPage from "./components/Pages/EventPage/EventMainPage";
+import FeedBackAllPage from "./components/Pages/FeedBackPage/FeedBackAllPage";
 
 
 const App = () => {
@@ -29,9 +31,14 @@ const App = () => {
                     <Route path = "/alldownloadPage" component={DownloadAllPage}/>
                     <Route path = "/payment" component={PaymentPage}/>
                     <Route path = "/alldownloadlinkpage/:value" component={DownloadLinkPage}/>
+
                     <Route exact path  = "/admin" component={AdminPage}/>
                     <Route exact path  = "/eventpage" component={EventMainPage}/>
                     <ProtectedRoute exact path = "/empty" component={TestingEmptyComponent}/>
+
+                    <Route path = "/admin" component={AdminPage}/>
+                    <Route path = "/allfeedbackpage" component={FeedBackAllPage}/>
+
                     </Switch>
                 </BrowserRouter>
         )  
