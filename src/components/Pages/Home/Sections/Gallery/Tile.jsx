@@ -6,12 +6,12 @@ const Tile =({data}) =>{
     const [mouseOver, setMouseOver] = useState(false);
     const [open, setOpen] = useState(false);
     let  tileStyle = {
-        width: '18vw',
-        height: '18vw'
+        width: '275px',
+        height: '275px'
     }
     let  tileStyle2 = {
-        width: '62vw',
-        height: '62vw',
+        width: 'max-content',
+        height: 'max-content',
         position: 'absolute',
         top: '50%',
         left: '50%',

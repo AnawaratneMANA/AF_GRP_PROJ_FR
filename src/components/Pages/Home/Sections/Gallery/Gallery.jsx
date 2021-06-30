@@ -51,14 +51,14 @@ const  Gallery = () => {
     }];
 
     return(
-        <div className="gallery-wrapper">
-            <div className="header">
-                <button className="button">View All</button>
-                <h3 className="main1">Gallery Page</h3>
-                <p className="second">This section contain all the latest Event Gallery</p>
+        <div className="gallery-wrapper" data-testid='gallery-div'>
+            <div className="header" data-testid='gallery-header'>
+                <button className="button" data-testid='gallery-button'>View All</button>
+                <h3 className="main1" data-testid='gallery-topic'>Gallery Page</h3>
+                <p className="second" data-testid='gallery-des'>This section contain all the latest Event Gallery</p>
 
             </div>
-            <div className="tiles">
+            <div className="tiles" data-testid='gallery-tiles'>
                 {data.map((data) => {
                     return <Tile data={data} key={data.id} />
                 })}
