@@ -20,3 +20,12 @@ export const logoutUser = (users) => async (dispatch) => {
         console.log(error);
     }
 };
+
+//Dispatch method for user log out.
+export const RegisterUser = (users) => async (dispatch) => {
+    try {
+        dispatch({type: 'REG', payload: users});
+    } catch (error) {
+        console.log(error);
+    }
+};

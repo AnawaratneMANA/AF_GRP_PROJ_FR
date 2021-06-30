@@ -40,25 +40,17 @@ const  Gallery = () => {
         id: 9,
         name: "Bridge",
         image: "https://images.unsplash.com/photo-1445723356089-6dbb51d9c4f8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=980&h=980&fit=crop&s=6e476c6e7ce1adac161295616d1bec05"
-    }, {
-        id: 10,
-        name: "Bridge",
-        image: "https://0.soompi.io/wp-content/uploads/2018/12/10093634/exp-do-2.jpg"
-    }, {
-        id: 11,
-        name: "Bridge",
-        image: "https://i.pinimg.com/originals/a3/f3/28/a3f328300ee9f3e52a61caf387eb82f6.jpg"
     }];
 
     return(
-        <div className="gallery-wrapper">
-            <div className="header">
-                <button className="button">View All</button>
-                <h3 className="main1">Gallery Page</h3>
-                <p className="second">This section contain all the latest Event Gallery</p>
+        <div className="gallery-wrapper" data-testid='gallery-div'>
+            <div className="header" data-testid='gallery-header'>
+                <button className="button" data-testid='gallery-button'>View All</button>
+                <h3 className="main1" data-testid='gallery-topic'>Gallery Page</h3>
+                <p className="second" data-testid='gallery-des'>This section contain all the latest Event Gallery</p>
 
             </div>
-            <div className="tiles">
+            <div className="tiles" data-testid='gallery-tiles'>
                 {data.map((data) => {
                     return <Tile data={data} key={data.id} />
                 })}
