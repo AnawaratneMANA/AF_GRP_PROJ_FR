@@ -8,14 +8,16 @@ import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 const Register = () => {
     const dispatch = useDispatch();
-    const [redirect, setRedirect] = useState(false);
+
     //States for the passwords.
     const [password, setPassword] = useState();
     const [rpassword, setrPassword] = useState();
+
     const [userData, setUserData] = useState(
         {
             name: '',
             email: '',
+            password: ''
         }
     );
 
@@ -24,16 +26,15 @@ const Register = () => {
     function handleSubmit(e) {
         e.preventDefault();
         console.log(userData);
-        //dispatch(createUser(userData));
-        setRedirect(true);
+
+        //Redirect the user another page.
+        history.push("/loginpage");
     }
 
     /**
      * Automatically Redirect the user to the Login.
      * **/
-    if(redirect){
-        return <Redirect to="/loginpage"/>
-    }
+
 
     return (
         <div className="RegisterPage">
@@ -77,8 +78,8 @@ const Register = () => {
                                 className="input-field"
                                 placeholder="Enter Password..."
                                 type="password"
-                                value={userData.name}
-                                onChange={(e) => setUserData({...userData, password: e.target.value})}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                             ></input>
                             <br/>
                         </div>
@@ -89,6 +90,7 @@ const Register = () => {
                                 className="input-field"
                                 placeholder="Re-enter Password..."
                                 type="password"
+                                value={rpassword}
                             ></input>
                             <br/>
                         </div>

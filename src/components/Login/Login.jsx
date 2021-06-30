@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import jwt from 'jwt-decode'
 import axios from 'axios'
 import {useDispatch, useSelector} from "react-redux";
+import {useHistory} from "react-router-dom";
 import Auth from './ProtectedRoutes/AuthenticationClass';
 
 //Importing Custom Style Sheet. 
@@ -9,7 +10,8 @@ import styles from './style';
 import '../../CSS/loginstyle.css';
 import {loginUser} from "../../actions/users";
 const Login = () => {
-  const classes = styles();
+    const history = useHistory();
+    const classes = styles();
     const users = useSelector((state) => state.users);
 
   const dispatch = useDispatch();
@@ -56,7 +58,11 @@ const Login = () => {
         }
     }
 
-  return (
+    function Navigate() {
+        history.push("/register");
+    }
+
+    return (
     <div>
       <form onSubmit={handleSubmit}>
       <div className="login-component">
@@ -90,7 +96,7 @@ const Login = () => {
             
             <div className="button-group">
               <button className="auth-button" type="submit">Login</button><br/>
-              <button className= "auth-button">Registration</button>
+              <button className= "auth-button" onClick={Navigate}>Registration</button>
               <div className="button-group-link">Forgot Password?</div>
             </div>
             </div>

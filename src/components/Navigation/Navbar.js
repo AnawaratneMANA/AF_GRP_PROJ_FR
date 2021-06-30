@@ -58,7 +58,7 @@ function Navbar () {
                             </Link>
                         </li>
                         <li className= "nav-item">
-                            <Link to= '/services' className ="nav-links" onClick={EventPage}>
+                            <Link to= '/services' className ="nav-links" onClick={closeMobileMenu}>
                                 EVENTS
                             </Link>
                         </li>
@@ -67,27 +67,9 @@ function Navbar () {
                                 LOGIN
                             </Link>
                         </li>
-                        {/*<li className= "nav-item">*/}
-                        {/*    <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>*/}
-                        {/*        REGISTER*/}
-                        {/*    </Link>*/}
-                        {/*</li>*/}
-
-                        {/* this is need to be added  */}
-                        {/* <li className= "nav-item">
-                            <Link to= '/payment' className ="nav-links" onClick={PaymentPage}>
-                                PAYMENT
-
                         <li className= "nav-item">
                             <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
-                                REGISTER
-                            </Link>
-                        </li> */}
-                        
-                        {/* just added tempapry */}
-                        <li className= "nav-item">
-                            <Link to= '/admin' className ="nav-links" onClick={AdminPage}>
-                                Admin
+                                REGISTRATION
                             </Link>
                         </li>
                     </ul>
