@@ -3,6 +3,7 @@ import Ratings1 from "../../Ratings/Ratings1";
 import './feedbackstyles.scss';
 import FeedBackForm from "../../Ratings/FeedBackForm/FeedBackForm";
 import Speaker from "../../KeySpeakers/SpeakersImges/profile.webp";
+import KeySpeakerForm from "../../KeySpeakers/KeySpeakersForm/KeySpeakerForm";
 
 function FeedBackAllPage() {
     const rows = [
@@ -17,6 +18,7 @@ function FeedBackAllPage() {
             <div className="alldownloadlist">
                 <div className={"feedbackform"}>
                     <FeedBackForm/>
+                    <KeySpeakerForm/>
                 </div>
                 <div className="alldownloadrow">
                     <div className="cardLayout">
