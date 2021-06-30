@@ -9,7 +9,7 @@
 }
 
 .tiles {
-  padding: 6vh 16vw;
+  padding: 20px 25px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

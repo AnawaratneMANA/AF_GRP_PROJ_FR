@@ -1,0 +1,12 @@
+.download-link-page-container {
+  color: white;
+  margin-top: 30px;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+.download-link-page-container .download-link-page-container-second {
+  opacity: 60%;
+}
+
+/*# sourceMappingURL=DownloadLinkPage.css.map */
