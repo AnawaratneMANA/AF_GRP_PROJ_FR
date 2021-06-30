@@ -1,8 +1,8 @@
 import React from 'react';
 import Ratings1 from "../../../../Ratings/Ratings1";
-import './ratingstyles.css'
+import './ratingstyles.scss'
 import Speaker from "../../../../KeySpeakers/SpeakersImges/profile.webp";
-import KeySpeaker1 from "../../../../KeySpeakers/KeySpeaker1";
+
 function RatingPage() {
 
     const rows = [
@@ -17,11 +17,11 @@ function RatingPage() {
 
             <h2 className="rating-header-main-header">Rating</h2>
 
-            {/* <button className="buttonDownload" onClick ={(e) => {
+            { <button className="buttonDownload" onClick ={(e) => {
                 e.preventDefault();
                 window.location.href='/allFeedbackPage';
-            }}>View All</button>
-            <h2 className="rating-header-main-header">Register</h2> */}
+            }}>View All</button>}
+
 
             <h4 className="rating-header-second-header">Information</h4>
         </div>
@@ -33,11 +33,6 @@ function RatingPage() {
                     {/*<div className="line"></div>*/}
                 </div>
             ))}
-            {/*<Ratings1/>*/}
-
-            {/*<Ratings1/>*/}
-            {/*<div className="line"></div>*/}
-            {/*<Ratings1/>*/}
         </div>
         </div>
     </React.Fragment>)

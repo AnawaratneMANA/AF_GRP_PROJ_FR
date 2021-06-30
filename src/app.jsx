@@ -37,7 +37,7 @@ const App = () => {
                     <ProtectedRoute exact path = "/empty" component={TestingEmptyComponent}/>
 
                     <Route path = "/admin" component={AdminPage}/>
-                    <Route path = "/allfeedbackpage" component={FeedBackAllPage}/>
+                    <Route path = "/allFeedbackPage" component={FeedBackAllPage}/>
 
                     </Switch>
                 </BrowserRouter>
