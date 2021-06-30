@@ -26,6 +26,9 @@ const useForm = (validate) => {
         setErrors(validate(values));
         setIsSubmitted(true);
 
+        //This should be validated before sending to the database
+        //If Errors exist then set the Submitted state to false.
+
     };
 
     return {handleChange, values, handleSubmit, errors, isSubmitted};
