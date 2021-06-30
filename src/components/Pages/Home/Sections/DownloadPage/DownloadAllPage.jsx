@@ -1,5 +1,5 @@
 import React from 'react'
-import './downloadstyles.css';
+import './DownloadAllPage.css';
 import DownloadComponent from './DownloadComponent/DownloadComponent';
 function DownloadAllPage() {
 
@@ -14,7 +14,7 @@ function DownloadAllPage() {
     return (
         <div className="downloadallpage">
             <input type="search" name="" id="" className="searchdownloads" placeholder="search downloads" /><br />
-            <h1>All Download page</h1>
+            <h1 className="downloadallpage-header">All Download page</h1>
             <div className="alldownloadlist">
                 <div className="alldownloadrow">
                     {rows.map((row) => (

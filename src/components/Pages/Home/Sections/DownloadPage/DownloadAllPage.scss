@@ -1,0 +1,32 @@
+.alldownloadrow {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-auto-rows: minmax(1px, auto);
+  justify-content: left;
+  align-items: normal;
+  grid-gap: 1%;
+  margin-left: 50px;
+  padding-bottom: 10px;
+
+
+}
+
+.downloadallpage {
+  text-align: center;
+
+  #{&}-header{
+    color: white;
+    margin-bottom: 20px;
+
+  }
+}
+
+.searchdownloads {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 700px;
+  height: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+}

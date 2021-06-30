@@ -26,7 +26,7 @@ const UploadFrom = () => {
 
     return (
         <form>
-            <h1>Upload Form</h1>
+            <h3>Upload Form</h3>
             <div className="file-input">
             <input size="60" name="file" type="file" className="file-input-selector" onChange={changeHandler}/>
             <label for="file"> Choose File To Upload </label>

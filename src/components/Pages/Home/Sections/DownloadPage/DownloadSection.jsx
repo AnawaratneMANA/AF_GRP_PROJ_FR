@@ -26,7 +26,7 @@ function DownloadSection() {
         <div className = "download-main-container download">
             <div className="header">
                 
-                <button className="buttonDownload" onClick ={(e) => {
+                <button className="download-main-container-download-button" onClick ={(e) => {
                         e.preventDefault();
                         handleHistory();
                     }}>View All</button>
