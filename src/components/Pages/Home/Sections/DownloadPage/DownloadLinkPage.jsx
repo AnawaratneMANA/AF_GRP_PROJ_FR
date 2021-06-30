@@ -1,8 +1,18 @@
 import React from 'react'
 import {  Link } from 'react-router-dom';
-import './downloadstyles.css';
+import './DownloadLinkPage.scss';
+import UploadForm from "./UploadForm/UploadForm";
+import FileGrid from "./UploadForm/FileGrid";
 function DownloadLinkPage(props) {
     return (
+
+        <div className ="download-link-page-container">
+            <h1 className="download-link-page-container-header">Download link page: {props.match.params.value}</h1>
+            <h2 className="download-link-page-container-second">File Attachment Form</h2>
+            <form className="download-link-page-container-form">
+                <UploadForm/>
+                <FileGrid/>
+
 
         <div className ="downloadlinkpage">
             <h1>Download link page: {props.match.params.value}</h1>
@@ -10,38 +20,10 @@ function DownloadLinkPage(props) {
             <h1>File Attachment Form</h1>
             <form>
                 {/*Add the component here.*/}
+
             </form>
-
-
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">file name</th>
-                        <th scope="col">path</th>
-                        <th scope="col">publisher name</th>
-                        <th scope="col">category type</th>
-                        <th scope="col">file type</th>
-                        <th scope="col">link</th>
-                    </tr>
-                </thead>
-               <tbody>
-                   {/* needed to be change */}
-                    <tr>
-                        <td>1</td>
-                        <td>file name</td>
-                        <td>path</td>
-                        <td>publisher name</td>
-                        <td> category type</td>
-                        <td>file type</td>
-                        
-                        <td><Link  rel="stylesheet" href="https://www.google.com/" >link</Link></td>
-                    </tr>
-               </tbody>
-            </table>
         </div>
 
     )
 }
-
 export default DownloadLinkPage

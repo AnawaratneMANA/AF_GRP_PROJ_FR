@@ -7,6 +7,7 @@ import AdminPage from '../Pages/AdminPage/AdminPage';
 import Auth from '../Login/ProtectedRoutes/AuthenticationClass';
 import {useDispatch} from "react-redux";
 import {logoutUser} from "../../actions/users";
+import DownloadLinkPage from "../Pages/Home/Sections/DownloadPage/DownloadLinkPage";
 
 function Navbar () {
     const [click, setClick] = useState(false);
@@ -31,7 +32,13 @@ function Navbar () {
     window.addEventListener('resize', showButton);
 
     const logout = () => {
-        dispatch(logoutUser());
+        const user = {
+            "userName": null,
+            "userToken": null,
+            "userType": null
+        }
+        dispatch(logoutUser(user));
+        localStorage.setItem('userName', user.userName);
     }
 
     return (
@@ -84,7 +91,7 @@ function Navbar () {
                             </Link>
                         </li>
                     </ul>
-                    { button  && <Button onClick={logout} buttonStyle= "btn--outline"> LOG OUT </Button>}
+                    { button  && <Button onClick={() => logout()} buttonStyle= "btn--outline"> LOG OUT </Button>}
                 </div>
             </nav>
         </React.Fragment>

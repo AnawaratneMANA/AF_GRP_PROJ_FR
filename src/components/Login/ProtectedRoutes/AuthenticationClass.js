@@ -1,25 +1,19 @@
+import React from "react";
+import {useSelector} from "react-redux";
+
 class Auth {
+
     constructor() {
             this.authenicated = false;
         }
         //Need to check before cart checkout
 
-    login(token, userData) {
-        //Token Validation
-        /**
-         * check the login name equals the token name. if set the flag and token in JWT or log out the user.
-         *
-         * **/
-
-        /**
-         * if token is valid then fetch the whole user to store the type of the user.
-         *
-         * **/
-
+    login(name, jwt, userType) {
         //API validation
-        localStorage.setItem('userName', userData.userName);
-        localStorage.setItem('token', token);
-        localStorage.setItem('flag', true);
+        localStorage.setItem('userName', name);
+        localStorage.setItem('token', jwt);
+        localStorage.setItem('flag', userType);
+        console.log("Login")
         this.authenicated = true;
     }
 
@@ -28,6 +22,7 @@ class Auth {
         localStorage.setItem('userName', "");
         localStorage.setItem('token', "");
         localStorage.setItem('flag', false);
+        console.log("Login")
         this.authenicated = false;
     }
 

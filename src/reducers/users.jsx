@@ -1,4 +1,8 @@
-export default (users = {}, action) => {
+export default (users = {
+    "userName": null,
+    "userToken": null,
+    "userType": null
+}, action) => {
     switch(action.type){
         case 'UPDATE':
             return users;
@@ -7,7 +11,7 @@ export default (users = {}, action) => {
         case "LOG_IN":
             return action.payload;
         case "LOG_OUT":
-            return null;
+            return action.payload;
         default:
             return users;
     }

@@ -1,6 +1,8 @@
 import '../AdminPage.scss'
 import React, { useState, useEffect } from 'react';
+
 import Switch from 'react-switch';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,6 +11,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {Link} from "@material-ui/core";
+import axios from 'axios';
 
 const useStyles = makeStyles({
     table: {
@@ -16,30 +20,54 @@ const useStyles = makeStyles({
     },
 });
 
-function createData(id, name, organizor, type) {
-    return { id, name, organizor, type};
-}
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24),
-    createData('Ice cream sandwich', 237, 9.0, 37),
-    createData('Eclair', 262, 16.0, 24),
-    createData('Cupcake', 305, 3.7, 67),
-    createData('Gingerbread', 356, 16.0, 49),
-];
+//function EditorContentTable({method, setvalue}) {
 
+function EditorContentTable() {
 
-function EditorContentTable({method, setvalue}) {
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
+                'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
+                'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
     const classes = useStyles();
+    const [eventData, seteventData] = useState([]);
+    const fetchEventDetails = async () => {
+        try {
+            const response = await axios
+                .get("http://localhost:8093/api/v1/events")
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+            console.log(response.data);
+            seteventData(response.data)
 
-    // const [switchChange, setSwitchChange] = useState(false);
-    // const SwitchChangeMethod = (switchChange) => {
-    //     setSwitchChange(switchChange);
-    //     if(switchChange){
-    //         console.log("Trye: " + switchChange);
-    //     }else{
-    //         console.log("Tryef: " + switchChange);
-    //     }
-    // }
+
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+       fetchEventDetails();
+    }, [])
+    
+    const approve = (id) => {
+        let value = "approve";
+        console.log(value);
+        console.log(id);
+    }
+    const decline = (id) => {
+        let value = "decline";
+        console.log(value);
+        console.log(id);
+    }
     return (
         <div>
             <TableContainer component={Paper} className="editorcontent" >
@@ -47,26 +75,28 @@ function EditorContentTable({method, setvalue}) {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Event id</TableCell>
+                            <TableCell align="left">Event id</TableCell>
                             <TableCell align="right">Event Name</TableCell>
                             <TableCell align="right">Organizor Name</TableCell>
                             <TableCell align="right">Event type</TableCell>
-                            <TableCell align="right">Status (Approve/ Reject)</TableCell>
+                            <TableCell align="right">Status</TableCell>
+                            <TableCell align="right">Approve</TableCell>
+                            <TableCell align="right">Reject</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {eventData.map((row) => (
                             <TableRow key={row.id}>
-                                <TableCell component="th" scope="row"> {row.id}</TableCell>
-                                <TableCell align="right">{row.name}</TableCell>
-                                <TableCell align="right">{row.organizor}</TableCell>
-                                <TableCell align="right">{row.type}</TableCell>
+                                <TableCell align="left">{row.id}</TableCell>
+                                <TableCell align="right">{row.eventName}</TableCell>
+                                <TableCell align="right">{row.organizerName}</TableCell>
+                                <TableCell align="right">{row.eventType}</TableCell>
+                                <TableCell align="right">{row.status}</TableCell>
                                 <TableCell align="right">
-                                    <Switch
-                                        className="react-switch"
-                                        onChange = {method}
-                                        checked= { (value) => {setvalue(value)}}
-                                    />
+                                    <Link onClick={ () => {approve(row.id)}}> <p>Approve</p> </Link>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Link onClick={() => {decline(row.id)}}> <p>Decline</p> </Link>
                                 </TableCell>
                             </TableRow>
                         ))}

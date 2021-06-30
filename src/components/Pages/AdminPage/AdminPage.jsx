@@ -1,44 +1,44 @@
-import React, {useState} from 'react'
-import AdminStatistics from './AdminComponents/AdminStatistics'
+import React, {useEffect, useState} from 'react'
 import EditorContentTable from './AdminComponents/EditorContentTable'
 import UserdetailForm from './AdminComponents/UserdetailForm'
 import UserDetailTable from './AdminComponents/UserDetailTable'
-import './AdminPage.scss'
+// import './AdminPage.css'
 import TotalDownloadGraph from "./AdminComponents/TotalDownloadGraph";
 import EventGraph from "./AdminComponents/EventGraph";
-function AdminPage() {
-    const [switchChange, setSwitchChange] = useState(false);
-    const SwitchChangeMethod = (switchChange) => {
-        setSwitchChange(switchChange);
-        if(switchChange){
-            console.log("Trye: " + switchChange);
-        }else{
-            console.log("Tryef: " + switchChange);
-        }
-    }
-    return (<React.Fragment>
+import AdminFileTable from "./AdminComponents/AdminFileTable";
+
+const AdminPage = () => {
+
+    const [userID, setUserID] = useState([]);
+    return (<div>
             
             <div className="adminInterface">
                 <div className="admin__container">
-                    <di className="admin__row">
+                    <div className="admin__row">
                     <h1> Monitoring Section </h1>
-                    </di>
-                    <di className="admin__row">
+                    </div>
+                    <div className="admin__row">
                         {/*<AdminStatistics/>*/}
                         <TotalDownloadGraph/>
                         <EventGraph/>
-                    </di>
-                    <di className="admin__row">
-                        <EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>
-                    </di>
-                    <di className="admin__row">
-                        <UserDetailTable/>
-                        <UserDetailTable/>
-                        {/*<UserdetailForm/>*/}
-                    </di>
+                    </div>
+                    <div className="admin__row">
+                        <EditorContentTable/>
+                        {/*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*/}
+                    </div>
+                    <div className="admin__row">
+                        <UserDetailTable method={setUserID}/>
+                        <UserdetailForm value={userID}/>
+                    </div>
+                    <div className="admin__row">
+                        <AdminFileTable/>
+                        {/*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*/}
+                    </div>
                 </div>
             </div>
-        </React.Fragment>
+
+            Hello.
+        </div>
     )
 }
 
