@@ -1,6 +1,6 @@
 import React from 'react'
 import {  Link } from 'react-router-dom';
-import './DownloadLinkPage.css';
+import './DownloadLinkPage.scss';
 import UploadForm from "./UploadForm/UploadForm";
 import FileGrid from "./UploadForm/FileGrid";
 function DownloadLinkPage(props) {
