@@ -17,10 +17,10 @@ function Home() {
         <EventPage/>
         <DownloadSection/>
         {/*<p>Recent Activities in Detail</p>*/}
-        <RatingPage/>
+        {/*/!*<RatingPage/>*!/ Theres a issue in Rating Component*/}
         <SpeakersPage/>
         <Gallery/>
-        <Profile/>
+        {/*<Profile/>*/}
         <Footer/>
     </React.Fragment>)
 }

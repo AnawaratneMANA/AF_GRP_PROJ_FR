@@ -40,14 +40,6 @@ const  Gallery = () => {
         id: 9,
         name: "Bridge",
         image: "https://images.unsplash.com/photo-1445723356089-6dbb51d9c4f8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=980&h=980&fit=crop&s=6e476c6e7ce1adac161295616d1bec05"
-    }, {
-        id: 10,
-        name: "Bridge",
-        image: "https://0.soompi.io/wp-content/uploads/2018/12/10093634/exp-do-2.jpg"
-    }, {
-        id: 11,
-        name: "Bridge",
-        image: "https://i.pinimg.com/originals/a3/f3/28/a3f328300ee9f3e52a61caf387eb82f6.jpg"
     }];
 
     return(

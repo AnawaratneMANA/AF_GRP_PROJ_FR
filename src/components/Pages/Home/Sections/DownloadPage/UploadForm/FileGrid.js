@@ -1,7 +1,7 @@
 import React  from "react";
 import useFirestore from "../../../../../../Firebase/useFirestore";
 import {Button} from '@material-ui/core';
-import './FileGrid.css'
+import './FileGrid.scss'
 
 const FileGrid = () => {
 
