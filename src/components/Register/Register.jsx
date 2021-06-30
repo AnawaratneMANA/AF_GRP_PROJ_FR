@@ -1,38 +1,25 @@
 import React, {useState, useEffect} from 'react';
-import {Form, Button, h1} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
-import {loginUser} from "../../actions/users";
-import {Container, Paper} from '@material-ui/core';
 import '../../CSS/registerstyle.css';
-import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import useForm from './useForm';
+import validate from './validateInfo';
 const Register = () => {
+
     const dispatch = useDispatch();
-
-    //States for the passwords.
-    const [password, setPassword] = useState();
-    const [rpassword, setrPassword] = useState();
-
-    const [userData, setUserData] = useState(
-        {
-            name: '',
-            email: '',
-            password: ''
-        }
-    );
+    //Using a Custom Hook to validate the form.
+    const {handleChange, values, handleSubmit, errors} = useForm(validate);
 
     const history = useHistory();
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(userData);
-
+    function navigation(e) {
         //Redirect the user another page.
         history.push("/loginpage");
     }
 
     /**
      * Automatically Redirect the user to the Login.
+     *
      * **/
 
 
@@ -54,9 +41,11 @@ const Register = () => {
                                 className="input-field"
                                 placeholder="Enter Name..."
                                 type="text"
-                                value={userData.name}
-                                onChange={(e) => setUserData({...userData, name: e.target.value})}
-                            ></input>
+                                name="userName"
+                                value={values.userName}
+                                onChange={handleChange}
+                            />
+                            {errors.username && <p className="error-message">{errors.username}</p>}
                             <br/>
                         </div>
                         <div className="input-wrapper">
@@ -66,9 +55,10 @@ const Register = () => {
                                 className="input-field"
                                 placeholder="Enter Email..."
                                 type="text"
-                                value={userData.email}
-                                onChange={(e) => setUserData({...userData, email: e.target.value})}
-                            ></input>
+                                name="email"
+                                value={values.email}
+                                onChange={handleChange}/>
+                            {errors.email && <p className="error-message">{errors.email}</p>}
                             <br/>
                         </div>
                         <div className="input-wrapper">
@@ -78,9 +68,10 @@ const Register = () => {
                                 className="input-field"
                                 placeholder="Enter Password..."
                                 type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            ></input>
+                                name="password"
+                                value={values.password}
+                                onChange={handleChange}/>
+                            {errors.password && <p className="error-message">{errors.password}</p>}
                             <br/>
                         </div>
                         <div className="input-wrapper">
@@ -90,14 +81,16 @@ const Register = () => {
                                 className="input-field"
                                 placeholder="Re-enter Password..."
                                 type="password"
-                                value={rpassword}
-                            ></input>
+                                name="password2"
+                                value={values.password2}
+                                onChange={handleChange}/>
+                            {errors.password2 && <p className="error-message">{errors.password2}</p>}
                             <br/>
                         </div>
                         <div className="button-group">
                             <button className="auth-button" type="submit">Registration</button>
                             <br/>
-                            <button className="auth-button">Login</button>
+                            <button className="auth-button"> Login </button>
                         </div>
                     </div>
                 </div>
