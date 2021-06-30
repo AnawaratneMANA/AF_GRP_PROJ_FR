@@ -90,7 +90,7 @@ const Register = () => {
                         <div className="button-group">
                             <button className="auth-button" type="submit">Registration</button>
                             <br/>
-                            <button className="auth-button"> Login </button>
+                            <button className="auth-button" onClick={navigation}> Login </button>
                         </div>
                     </div>
                 </div>
