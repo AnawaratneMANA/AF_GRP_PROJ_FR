@@ -56,7 +56,6 @@ const  Gallery = () => {
                 <button className="button" data-testid='gallery-button'>View All</button>
                 <h3 className="main1" data-testid='gallery-topic'>Gallery Page</h3>
                 <p className="second" data-testid='gallery-des'>This section contain all the latest Event Gallery</p>
-
             </div>
             <div className="tiles" data-testid='gallery-tiles'>
                 {data.map((data) => {
