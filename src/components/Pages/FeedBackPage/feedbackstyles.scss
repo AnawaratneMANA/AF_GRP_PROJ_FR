@@ -1,14 +1,6 @@
-.download-main-container {
+.download-main-container1 {
   &.download {
     background-color: #A1ABCF;
-  }
-  #{&}-download-button {
-    color: #242424;
-    position: absolute;
-    margin-left: 87%;
-    margin-top: 1%;
-    width: 5%;
-    border-radius: 20px;
   }
   .cardLayout {
     display: grid;
@@ -16,7 +8,7 @@
     grid-auto-rows: minmax(1px, auto);
     justify-content: left;
     align-items: normal;
-    grid-gap: 2%;
+    grid-gap: 1%;
     margin-left: 50px;
     padding-bottom: 10px;
   }
@@ -38,5 +30,4 @@
     opacity: 60%;
   }
 }
-
 
