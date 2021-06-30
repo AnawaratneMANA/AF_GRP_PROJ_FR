@@ -22,7 +22,7 @@ function RatingPage() {
                 <div className="card-rating">
                     {/*<KeySpeaker1 rows={row}/>*/}
                     <Ratings1 rows={row}/>
-                    <div className="line"></div>
+                    {/*<div className="line"></div>*/}
                 </div>
             ))}
             {/*<Ratings1/>*/}
