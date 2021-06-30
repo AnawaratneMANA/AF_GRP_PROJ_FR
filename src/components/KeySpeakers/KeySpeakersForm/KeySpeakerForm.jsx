@@ -31,19 +31,27 @@ function FeedBackForm(){
     const classes2 = useStyle();
     const dispatch = useDispatch();
 
-    const[image, setImage] = useState();
-    const[name, setName] = useState();
-    const[qualifications, setQualification] = useState();
-
-
-    //submit the data
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const userData = {
-
-
+    const [speakerData, setSpeakerData] = useState(
+        {
+            name:'',
+            qualifications:'',
+            image:''
         }
+    );
+
+    const clear = () =>{
+
+    }
+
+
+    //Submit Details
+    const handleSubmit = (e) => {
+        //Stop page from loading.
+        e.preventDefault();
+        console.log(speakerData);
+        //submit data
+        // dispatch(createItem(itemData));
+        clear();
     }
 
     return (
@@ -57,21 +65,23 @@ function FeedBackForm(){
                                 variant="outlined"
                                 label="Name"
                                 name="name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                value={speakerData.name}
+                                onChange={(e) => setSpeakerData({...speakerData, name: e.target.value})}
                             />
+
                             <TextField
                                 variant="outlined"
                                 label="Qualifications"
                                 name="name"
-                                value={qualifications}
-                                onChange={(e) => setQualification(e.target.value)}
+                                value={speakerData.qualifications}
+                                onChange={(e) => setSpeakerData({...speakerData, qualifications: e.target.value})}
                             />
+
                             <div>
                                 <FileBase
                                     type="file"
                                     multiple={false}
-                                    onDone={({base64}) => setImage({...image, image: base64})}
+                                    onDone={({base64}) => setSpeakerData({...speakerData, image: base64})}
                                 />
                             </div>
                             <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginTop:"40px"}} >

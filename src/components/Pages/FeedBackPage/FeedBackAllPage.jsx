@@ -18,7 +18,6 @@ function FeedBackAllPage() {
             <div className="alldownloadlist">
                 <div className={"feedbackform"}>
                     <FeedBackForm/>
-                    <KeySpeakerForm/>
                 </div>
                 <div className="alldownloadrow">
                     <div className="cardLayout">
