@@ -2,17 +2,23 @@ import React, {useState} from 'react';
 import './Rating.css';
 import Star from "./Star/Star";
 
-function Ratings1(){
+function Ratings1({rows}){
     return(
       <div className="rating">
+          <div className="img_top1">
+              <img className='photo1' src={rows.image}></img>
+          </div>
           <div className="rating_info">
-              <h3>Menaka</h3>
-              <p>We want to help<br/>
-                  sharing Review materials<br/>
-                  and documents to the users.</p>
+              <h3>{rows.title}</h3>
+              {/*<h3>Rating 1</h3>*/}
+              {/*<p>We want to help<br/>*/}
+              {/*    sharing Review materials<br/>*/}
+              {/*    and documents to the users.</p>*/}
+              <p>{rows.description}</p>
+              {/*<p>{rows.title}</p>*/}
           </div>
           <div>
-              <Star/>
+              <Star value = {rows.stars}/>
           </div>
       </div>
     );

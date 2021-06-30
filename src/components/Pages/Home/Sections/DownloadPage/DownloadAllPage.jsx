@@ -1,5 +1,5 @@
 import React from 'react'
-import './DownloadAllPage.css';
+import './DownloadAllPage.scss';
 import DownloadComponent from './DownloadComponent/DownloadComponent';
 function DownloadAllPage() {
 
