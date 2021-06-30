@@ -1,8 +1,7 @@
 import React from "react";
 import AddEvent from "../AddEvent";
 import { getByTestId, render } from '@testing-library/react';
-//import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router-dom';
+
 
 let container = null;
 
