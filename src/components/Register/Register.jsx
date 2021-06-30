@@ -4,11 +4,13 @@ import '../../CSS/registerstyle.css';
 import { useHistory } from "react-router-dom";
 import useForm from './useForm';
 import validate from './validateInfo';
+import {RegisterUser} from "../../api";
+import axios from "axios";
 const Register = () => {
 
     const dispatch = useDispatch();
     //Using a Custom Hook to validate the form.
-    const {handleChange, values, handleSubmit, errors} = useForm(validate);
+    const {handleChange, values, handleSubmit, errors, isSubmitted} = useForm(validate);
 
     const history = useHistory();
 
@@ -17,11 +19,31 @@ const Register = () => {
         history.push("/loginpage");
     }
 
+    const dbcall = async () => {
+        const {data} = await axios.post("http://localhost:8093/api/v1/register", values).then(
+            (data) => {console.log(data)}
+        ). catch (
+            (error)=> {
+                console.log(error.message);
+            }
+
+        );
+        return data;
+    }
+
+    if(isSubmitted){
+       dbcall;
+       if(data){
+           navigation();
+       } else {
+           console.log("Error Navigating to the page");
+       }
+    }
+
     /**
      * Automatically Redirect the user to the Login.
      *
      * **/
-
 
     return (
         <div className="RegisterPage">
