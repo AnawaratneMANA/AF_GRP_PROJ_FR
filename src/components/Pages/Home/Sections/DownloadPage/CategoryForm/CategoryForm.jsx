@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Grid, Paper, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from '@material-ui/core';
 import axios from "axios";
+import {useSelector} from "react-redux";
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
@@ -29,14 +30,38 @@ const CategoryForm = () => {
     const classes2 = useStyle();
     // const dispatch = useDispatch();
 
-    const[category, setCategory] = useState("");
-    const[description, setDescription] = useState("");
+    const users = useSelector((state) => state.users);
+    const [flag, setFlag] = useState(null)
+    const[downloadHeader, setCategory] = useState("");
+    const[downloadDescription, setDescription] = useState("");
+
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer ' + users.userToken;
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
+
+    useEffect(()=> {
+        if(users.userType === "uu"){
+            window.location.href='/loginpage';
+        } else {
+            setFlag(true);
+        }
+    }, [])
+
+    if(!flag){
+        return null;
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = {
-            category,
-            description
+            downloadHeader,
+            downloadDescription
         }
 
         console.log(data)
@@ -58,7 +83,7 @@ const CategoryForm = () => {
                                 variant="outlined"
                                 label="Category Name"
                                 name="name"
-                                value={category}
+                                value={downloadHeader}
                                 onChange={(e) => setCategory(e.target.value)}
                             />
 
@@ -66,7 +91,7 @@ const CategoryForm = () => {
                                 variant="outlined"
                                 label="Description"
                                 name="name"
-                                value={description}
+                                value={downloadDescription}
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                             <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginTop:"40px"}} >
