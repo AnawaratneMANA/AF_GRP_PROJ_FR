@@ -11,7 +11,7 @@ const EventMainPage = () => {
     const [flag, setFlag] = useState(null)
 
     useEffect(()=> {
-        if(users.userType === "yyyuu"){
+        if(users.userName === null){
             window.location.href='/loginpage';
         } else {
             setFlag(true);
