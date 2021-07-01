@@ -15,7 +15,7 @@ const FileGrid = () => {
         return (
             <div className="file-grid">
                 <table className="table-latitude">
-                    <caption>Employee Information</caption>
+                    {/*<caption>Employee Information</caption>*/}
                     <thead>
                     <th>File Name</th>
                     <th>File Type</th>
