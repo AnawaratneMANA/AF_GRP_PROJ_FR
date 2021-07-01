@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import EventComponent from "./EventComponent";
 import '../../../../../CSS/event.scss';
 import AddEvent from "../../../Event/AddEvent";
@@ -7,20 +7,10 @@ import {BrowserRouter as Router, useHistory} from 'react-router-dom';
 import Speaker from "../../../../KeySpeakers/SpeakersImges/profile.webp";
 import Ratings1 from "../../../../Ratings/Ratings1";
 import axios from "axios";
+import {useSelector} from "react-redux";
 
 const EventPage = () => {
-    axios.interceptors.request.use(
-        config => {
-            config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
-                'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOjE2Mj' +
-                'UwNzgyNjcsImlhdCI6MTYyNTA0MjI2N30.G4MtmsRjNAQK-B7nZrHWi' +
-                'ZPEgxedyGm93Il0VOrqSV0';
-            return config;
-        },
-        error => {
-            return Promise.reject(error);
-        }
-    )
+
     const history = useHistory();
 
     const handleHistory = () => {
