@@ -14,15 +14,15 @@ function DownloadLinkPage(props) {
                 <FileGrid/>
             </div>
 
-        <div className ="downloadlinkpage">
-            <h1>Download link page: {props.match.params.value}</h1>
+        {/*<div className ="downloadlinkpage">*/}
+        {/*    <h1>Download link page: {props.match.params.value}</h1>*/}
 
-            <h1>File Attachment Form</h1>
-            <form>
-                {/*Add the component here.*/}
+            {/*<h1>File Attachment Form</h1>*/}
+            {/*<form>*/}
+            {/*    /!*Add the component here.*!/*/}
 
-            </form>
-        </div>
+            {/*</form>*/}
+        {/*</div>*/}
         </div>
 
 
