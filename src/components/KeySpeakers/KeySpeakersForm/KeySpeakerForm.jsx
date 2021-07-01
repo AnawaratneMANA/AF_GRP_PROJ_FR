@@ -3,7 +3,8 @@ import { Grid, Paper, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from '@material-ui/core';
 import {useDispatch, useSelector} from 'react-redux';
-import Star from "../Star/Star";
+import FileBase from 'react-file-base64';
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
@@ -30,26 +31,33 @@ function FeedBackForm(){
     const classes2 = useStyle();
     const dispatch = useDispatch();
 
-    const[name, setName] = useState();
-    const[feedback, setFeedback] = useState();
-    const[rating, setRating] = useState();
-
-
-    //submit the data
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const userData = {
-
-
+    const [speakerData, setSpeakerData] = useState(
+        {
+            name:'',
+            qualifications:'',
+            image:''
         }
+    );
+
+    const clear = () =>{
+
+    }
+
+
+    //Submit Details
+    const handleSubmit = (e) => {
+        //Stop page from loading.
+        e.preventDefault();
+        console.log(speakerData);
+        //submit data
+        // dispatch(createItem(itemData));
+        clear();
     }
 
     return (
         <div>
             <Paper className={classes.pageContent}>
-                <h3>FeedBack Form</h3>
-                <Star/>
+                <h3>Key Speaker Form</h3>
                 <form className={classes2.root} onSubmit={handleSubmit}>
                     <Grid container>
                         <Grid item xs={12}>
@@ -57,18 +65,25 @@ function FeedBackForm(){
                                 variant="outlined"
                                 label="Name"
                                 name="name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                value={speakerData.name}
+                                onChange={(e) => setSpeakerData({...speakerData, name: e.target.value})}
                             />
+
                             <TextField
-                                id="outlined-multiline-static"
-                                label="Feed Back"
-                                multiline
-                                rows={3}
                                 variant="outlined"
-                                value={feedback}
-                                onChange={(e) => setFeedback(e.target.value)}
+                                label="Qualifications"
+                                name="name"
+                                value={speakerData.qualifications}
+                                onChange={(e) => setSpeakerData({...speakerData, qualifications: e.target.value})}
                             />
+
+                            <div>
+                                <FileBase
+                                    type="file"
+                                    multiple={false}
+                                    onDone={({base64}) => setSpeakerData({...speakerData, image: base64})}
+                                />
+                            </div>
                             <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginTop:"40px"}} >
                                 SUBMIT
                             </Button>

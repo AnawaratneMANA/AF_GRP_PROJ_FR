@@ -6,51 +6,58 @@ const  Gallery = () => {
 
     const data = [{
         id: 1,
-        name: "Island",
-        image: "https://images.unsplash.com/photo-1442530792250-81629236fe54?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=980&h=980&fit=crop&s=9631adb2d2f752e3a0734f393fef634b"
+        name: "Bussiness",
+        image: "https://d19d5sz0wkl0lu.cloudfront.net/dims4/default/c80a929/2147483647/resize/800x%3E/quality/90/?url=https%3A%2F%2Fatd-brightspot.s3.amazonaws.com%2Fca%2F35%2F98c16ebc408fb55229f9716d0729%2Fdownload-3.jpg"
     }, {
         id: 2,
-        name: "Forest",
-        image: "https://images.unsplash.com/photo-1468851508491-4f854ec88aa0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=900&h=900&fit=crop&s=b1222b6a1d3694cac76d2a23c3a02254"
+        name: "CEO",
+        image: "https://www.ceotodaymagazine.com/CEO-Today/wp-content/uploads/2019/08/6-Major-Changes-to-Business-Conferences-in-Recent-Years-750x430.jpg"
     }, {
         id: 3,
-        name: "Whale",
-        image: "https://images.unsplash.com/photo-1454991727061-be514eae86f7?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=900&h=900&fit=crop&s=3c55430f01fe9ac9a9ccb3383d1416ff"
+        name: "Tickets",
+        image: "https://www.seriousplayconf.com/wp-content/uploads/2020/08/Tabletop-Judging-900x720.png"
     }, {
         id: 4,
-        name: "Mountain",
-        image: "https://images.unsplash.com/photo-1467890947394-8171244e5410?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=980&h=980&fit=crop&s=9396f0adf263b51b44626228225684d0"
+        name: "Game creation event",
+        image: "https://www.seriousplayconf.com/wp-content/uploads/2019/10/DSC02822-1-900x720.jpg"
     }, {
         id: 5,
-        name: "Boat",
-        image: "https://images.unsplash.com/photo-1443302382600-0bfacc473376?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=980&h=980&fit=crop&s=0c0f26518c1001f67b6c2e4480a8d3e0"
+        name: "question",
+        image: "https://www.seriousplayconf.com/wp-content/uploads/2019/10/DSC02913-1-900x720.jpg"
     }, {
         id: 6,
-        name: "Flowers",
-        image: "https://images.unsplash.com/photo-1429091443922-e7d9ae79a837?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=900&h=900&fit=crop&s=e81cb6a60c53788559edb9bec21b80fc"
+        name: "Research paper Present",
+        image: "https://www.seriousplayconf.com/wp-content/uploads/2019/10/DSC03035-1-900x720.jpg"
     }, {
         id: 7,
-        name: "Fire",
-        image: "https://images.unsplash.com/photo-1468245856972-a0333f3f8293?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=900&h=900&fit=crop&s=1f57cc13084e32839627453821a43abf"
+        name: "Break",
+        image: "https://www.seriousplayconf.com/wp-content/uploads/2019/10/DSC03214-1-900x720.jpg"
     }, {
         id: 8,
-        name: "Garden",
-        image: "https://images.unsplash.com/photo-1427392797425-39090deb14ec?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=900&h=900&fit=crop&s=8bfe49466d0da200e61128a8ab0e8fbe"
+        name: "Lecture",
+        image: "https://www.seriousplayconf.com/wp-content/uploads/2019/10/Serious-Play-Presentation_19921066425_l-900x720.jpg"
     }, {
         id: 9,
-        name: "Bridge",
-        image: "https://images.unsplash.com/photo-1445723356089-6dbb51d9c4f8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=980&h=980&fit=crop&s=6e476c6e7ce1adac161295616d1bec05"
+        name: "conference",
+        image: "https://www.seriousplayconf.com/wp-content/uploads/2019/10/Serious-Play-Workshop_19890777902_l-900x720.jpg"
+    }, {
+        id: 10,
+        name: "Medicine",
+        image: "https://www.seriousplayconf.com/wp-content/uploads/2019/10/Serious-Play-Presentation_19762206969_l-900x720.jpg"
+    }, {
+        id: 11,
+        name: "Speakers",
+        image: "https://www.seriousplayconf.com/wp-content/uploads/2019/10/DSC02772-900x720.jpg"
     }];
 
     return(
-        <div className="gallery-wrapper">
-            <div className="header">
-                <button className="button">View All</button>
-                <h3 className="main1">Gallery Page</h3>
-                <p className="second">This section contain all the latest Event Gallery</p>
-
+        <div className="gallery-wrapper" data-testid='gallery-div'>
+            <div className="header" data-testid='gallery-header'>
+                <button className="button" data-testid='gallery-button'>View All</button>
+                <h3 className="main1" data-testid='gallery-topic'>Gallery Page</h3>
+                <p className="second" data-testid='gallery-des'>This section contain all the latest Event Gallery</p>
             </div>
-            <div className="tiles">
+            <div className="tiles" data-testid='gallery-tiles'>
                 {data.map((data) => {
                     return <Tile data={data} key={data.id} />
                 })}

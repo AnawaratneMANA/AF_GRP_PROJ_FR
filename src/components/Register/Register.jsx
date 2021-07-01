@@ -4,11 +4,13 @@ import '../../CSS/registerstyle.css';
 import { useHistory } from "react-router-dom";
 import useForm from './useForm';
 import validate from './validateInfo';
+import {RegisterUser} from "../../api";
+import axios from "axios";
 const Register = () => {
 
     const dispatch = useDispatch();
     //Using a Custom Hook to validate the form.
-    const {handleChange, values, handleSubmit, errors} = useForm(validate);
+    const {handleChange, values, handleSubmit, errors, isSubmitted} = useForm(validate);
 
     const history = useHistory();
 
@@ -17,11 +19,27 @@ const Register = () => {
         history.push("/loginpage");
     }
 
+    const dbcall = async () => {
+        const data = await axios.post("http://localhost:8093/api/v1/user", values).then(
+            (data) => {console.log(data)}
+        ). catch (
+            (error)=> {
+                console.log(error.message);
+            }
+
+        );
+        return data;
+    }
+
+    if(isSubmitted){
+        console.log("Calling DB")
+            dbcall();
+    }
+
     /**
      * Automatically Redirect the user to the Login.
      *
      * **/
-
 
     return (
         <div className="RegisterPage">
@@ -46,6 +64,34 @@ const Register = () => {
                                 onChange={handleChange}
                             />
                             {errors.username && <p className="error-message">{errors.username}</p>}
+                            <br/>
+                        </div>
+                        <div className="input-wrapper">
+                            <lable>First name</lable>
+                            <br/>
+                            <input
+                                className="input-field"
+                                placeholder="Enter Firstname..."
+                                type="text"
+                                name="firstName"
+                                value={values.firstName}
+                                onChange={handleChange}
+                            />
+                            <br/>
+                        </div>
+                        <div className="input-wrapper">
+                            <lable>Last name</lable>
+                            <br/>
+
+                            <input
+                                className="input-field"
+                                placeholder="Enter Lastname..."
+                                type="text"
+                                name="lastName"
+                                value={values.lastName}
+                                onChange={handleChange}
+                            />
+
                             <br/>
                         </div>
                         <div className="input-wrapper">
@@ -90,7 +136,7 @@ const Register = () => {
                         <div className="button-group">
                             <button className="auth-button" type="submit">Registration</button>
                             <br/>
-                            <button className="auth-button"> Login </button>
+                            <button className="auth-button" onClick={navigation}> Login </button>
                         </div>
                     </div>
                 </div>
