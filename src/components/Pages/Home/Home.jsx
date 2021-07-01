@@ -6,8 +6,6 @@ import Footer from "./Sections/Footer/Footer";
 import DownloadSection from "./Sections/DownloadPage/DownloadSection";
 import EventPage from "./Sections/EventPage/EventPage";
 import Gallery from "./Sections/Gallery/Gallery";
-import UploadForm from "./Sections/DownloadPage/UploadForm/UploadForm";
-import Profile from "../UserProfile/Profile";
 
 
 
@@ -17,7 +15,7 @@ function Home() {
         <EventPage/>
         <DownloadSection/>
         {/*<p>Recent Activities in Detail</p>*/}
-        {/*/!*<RatingPage/>*!/ Theres a issue in Rating Component*/}
+        <RatingPage/>
         <SpeakersPage/>
         <Gallery/>
         {/*<Profile/>*/}

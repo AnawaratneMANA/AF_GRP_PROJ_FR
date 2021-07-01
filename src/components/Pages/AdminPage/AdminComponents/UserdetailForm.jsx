@@ -25,12 +25,12 @@ const useStyle = makeStyles(theme => ({
 }))
 
 function UserdetailForm({value}){
+    const users = useSelector((state) => state.users);
+    const token = users.userToken;
     console.log(value);
     axios.interceptors.request.use(
         config => {
-            config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
-                'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
-                'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
+            config.headers.authorization = `Bearer ${token}`;
             return config;
         },
         error => {
@@ -59,7 +59,7 @@ function UserdetailForm({value}){
 
         }
 
-        console.log(userData);
+
         // axios.put('http://localhost:8073/updateCreditCardDetailsById/'+this.props.match.params.id, payment).then(() => {
         //     alert("payment updated");
         //     window.location = '/payment';
@@ -70,6 +70,8 @@ function UserdetailForm({value}){
         // dispatch()
 
     }
+
+    console.log(token);
 
 
     return (

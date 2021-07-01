@@ -1,7 +1,25 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import './DownloadAllPage.scss';
 import DownloadComponent from './DownloadComponent/DownloadComponent';
+import {useSelector} from "react-redux";
 function DownloadAllPage() {
+
+    const users = useSelector((state) => state.users);
+    const [flag, setFlag] = useState(null)
+
+    //Add this to protected Components to avoid unauthorized users from comming.
+    useEffect(()=> {
+        if(users.userName === null){
+            window.location.href='/loginpage';
+        } else {
+            setFlag(true);
+        }
+    }, [])
+
+    if(!flag){
+        return null;
+    }
+
 
     const rows = [
         {"header":'Templates', "description": 'Empty Templates'},

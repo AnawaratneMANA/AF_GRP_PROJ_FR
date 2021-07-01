@@ -219,3 +219,7 @@ input:focus {
     border-color: #b0e5e3!important;
     background-color: #EEF9F9!important;
 }
+
+.payment-container {
+    height: max-content;
+}
