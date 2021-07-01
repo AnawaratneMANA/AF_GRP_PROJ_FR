@@ -1,6 +1,7 @@
 import React from 'react'
 import './DownloadAllPage.scss';
 import DownloadComponent from './DownloadComponent/DownloadComponent';
+import CategoryForm from "./CategoryForm/CategoryForm";
 function DownloadAllPage() {
 
     const rows = [
@@ -15,6 +16,9 @@ function DownloadAllPage() {
         <div className="downloadallpage">
             <input type="search" name="" id="" className="searchdownloads" placeholder="search downloads" /><br />
             <h1 className="downloadallpage-header">All Download page</h1>
+            <div className="download-category-form">
+                <CategoryForm/>
+            </div>
             <div className="alldownloadlist">
                 <div className="alldownloadrow">
                     {rows.map((row) => (
