@@ -8,7 +8,7 @@ import {useSelector} from "react-redux";
 const PaymentPage = () => {
 
         //Default price
-        const [price, setPrice] = useState("$ "+ 10.00);
+        const [price, setPrice] = useState("$ "+ 50.00);
 
         //Getting Auth from the user state.
         const users = useSelector((state) => state.users);
