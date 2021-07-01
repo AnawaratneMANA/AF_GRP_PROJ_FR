@@ -53,7 +53,15 @@ const PaymentPage = () => {
         const handleToken = (token, address) => {
             console.log({token, address});
             //saveTheTransaction({token,address});
-            console.log(paymentResponse);
+
+            //console.log(paymentResponse);
+
+            //Calling DB method.
+
+            //If Response valid
+
+            //Send Email to the customer.
+
         }
 
         return (
