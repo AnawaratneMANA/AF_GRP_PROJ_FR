@@ -38,6 +38,7 @@ const CategoryForm = () => {
             category,
             description
         }
+
         console.log(data)
         axios.post('http://localhost:8093/api/v1/download/category', data).then(() => {
         }).catch((err) => {
