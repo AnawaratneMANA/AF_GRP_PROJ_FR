@@ -5,6 +5,10 @@ import './keyspeakers.css'
 
 function SpeakersPage() {
 
+    const handleHistory = () => {
+        //history.push('/alldownloadPage');
+    }
+
     //Call API here and Replace the Array.
 
     const rows = [
@@ -18,6 +22,10 @@ function SpeakersPage() {
         <div className="speaker-section">
             <div className="speaker-header">
                 <h2 className="speaker-header-main-header">Key Speakers</h2>
+                {<button className="buttonDownload" onClick={(e) => {
+                    e.preventDefault();
+                    handleHistory();
+                }}>View All</button>}
                 <h4 className="speaker-header-second-header">Information</h4>
             </div>
             <div className="cardLayout">
