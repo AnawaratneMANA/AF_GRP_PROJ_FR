@@ -11,6 +11,7 @@ function DownloadSection() {
     const [downloadSecondHeader, setDownloadSecondHeader] = useState("Download Description");
 
     const handleHistory = () => {
+
         history.push('/alldownloadPage');
     }
 
