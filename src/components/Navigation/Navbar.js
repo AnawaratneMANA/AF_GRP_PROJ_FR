@@ -68,8 +68,13 @@ function Navbar () {
                             </Link>
                         </li>
                         <li className= "nav-item">
-                            <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
+                            <Link to= '/payment' className ="nav-links" onClick={closeMobileMenu}>
                                 REGISTRATION
+                            </Link>
+                        </li>
+                        <li className= "nav-item">
+                            <Link to= '/adminlogin' className ="nav-links" onClick={closeMobileMenu}>
+                                ADMIN
                             </Link>
                         </li>
                     </ul>
