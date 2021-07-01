@@ -14,6 +14,7 @@ const PaymentPage = () => {
         const users = useSelector((state) => state.users);
         const token = users.userToken;
         const [flag, setFlag] = useState(null)
+        const [paymentResponse, SetPaymentResponse] = useState();
 
         //Creating  Authorization Header for Axios Requests
         axios.interceptors.request.use(
@@ -42,13 +43,17 @@ const PaymentPage = () => {
 
 
         //Save the transaction to the backend.
-        const saveTheTransaction = () => {
-
+        const saveTheTransaction = async (body) => {
+            const {data} = await axios.post("http://localhost:8093/api/v1/checkout", body).then(
+                (res) => { SetPaymentResponse(res)}
+            ). catch((er) => er.message);
         }
 
         //Generate the payment token.
         const handleToken = (token, address) => {
-            console.log({token, address});
+            //console.log({token, address});
+            saveTheTransaction({token,address});
+            console.log(paymentResponse);
         }
 
         return (
