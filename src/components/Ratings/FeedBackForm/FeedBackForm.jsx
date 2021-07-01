@@ -23,7 +23,6 @@ const useStyle = makeStyles(theme => ({
     }
 }))
 
-
 function FeedBackForm(){
 
     const classes = useStyles();
@@ -49,7 +48,7 @@ function FeedBackForm(){
         <div>
             <Paper className={classes.pageContent}>
                 <h3>FeedBack Form</h3>
-                <Star/>
+                <div><Star/></div>
                 <form className={classes2.root} onSubmit={handleSubmit}>
                     <Grid container>
                         <Grid item xs={12}>

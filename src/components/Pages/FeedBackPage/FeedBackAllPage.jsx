@@ -16,10 +16,10 @@ function FeedBackAllPage() {
         <div className="downloadallpage">
             <h1>All Feedback page</h1>
             <div className="alldownloadlist">
-                <div className={"feedbackform"}>
+                <div className={"feed-back-form"}>
                     <FeedBackForm/>
                 </div>
-                <div className="alldownloadrow">
+                <div className="all-feedback-row">
                     <div className="cardLayout">
                         {rows.map((row)=> (
                             <div className="card-rating">
