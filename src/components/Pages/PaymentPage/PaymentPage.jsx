@@ -3,6 +3,7 @@ import './payment.css'
 import StripeCheckout from 'react-stripe-checkout';
 import axios from "axios";
 import {useSelector} from "react-redux";
+import emailjs from 'emailjs-com';
 
 
 const PaymentPage = () => {
@@ -41,10 +42,6 @@ const PaymentPage = () => {
             return null;
         }
 
-        const body = {
-            "discription": "cat"
-        }
-
 
         //Save the transaction to the backend.
         const saveTheTransaction = async (body) => {
@@ -56,19 +53,32 @@ const PaymentPage = () => {
         //Generate the payment token.
         const handleToken = (token, address) => {
             console.log({token, address});
-            //Calling DB And Register the Payment.
             //saveTheTransaction({token,address});
-            //Print the result to the console.
-            console.log(paymentResponse)
+            console.log(token.email)
+            //console.log(paymentResponse);
 
             //Calling DB method.
 
             //If Response valid
 
             //Send Email to the customer.
-
+            const userID = 'user_vjTwqbgkFdhOFYeJufJxC';
+            const templateId = 'template_7my6c7z';
+            const serviceID = 'service_5zkxkh9';
+            sendFeedback(serviceID, templateId, { from_name: "team WE19", message: "Payment is done successfully", to_name: token.email }, userID)
         }
 
+    const sendFeedback = (serviceID, templateId, variables, id) => {
+
+        emailjs.send(
+            serviceID, templateId,
+            variables, id
+        ).then(res => {
+            alert(`Email sent sucessfully`);
+        })
+            .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
+
+    }
         return (
         <div className="container payment-container">
             <div id="Checkout" className="inline">
@@ -102,7 +112,7 @@ const PaymentPage = () => {
 
 
                     <div className="expiry-date-group form-group">
-                        <label htmlFor="ExpiryDate">Expiry date</label><br/>
+                        <label htmlFor="ExpiryDate">Expiry date</label> <br/>
                         <select name="months" id="months">
                             <option value="Jan">Jan</option>
                             <option value="Feb">Feb</option>

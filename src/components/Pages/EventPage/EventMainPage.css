@@ -2,4 +2,17 @@
   display: flex;
 }
 
+.home__row {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-auto-rows: minmax(1px, auto);
+  justify-content: left;
+  align-items: normal;
+  grid-gap: 1%;
+}
+
+.home__container {
+  margin-left: 3%;
+}
+
 /*# sourceMappingURL=EventMainPage.css.map */
