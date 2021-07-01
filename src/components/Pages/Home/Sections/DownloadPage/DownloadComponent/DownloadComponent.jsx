@@ -5,6 +5,7 @@ function DownloadComponent({header, description}) {
 
     const history = useHistory();
 
+    //Only use this method to navigate from one page to another.
     const handleHistory = (header) => {
         history.push(`/alldownloadlinkpage/${header}`);
     }

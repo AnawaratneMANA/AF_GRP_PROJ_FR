@@ -4,13 +4,11 @@ import axios from 'axios'
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 
-//Importing Custom Style Sheet. 
-import styles from './style';
-import '../../CSS/loginstyle.css';
-import {loginUser} from "../../actions/users";
-const Login = () => {
+//Importing Custom Style Sheet.
+import './loginstyle.css';
+import {loginUser} from "../../../../actions/users";
+const AdminLogin = () => {
     const history = useHistory();
-    const classes = styles();
     const users = useSelector((state) => state.users);
 
   const dispatch = useDispatch();
@@ -24,7 +22,7 @@ const Login = () => {
   );
 
   const [password, setPassword] = useState();
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,6 +48,10 @@ const Login = () => {
             localStorage.setItem('userName', user.userName);
             //Auth.login(decode.sub, data.jwt, decode.userType);
 
+            if(token !== null){
+                Navigate();
+            }
+
 
         } catch (err) {
             console.log("Login Error");
@@ -58,21 +60,21 @@ const Login = () => {
     }
 
     function Navigate() {
-        history.push("/register");
+        history.push("/admin");
     }
 
     return (
     <div>
       <form onSubmit={handleSubmit}>
-      <div className="login-component">
-        <div className="login-border">
+      <div className="admin-login-component">
+        <div className="admin-login-border">
             <div className="header">
-                <h2 className="main-header">Login</h2>
+                <h2 className="main-header">Admin Login</h2>
                 <h4 className="second-header">Information</h4>
             </div>
           </div>
 
-            <div className="login-body">
+            <div className="admin-login-body">
               <div className="input-wrapper">
                 <lable>Name</lable><br/>
                 <input className="input-field"
@@ -93,9 +95,9 @@ const Login = () => {
                 />
               </div>
             
-            <div className="button-group">
-              <button className="auth-button" type="submit">Login</button><br/>
-              <button className= "auth-button" onClick={Navigate}>Registration</button>
+            <div className="admin-button-group">
+              <button className="admin-auth-button" type="submit">Login</button><br/>
+              <button className= "admin-auth-button" onClick={Navigate}>Registration</button>
               <div className="button-group-link">Forgot Password?</div>
             </div>
             </div>
@@ -106,4 +108,4 @@ const Login = () => {
 
 }
 
-export default Login;
+export default AdminLogin;
