@@ -10,18 +10,31 @@ import {useSelector} from "react-redux";
 const  AddEvent = () =>{
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
+    const [eventType , setEventType] = useState("");
+    const [eventName , setEventName] = useState("");
+    const [organizerName , setOrganizerName] = useState("");
+    const [mainSpeaker , setMainSpeakerName] = useState("");
+    const [dateTime , setDateTime] = useState("");
+    const [eventPlace , setPlace_Link] = useState("");
+    const [description  , setDescription ] = useState("");
+    const [limitOfPeople  , setNoOfPeople ] = useState("");
+    const [sponsor   , setSponsor  ] = useState("");
+    const [status  , setStatus ] = useState("reject");
+    const [image  , setImage ] = useState("");
+    let data;
 
     axios.interceptors.request.use(
         config => {
-            config.headers.authorization = 'Bearer ' + users.Token;
+            config.headers.authorization = 'Bearer ' + users.userToken;
             return config;
         },
         error => {
             return Promise.reject(error);
         }
     )
+
     useEffect(()=> {
-        if(users.userType === "yyyuu"){
+        if(users.userType === "uu"){
             window.location.href='/loginpage';
         } else {
             setFlag(true);
@@ -31,8 +44,6 @@ const  AddEvent = () =>{
     if(!flag){
         return null;
     }
-
-
 
     // axios.interceptors.request.use(
     //     config => {
@@ -46,21 +57,9 @@ const  AddEvent = () =>{
     //     }
     // )
 
-   const [eventType , setEventType] = useState("");
-   const [eventName , setEventName] = useState("");
-   const [organizerName , setOrganizerName] = useState("");
-   const [mainSpeaker , setMainSpeakerName] = useState("");
-   const [dateTime , setDateTime] = useState("");
-   const [eventPlace , setPlace_Link] = useState("");
-   const [description  , setDescription ] = useState("");
-   const [limitOfPeople  , setNoOfPeople ] = useState("");
-   const [sponsor   , setSponsor  ] = useState("");
-   const [status  , setStatus ] = useState("reject");
-   const [image  , setImage ] = useState("");
-
     const onHandle = (e) => {
         e.preventDefault();
-        const data = {
+        data = {
             eventName,
             eventPlace,
             dateTime,
