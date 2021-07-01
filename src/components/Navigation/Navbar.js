@@ -68,15 +68,15 @@ function Navbar () {
                             </Link>
                         </li>
                         <li className= "nav-item">
-                            <Link to= '/payment' className ="nav-links" onClick={closeMobileMenu}>
+                            <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
                                 REGISTRATION
                             </Link>
                         </li>
-                        {/*<li className= "nav-item">*/}
-                        {/*    <Link to= '/adminlogin' className ="nav-links" onClick={closeMobileMenu}>*/}
-                        {/*        ADMIN*/}
-                        {/*    </Link>*/}
-                        {/*</li>*/}
+                        <li className= "nav-item">
+                            <Link to= '/adminlogin' className ="nav-links" onClick={closeMobileMenu}>
+                                ADMIN
+                            </Link>
+                        </li>
                     </ul>
                     { button  && <Button onClick={() => logout()} buttonStyle= "btn--outline"> LOG OUT </Button>}
                 </div>
