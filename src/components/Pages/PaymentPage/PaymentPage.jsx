@@ -51,8 +51,8 @@ const PaymentPage = () => {
 
         //Generate the payment token.
         const handleToken = (token, address) => {
-            //console.log({token, address});
-            saveTheTransaction({token,address});
+            console.log({token, address});
+            //saveTheTransaction({token,address});
             console.log(paymentResponse);
         }
 
