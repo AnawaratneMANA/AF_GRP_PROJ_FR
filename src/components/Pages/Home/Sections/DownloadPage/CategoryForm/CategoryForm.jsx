@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import { Grid, Paper, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from '@material-ui/core';
-import {useDispatch, useSelector} from 'react-redux';
-import FileBase from 'react-file-base64';
 import axios from "axios";
 
 const useStyles = makeStyles(theme => ({
@@ -29,7 +27,7 @@ const CategoryForm = () => {
 
     const classes = useStyles();
     const classes2 = useStyle();
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const[category, setCategory] = useState("");
     const[description, setDescription] = useState("");
@@ -59,16 +57,16 @@ const CategoryForm = () => {
                                 variant="outlined"
                                 label="Category Name"
                                 name="name"
-                               // value={category}
-                                //onChange={(e) => setCategory(e.target.value)}
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
                             />
 
                             <TextField
                                 variant="outlined"
                                 label="Description"
                                 name="name"
-                                //value={description}
-                               // onChange={(e) => setDescription(e.target.value)}
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
                             />
                             <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginTop:"40px"}} >
                                 SUBMIT
