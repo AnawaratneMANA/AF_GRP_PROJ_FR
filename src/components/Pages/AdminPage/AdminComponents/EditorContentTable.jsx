@@ -24,17 +24,17 @@ const useStyles = makeStyles({
 
 function EditorContentTable() {
 
-    axios.interceptors.request.use(
-        config => {
-            config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
-                'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
-                'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
-            return config;
-        },
-        error => {
-            return Promise.reject(error);
-        }
-    )
+    // axios.interceptors.request.use(
+    //     config => {
+    //         config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
+    //             'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
+    //             'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
+    //         return config;
+    //     },
+    //     error => {
+    //         return Promise.reject(error);
+    //     }
+    // )
     const classes = useStyles();
     const [eventData, seteventData] = useState([]);
     const fetchEventDetails = async () => {

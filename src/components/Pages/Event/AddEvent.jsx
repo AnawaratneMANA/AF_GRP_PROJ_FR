@@ -1,18 +1,31 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './AddEvent.style.css'
 import TextField from '@material-ui/core/TextField';
 import FileBase from 'react-file-base64';
 
 import axios from "axios";
+import {useSelector} from "react-redux";
 
 
 const  AddEvent = () =>{
+    const users = useSelector((state) => state.users);
+    const [flag, setFlag] = useState(null)
+    const [eventType , setEventType] = useState("");
+    const [eventName , setEventName] = useState("");
+    const [organizerName , setOrganizerName] = useState("");
+    const [mainSpeaker , setMainSpeakerName] = useState("");
+    const [dateTime , setDateTime] = useState("");
+    const [eventPlace , setPlace_Link] = useState("");
+    const [description  , setDescription ] = useState("");
+    const [limitOfPeople  , setNoOfPeople ] = useState("");
+    const [sponsor   , setSponsor  ] = useState("");
+    const [status  , setStatus ] = useState("reject");
+    const [image  , setImage ] = useState("");
+    let data;
 
     axios.interceptors.request.use(
         config => {
-            config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBa2FzaCIsIn' +
-                'VzZXJUeXBlIjoieXl5dXUiLCJleHAiOjE2MjUwMjkwNTksImlhdCI6MTYyNDk5MzA1OX0.' +
-                'bGKQ7C8npwjQFoa2tDNrzThKXrcsufFZsDKBsvtt9ho';
+            config.headers.authorization = 'Bearer ' + users.userToken;
             return config;
         },
         error => {
@@ -20,21 +33,33 @@ const  AddEvent = () =>{
         }
     )
 
-   const [eventType , setEventType] = useState("");
-   const [eventName , setEventName] = useState("");
-   const [organizerName , setOrganizerName] = useState("");
-   const [mainSpeaker , setMainSpeakerName] = useState("");
-   const [dateTime , setDateTime] = useState("");
-   const [eventPlace , setPlace_Link] = useState("");
-   const [description  , setDescription ] = useState("");
-   const [limitOfPeople  , setNoOfPeople ] = useState("");
-   const [sponsor   , setSponsor  ] = useState("");
-   const [status  , setStatus ] = useState("reject");
-   const [image  , setImage ] = useState("");
+    useEffect(()=> {
+        if(users.userType === "uu"){
+            window.location.href='/loginpage';
+        } else {
+            setFlag(true);
+        }
+    }, [])
+
+    if(!flag){
+        return null;
+    }
+
+    // axios.interceptors.request.use(
+    //     config => {
+    //         config.headers.authorization = 'Bearer' + 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBa2FzaCIsIn' +
+    //             'VzZXJUeXBlIjoieXl5dXUiLCJleHAiOjE2MjUwMjkwNTksImlhdCI6MTYyNDk5MzA1OX0.' +
+    //             'bGKQ7C8npwjQFoa2tDNrzThKXrcsufFZsDKBsvtt9ho';
+    //         return config;
+    //     },
+    //     error => {
+    //         return Promise.reject(error);
+    //     }
+    // )
 
     const onHandle = (e) => {
         e.preventDefault();
-        const data = {
+        data = {
             eventName,
             eventPlace,
             dateTime,

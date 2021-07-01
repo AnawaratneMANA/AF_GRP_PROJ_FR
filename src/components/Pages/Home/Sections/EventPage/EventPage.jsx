@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import EventComponent from "./EventComponent";
 import '../../../../../CSS/event.scss';
 import AddEvent from "../../../Event/AddEvent";
@@ -6,6 +6,8 @@ import event1 from "../../../../../Images/EventImages/screen6.jpg";
 import {BrowserRouter as Router, useHistory} from 'react-router-dom';
 import Speaker from "../../../../KeySpeakers/SpeakersImges/profile.webp";
 import Ratings1 from "../../../../Ratings/Ratings1";
+import axios from "axios";
+import {useSelector} from "react-redux";
 
 const EventPage = () => {
 
@@ -14,6 +16,28 @@ const EventPage = () => {
     const handleHistory = () => {
         history.push('/eventpage');
     }
+
+    const fetchEventDetails = async () => {
+        try {
+            const response = await axios
+                .get("http://localhost:8093/api/v1/events")
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+            console.log(response.data);
+            //seteventData(response.data)
+
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        // dispatch(timeEntryActions.getTimeEntryDetail())
+        fetchEventDetails();
+    }, [])
+
     const rows = [
         {"title1": 'component1',"title2": 'name1', "image": event1},
         {"title1": 'component2',"title2": 'name2', "image": event1},
