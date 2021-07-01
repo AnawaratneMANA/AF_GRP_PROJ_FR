@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Grid, Paper, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from '@material-ui/core';
@@ -32,16 +32,40 @@ function FeedBackForm(){
     const classes2 = useStyle();
     const dispatch = useDispatch();
 
+    const users = useSelector((state) => state.users);
+    const [flag, setFlag] = useState(null)
     const[name, setName] = useState("");
     const[image,setImage] = useState("");
     const[qualifications,setQualifications] = useState("");
+
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer ' + users.userToken;
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
+
+    useEffect(()=> {
+        if(users.userType === "uu"){
+            window.location.href='/loginpage';
+        } else {
+            setFlag(true);
+        }
+    }, [])
+
+    if(!flag){
+        return null;
+    }
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = {
-            image,
             name,
+            image,
             qualifications
         }
         console.log(data)
