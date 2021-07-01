@@ -1,15 +1,12 @@
 import React from "react";
 import CollapsComponent from "../CollapsComponent";
 import { getByTestId, render } from '@testing-library/react';
-
-
 let container = null;
 
 describe('CollapsComponent form UI', () => {
     beforeEach(() => {
         container = render(<CollapsComponent />).container;
     });
-
     it('should render containermain', () => {
         expect(getByTestId(container, 'containermain')).toBeTruthy();
     });
@@ -22,7 +19,6 @@ describe('CollapsComponent form UI', () => {
     it('should render container-des', () => {
         expect(getByTestId(container, 'container-des')).toBeTruthy();
     });
-
     it('should render container-lower', () => {
         expect(getByTestId(container, 'container-lower')).toBeTruthy();
     });
@@ -32,5 +28,4 @@ describe('CollapsComponent form UI', () => {
     it('should render container-lower-des', () => {
         expect(getByTestId(container, 'container-lower-des')).toBeTruthy();
     });
-
 });
