@@ -72,6 +72,11 @@ function Navbar () {
                                 REGISTRATION
                             </Link>
                         </li>
+                        <li className= "nav-item">
+                            <Link to= '/adminlogin' className ="nav-links" onClick={closeMobileMenu}>
+                                ADMIN
+                            </Link>
+                        </li>
                     </ul>
                     { button  && <Button onClick={() => logout()} buttonStyle= "btn--outline"> LOG OUT </Button>}
                 </div>
