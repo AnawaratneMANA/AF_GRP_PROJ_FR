@@ -26,17 +26,29 @@ const useStyle = makeStyles(theme => ({
 
 function UserdetailForm({value}){
     const users = useSelector((state) => state.users);
-    const token = users.userToken;
-    console.log(value);
+    const [flag, setFlag] = useState(null)
+    console.log(users.userToken);
     axios.interceptors.request.use(
         config => {
-            config.headers.authorization = `Bearer ${token}`;
+            config.headers.authorization = 'Bearer ' + users.Token;
             return config;
         },
         error => {
             return Promise.reject(error);
         }
     )
+    // useEffect(()=> {
+    //     if(users.userType === "Admin"){
+    //         window.location.href='/loginpage';
+    //     } else {
+    //         setFlag(true);
+    //     }
+    // }, [])
+    //
+    // if(!flag){
+    //     return null;
+    // }
+
     const classes = useStyles();
     const classes2 = useStyle();
     const dispatch = useDispatch();
@@ -46,6 +58,13 @@ function UserdetailForm({value}){
     const[password, setPassword] = useState("");
     const[type, setType] = useState("");
 
+    useEffect(() => {
+        setFirstName(value.firstName);
+        setLastname(value.lastName);
+        setUserName(value.userName);
+        setPassword(value.password);
+        setType(value.type);
+    }, [value])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -59,19 +78,14 @@ function UserdetailForm({value}){
 
         }
 
-
-        // axios.put('http://localhost:8073/updateCreditCardDetailsById/'+this.props.match.params.id, payment).then(() => {
-        //     alert("payment updated");
-        //     window.location = '/payment';
-        // }).catch((err) => {
-        //     console.log(err);
-        // })
-        //call the url
-        // dispatch()
+        console.log(userData);
+        axios.put('http://localhost:8093/api/v1/updateUser/'+value.id, userData).then(() => {
+            alert("user updated");
+        }).catch((err) => {
+            console.log(err);
+        })
 
     }
-
-    console.log(token);
 
 
     return (
@@ -84,7 +98,6 @@ function UserdetailForm({value}){
                         <TextField
                             variant="outlined"
                             name="firstName"
-                            defaultValue={value.firstName}
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                         />
@@ -93,7 +106,7 @@ function UserdetailForm({value}){
                             variant="outlined"
                             name="lastName"
                             label="last name"
-                            defaultValue={value.lastName}
+                            defaultValue={lastName}
                             value={lastName}
                             onChange={(e) => setLastname(e.target.value)}
                         />
@@ -101,8 +114,8 @@ function UserdetailForm({value}){
                         <TextField
                             variant="outlined"
                             name="userName"
-                            defaultValue={value.userName}
-                            value={value.userName}
+                            defaultValue={userName}
+                            value={userName}
                             onChange={(e) => setUserName(e.target.value)}
                         />
                         <InputLabel> Password</InputLabel>
@@ -110,8 +123,8 @@ function UserdetailForm({value}){
                             variant="outlined"
                             name="password"
                             type="password"
-                            defaultValue={value.password}
-                            value={value.password}
+                            defaultValue={password}
+                            value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <InputLabel> Type </InputLabel>
@@ -120,18 +133,19 @@ function UserdetailForm({value}){
                             <Select
                                 labelId="demo-simple-select-outlined-label"
                                 id="demo-simple-select-outlined"
-                                defaultValue={value.type}
+                                defaultValue={type}
                                 value={type}
                                 onChange={(e) => setType(e.target.value)}
+                                //setSelectedTags( e ? e.map(item => item.value) : []);
                                 label="Age"
                             >
                                 <MenuItem value="">
                                     <em>None</em>
                                 </MenuItem>
-                                <MenuItem value={10}>Reviewer</MenuItem>
-                                <MenuItem value={20}>Admin</MenuItem>
-                                <MenuItem value={30}>Researcher</MenuItem>
-                                <MenuItem value={30}>Editor</MenuItem>
+                                <MenuItem value="Reviewer">Reviewer</MenuItem>
+                                <MenuItem value="Admin">Admin</MenuItem>
+                                <MenuItem value="Researcher">Researcher</MenuItem>
+                                <MenuItem value="Editor">Editor</MenuItem>
                             </Select>
                         </FormControl>
                         <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginLeft:"13px"}} >

@@ -12,17 +12,17 @@ import axios from "axios";
 
 
 function TotalDownloadGraph() {
-    axios.interceptors.request.use(
-        config => {
-            config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
-                'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
-                'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
-            return config;
-        },
-        error => {
-            return Promise.reject(error);
-        }
-    )
+    // axios.interceptors.request.use(
+    //     config => {
+    //         config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
+    //             'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
+    //             'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
+    //         return config;
+    //     },
+    //     error => {
+    //         return Promise.reject(error);
+    //     }
+    // )
     const [acceptvalue, setAcceptValue] = useState(70);
     const [rejectvalue, setRejectValue] = useState(30);
 
