@@ -38,6 +38,7 @@ const App = () => {
 
                     <Route path = "/admin" component={AdminPage}/>
                     <Route path = "/allFeedbackPage" component={FeedBackAllPage}/>
+                    <Route path = "/payment" component={FeedBackAllPage}/>
 
                     </Switch>
                 </BrowserRouter>
