@@ -41,10 +41,14 @@ const PaymentPage = () => {
             return null;
         }
 
+        const body = {
+            "discription": "cat"
+        }
+
 
         //Save the transaction to the backend.
         const saveTheTransaction = async (body) => {
-            const {data} = await axios.post("http://localhost:8093/api/v1/checkout", body).then(
+            await axios.post("http://localhost:8093/api/v1/charge", body).then(
                 (res) => { SetPaymentResponse(res)}
             ). catch((er) => er.message);
         }
@@ -52,9 +56,10 @@ const PaymentPage = () => {
         //Generate the payment token.
         const handleToken = (token, address) => {
             console.log({token, address});
+            //Calling DB And Register the Payment.
             //saveTheTransaction({token,address});
-
-            //console.log(paymentResponse);
+            //Print the result to the console.
+            console.log(paymentResponse)
 
             //Calling DB method.
 
@@ -97,7 +102,7 @@ const PaymentPage = () => {
 
 
                     <div className="expiry-date-group form-group">
-                        <label htmlFor="ExpiryDate">Expiry date</label> <br/>
+                        <label htmlFor="ExpiryDate">Expiry date</label><br/>
                         <select name="months" id="months">
                             <option value="Jan">Jan</option>
                             <option value="Feb">Feb</option>
