@@ -1,10 +1,6 @@
 import React, {useState} from 'react';
 import './Speakers.css';
 
-
-
-
-
 function KeySpeaker1({rows}){
     return(
         <div className="speaker">
