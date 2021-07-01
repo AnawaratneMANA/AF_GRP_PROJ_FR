@@ -2,11 +2,13 @@ import React from 'react';
 import KeySpeaker1 from "../../../../KeySpeakers/KeySpeaker1";
 import Speaker from '../../../../KeySpeakers/SpeakersImges/profile.webp'
 import './keyspeakers.css'
+import {useHistory} from "react-router-dom";
 
 function SpeakersPage() {
 
+    const history = useHistory();
     const handleHistory = () => {
-        //history.push('/alldownloadPage');
+        history.push('/allKeySpeakerPage');
     }
 
     //Call API here and Replace the Array.

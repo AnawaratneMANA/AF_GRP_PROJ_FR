@@ -17,6 +17,7 @@ import TestingEmptyComponent from "./components/TestingEmptyComponent/ProtectedE
 import EventMainPage from "./components/Pages/EventPage/EventMainPage";
 import FeedBackAllPage from "./components/Pages/FeedBackPage/FeedBackAllPage";
 import AdminLoginPage from "./components/Pages/AdminLoginPage/AdminLoginPage";
+import KeySpeakerAllPage from "./components/Pages/Home/Sections/SpeakersPage/KeySpeakerAllPage";
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
                     <Route path = "/admin" component={AdminPage}/>
                     <Route path = "/allFeedbackPage" component={FeedBackAllPage}/>
                     <Route path = "/payment" component={FeedBackAllPage}/>
+                    <Route path = "/allKeySpeakerPage" component={KeySpeakerAllPage}/>
                     <Route path = "/adminlogin" component={AdminLoginPage}/>
 
                     </Switch>

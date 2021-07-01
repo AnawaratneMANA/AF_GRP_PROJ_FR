@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-// import './DownloadAllPage.scss';
+import './KeySpeakersAllPage.scss';
 // import DownloadComponent from './DownloadComponent/DownloadComponent';
 // import CategoryForm from "./CategoryForm/CategoryForm";
 import {useSelector} from "react-redux";
@@ -34,16 +34,16 @@ function KeySpeakerAllPage() {
     ];
 
     return (
-        <div className="downloadallpage">
-            <input type="search" name="" id="" className="searchdownloads" placeholder="search downloads" /><br />
+        <div className="key-speaker-page">
             <h1 className="downloadallpage-header">All Key Speakers page</h1>
-            <div className="download-category-form">
+            <input type="search" name="" id="" className="search-speakers" placeholder="search downloads" /><br />
+            <div className="key-speakers-form">
                 <KeySpeakerForm/>
             </div>
-            <div className="alldownloadlist">
-                <div className="alldownloadrow">
+            <div className="all-key-speakers-list">
+                <div className="all-key-speakers-row">
                     {rows.map((row) => (
-                        <KeySpeaker1 header={row.name} description={row.title} image={row.image}/>
+                        <KeySpeaker1 rows={row}/>
                     ))}
                 </div>
             </div>
