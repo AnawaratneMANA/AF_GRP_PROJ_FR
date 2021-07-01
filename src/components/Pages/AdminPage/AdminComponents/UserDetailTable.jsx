@@ -10,7 +10,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Button, Link} from "@material-ui/core";
 import axios from "axios";
-import {useSelector} from "react-redux";
 
 const useStyles = makeStyles({
     table: {
@@ -21,18 +20,6 @@ const useStyles = makeStyles({
 
 //const authAxios =
 function UserDetailTable({method}) {
-
-    const users = useSelector((state) => state.users);
-    const token = users.token;
-    axios.interceptors.request.use(
-        config => {
-            config.headers.authorization = `Bearer ${token}`;
-            return config;
-        },
-        error => {
-            return Promise.reject(error);
-        }
-    )
     const classes = useStyles();
     const [userData, setuserData] = useState([]);
     const fetchUserDetails = async () => {
