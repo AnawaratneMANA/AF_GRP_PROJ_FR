@@ -14,7 +14,7 @@ const AdminPage = () => {
     const [tableUser, setTableUser] = useState([]);
     //Add this to protected Components to avoid unauthorized users from comming.
     useEffect(()=> {
-        if(users.userType === "Admin"){
+        if(users.userType != "Admin"){
             window.location.href='/loginpage';
         } else {
             setFlag(true);

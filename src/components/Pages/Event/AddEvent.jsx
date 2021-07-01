@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './AddEvent.style.css'
 import TextField from '@material-ui/core/TextField';
 import FileBase from 'react-file-base64';
@@ -20,6 +20,17 @@ const  AddEvent = () =>{
             return Promise.reject(error);
         }
     )
+    useEffect(()=> {
+        if(users.userType === "yyyuu"){
+            window.location.href='/loginpage';
+        } else {
+            setFlag(true);
+        }
+    }, [])
+
+    if(!flag){
+        return null;
+    }
 
 
 
