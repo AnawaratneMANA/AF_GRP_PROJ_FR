@@ -49,7 +49,7 @@ const CategoryForm = () => {
     return (
         <div>
             <Paper className={classes.pageContent}>
-                <h3>Key Speaker Form</h3>
+                <h3>Insert Category Form</h3>
                 <form className={classes2.root} onSubmit={handleSubmit}>
                     <Grid container>
                         <Grid item xs={12}>
