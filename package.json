@@ -5,13 +5,13 @@
   "main": "src/index.jsx",
   "scripts": {
     "start": "react-scripts start",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "build": "react-scripts build"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@materials-ui/core": "0.0.27",
-    "parcel": "^2.0.0-nightly.732",
     "react-stripe-checkout": "^2.6.3",
     "react-uuid": "^1.0.2"
   },

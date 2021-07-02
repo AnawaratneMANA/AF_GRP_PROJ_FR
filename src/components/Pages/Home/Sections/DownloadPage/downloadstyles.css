@@ -13,22 +13,24 @@
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   grid-auto-rows: minmax(1px, auto);
-  justify-content: left;
+  justify-content: center;
   align-items: normal;
   grid-gap: 2%;
   margin-left: 50px;
   padding-bottom: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 90%;
 }
-
-.header {
+.download-main-container .header {
   padding-left: 60px;
   padding-top: 20px;
 }
-.header .main {
+.download-main-container .header .main {
   font-size: 48px;
   font-weight: bold;
 }
-.header .second {
+.download-main-container .header .second {
   margin-top: -19px;
   font-size: 28.69px;
   font-weight: bold;

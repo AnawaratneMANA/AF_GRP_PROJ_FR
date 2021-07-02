@@ -13,6 +13,8 @@ const EventPage = () => {
 
     const history = useHistory();
 
+    const [data, setData] = useState([]);
+
     const handleHistory = () => {
         history.push('/eventpage');
     }
@@ -22,10 +24,9 @@ const EventPage = () => {
             const response = await axios
                 .get("http://localhost:8093/api/v1/events")
                 .catch((error) => {
-                    console.log("Error", error);
                 });
+            setData(response.data);
             console.log(response.data);
-            //seteventData(response.data)
 
         } catch (err) {
             console.log("Error");
@@ -60,9 +61,8 @@ const EventPage = () => {
                 <br />
                 <div className="home-container-main">
                     <div className="main-home-row">
-                        {rows.map((row)=> (
+                        {data.slice(0,4).map((row)=> (
                                 <EventComponent rows = {row}/>
-
                         ))}
                     </div>
                 </div>

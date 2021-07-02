@@ -58,6 +58,9 @@ const AdminPage = () => {
 
     console.log(data);
 
+
+    const [eventArray, setEventArray] = useState([]);
+    //Add this to protected Components to avoid unauthorized users from comming.kkkk
     useEffect(()=> {
         if(users.userType != "Admin"){
             window.location.href='/loginpage';
@@ -78,7 +81,7 @@ const AdminPage = () => {
                 <div className="admin__container">
                     <div className="admin__row">
                     <h1> Monitoring Section </h1>
-                        {/*<CollapsComponent/>*/}
+                        <CollapsComponent/>
                     </div>
                     <div className="admin__row1">
                         {data.map((value) => (

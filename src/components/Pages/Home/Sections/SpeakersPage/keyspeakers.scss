@@ -33,13 +33,15 @@
 
 .cardlayout-keynotespeakers{
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
   grid-auto-rows: minmax(1px, auto);
   justify-content: left;
   align-items: center;
   text-align: center;
-  grid-gap: 1%;
-  margin-left: 50px;
+  grid-gap: 3%;
   margin-top: 200px;
   padding-bottom: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 90%
 }

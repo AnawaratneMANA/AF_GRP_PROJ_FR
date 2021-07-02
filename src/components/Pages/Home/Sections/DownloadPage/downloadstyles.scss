@@ -2,6 +2,7 @@
   &.download {
     background-color: #A1ABCF;
   }
+
   #{&}-download-button {
     color: #242424;
     position: absolute;
@@ -10,32 +11,37 @@
     width: 5%;
     border-radius: 20px;
   }
+
   .cardLayout {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-auto-rows: minmax(1px, auto);
-    justify-content: left;
+    justify-content: center;
     align-items: normal;
     grid-gap: 2%;
     margin-left: 50px;
     padding-bottom: 10px;
-  }
-}
-
-.header {
-  padding-left: 60px;
-  padding-top: 20px;
-
-  .main {
-    font-size: 48px;
-    font-weight: bold;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 90%;
   }
 
-  .second {
-    margin-top: -19px;
-    font-size: 28.69px;
-    font-weight: bold;
-    opacity: 60%;
+
+  .header {
+    padding-left: 60px;
+    padding-top: 20px;
+
+    .main {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .second {
+      margin-top: -19px;
+      font-size: 28.69px;
+      font-weight: bold;
+      opacity: 60%;
+    }
   }
 }
 

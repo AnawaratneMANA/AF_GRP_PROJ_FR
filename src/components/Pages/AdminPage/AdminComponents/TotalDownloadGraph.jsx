@@ -42,9 +42,6 @@ function TotalDownloadGraph() {
                     argumentField="value"
                     
                 />
-                <Title
-                    text="Event Graph"
-                />
                 <Animation />
                 </Chart>
             </Paper>

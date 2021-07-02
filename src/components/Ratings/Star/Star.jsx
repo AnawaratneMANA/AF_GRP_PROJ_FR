@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FaStar} from "react-icons/fa";
 import './Star.css';
 
@@ -6,6 +6,11 @@ const Star = ({value, method}) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
     console.log(method);
+
+    useEffect(()=> {
+
+    },[method])
+
     return(
       <div>
           {[...Array(value)].map((star, i) => {
@@ -15,7 +20,7 @@ const Star = ({value, method}) => {
                       <input
                           type="radio"
                           name="rating"
-                          value={ratingValue}
+                          value={() => ratingValue}
                           onClick={() => setRating(ratingValue)}
                       />
                       <FaStar
@@ -24,7 +29,6 @@ const Star = ({value, method}) => {
                           size={40}
                           onMouseOver={() => setHover(ratingValue)}
                           onMouseLeave={() => setHover(method)}
-                          values={method}
                       />
                   </label>
               );

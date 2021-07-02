@@ -4,8 +4,8 @@ import './KeySpeackerComponentHome.css';
 function KeySpeakerComponentHome({rows}){
     return(
         <div className="home-speaker">
-            <div className="img_top">
-                <img className='photo' src={rows.image}/>
+            <div className="home-speaker-image-top">
+                <img className='home-speaker-image' src={rows.image}/>
             </div>
             <div className="speaker-info">
                 <h3 className="speaker-info-header">{rows.name}</h3>

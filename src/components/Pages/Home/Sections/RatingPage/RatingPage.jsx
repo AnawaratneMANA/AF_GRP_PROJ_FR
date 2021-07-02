@@ -45,7 +45,7 @@ function RatingPage() {
                 <h4 className="rating-header-second-header">Information</h4>
             </div>
             <div className="cardLayout">
-                {feedbackData.map((row) => (
+                {feedbackData.slice(0,4).map((row) => (
                     console.log(row),
                         <Ratings1 rows={row}/>
                 ))}

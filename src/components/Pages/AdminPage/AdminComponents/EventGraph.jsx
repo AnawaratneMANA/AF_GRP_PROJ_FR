@@ -24,13 +24,12 @@ function EventGraph() {
     //     }
     // )
     const data = [
-        { year: '1950', population: 2.525 },
-        { year: '1960', population: 3.018 },
-        { year: '1970', population: 3.682 },
-        { year: '1980', population: 4.440 },
-        { year: '1990', population: 5.310 },
-        { year: '2000', population: 6.127 },
-        { year: '2010', population: 6.930 },
+        { year: '2015', population: 140 },
+        { year: '2016', population: 150 },
+        { year: '2017', population: 160 },
+        { year: '2018', population: 170 },
+        { year: '2019', population: 180 },
+        { year: '2020', population: 190 },
     ];
 
     const [chartData, setchartData] = useState(data)
@@ -47,13 +46,12 @@ function EventGraph() {
                     data={chartData}
                 >
                     <ArgumentAxis />
-                    <ValueAxis max={7} />
+                    <ValueAxis max={200} />
 
                     <BarSeries
                         valueField="population"
                         argumentField="year"
                     />
-                    <Title text="World population" />
                     <Animation />
                 </Chart>
             </Paper>
