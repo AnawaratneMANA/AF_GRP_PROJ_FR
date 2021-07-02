@@ -15,7 +15,7 @@ const AdminPage = () => {
     const [tableUser, setTableUser] = useState([]);
     const [isSubmited, setIsSubmitted] = useState(false);
     const [eventArray, setEventArray] = useState([]);
-    //Add this to protected Components to avoid unauthorized users from comming.
+    //Add this to protected Components to avoid unauthorized users from comming.kkkk
     useEffect(()=> {
         if(users.userType != "Admin"){
             window.location.href='/loginpage';
@@ -34,7 +34,7 @@ const AdminPage = () => {
                 <div className="admin__container">
                     <div className="admin__row">
                     <h1> Monitoring Section </h1>
-                        {/*<CollapsComponent/>*/}
+                        <CollapsComponent/>
                     </div>
                     <div className="admin__row">
                         {/*<AdminStatistics/>*/}
