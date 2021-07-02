@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Button, Link} from "@material-ui/core";
 import axios from "axios";
+import {useSelector} from "react-redux";
 
 const useStyles = makeStyles({
     table: {
@@ -22,6 +23,20 @@ const useStyles = makeStyles({
 function UserDetailTable({method}) {
     const classes = useStyles();
     const [userData, setuserData] = useState([]);
+    const users = useSelector((state) => state.users);
+    const [flag, setFlag] = useState(null)
+    console.log(users.userToken);
+
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer ' + users.userToken;
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
+
     const fetchUserDetails = async () => {
         try {
             const response = await axios
@@ -47,6 +62,9 @@ function UserDetailTable({method}) {
     }
     const deleteUser = (id) => {
         console.log(id);
+        axios.delete('http://localhost:8093/api/v1/deleteUser/'+id)
+            .then(res => console.log(res.data));
+
     }
 
     return (

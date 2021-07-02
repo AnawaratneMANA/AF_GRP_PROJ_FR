@@ -5,6 +5,7 @@ import {Paper, makeStyles} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import {useDispatch, useSelector} from 'react-redux';
 import axios from "axios";
+import {useHistory} from "react-router-dom";
 const useStyles = makeStyles(theme => ({
     pageContent: {
         // margin: theme.spacing(5),
@@ -25,30 +26,6 @@ const useStyle = makeStyles(theme => ({
 }))
 
 function UserdetailForm({value}){
-    const users = useSelector((state) => state.users);
-    const [flag, setFlag] = useState(null)
-    console.log(users.userToken);
-    axios.interceptors.request.use(
-        config => {
-            config.headers.authorization = 'Bearer ' + users.Token;
-            return config;
-        },
-        error => {
-            return Promise.reject(error);
-        }
-    )
-    // useEffect(()=> {
-    //     if(users.userType === "Admin"){
-    //         window.location.href='/loginpage';
-    //     } else {
-    //         setFlag(true);
-    //     }
-    // }, [])
-    //
-    // if(!flag){
-    //     return null;
-    // }
-
     const classes = useStyles();
     const classes2 = useStyle();
     const dispatch = useDispatch();
@@ -57,6 +34,26 @@ function UserdetailForm({value}){
     const[userName, setUserName] = useState("");
     const[password, setPassword] = useState("");
     const[type, setType] = useState("");
+    const users = useSelector((state) => state.users);
+    const [flag, setFlag] = useState(null)
+    console.log(users.userToken);
+    const history = useHistory();
+
+    const handleHistory = () => {
+        history.push('/admin');
+    }
+
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer ' + users.userToken;
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
+
+
 
     useEffect(() => {
         setFirstName(value.firstName);
@@ -80,6 +77,7 @@ function UserdetailForm({value}){
 
         console.log(userData);
         axios.put('http://localhost:8093/api/v1/updateUser/'+value.id, userData).then(() => {
+            //window.location.href('/admin');
             alert("user updated");
         }).catch((err) => {
             console.log(err);
@@ -146,6 +144,9 @@ function UserdetailForm({value}){
                                 <MenuItem value="Admin">Admin</MenuItem>
                                 <MenuItem value="Researcher">Researcher</MenuItem>
                                 <MenuItem value="Editor">Editor</MenuItem>
+                                <MenuItem value="Workshop Conductor">Workshop Conductor</MenuItem>
+                                <MenuItem value="Attendee">Attendee</MenuItem>
+                                <MenuItem value="User">User</MenuItem>
                             </Select>
                         </FormControl>
                         <Button variant="contained" type='Submit' style={{background: "#1976d2", color:"white", width:"150px", marginLeft:"13px"}} >

@@ -13,6 +13,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link} from "@material-ui/core";
 import axios from 'axios';
+import {useSelector} from "react-redux";
 
 const useStyles = makeStyles({
     table: {
@@ -24,19 +25,22 @@ const useStyles = makeStyles({
 
 function EditorContentTable() {
 
-    // axios.interceptors.request.use(
-    //     config => {
-    //         config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
-    //             'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
-    //             'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
-    //         return config;
-    //     },
-    //     error => {
-    //         return Promise.reject(error);
-    //     }
-    // )
     const classes = useStyles();
     const [eventData, seteventData] = useState([]);
+    const users = useSelector((state) => state.users);
+    const [flag, setFlag] = useState(null)
+    console.log(users.userToken);
+
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer ' + users.userToken;
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
+
     const fetchEventDetails = async () => {
         try {
             const response = await axios
