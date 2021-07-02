@@ -14,6 +14,7 @@ import Paper from '@material-ui/core/Paper';
 import {Link} from "@material-ui/core";
 import axios from 'axios';
 import {useSelector} from "react-redux";
+import {forEach} from "react-bootstrap/ElementChildren";
 
 const useStyles = makeStyles({
     table: {
@@ -23,7 +24,8 @@ const useStyles = makeStyles({
 
 //function EditorContentTable({method, setvalue}) {
 
-function EditorContentTable({isSubmit}) {
+function EditorContentTable({isSubmit, isSubmitted}) {
+    //var count1 = 0;
     console.log(isSubmit)
     const classes = useStyles();
     const [eventData, seteventData] = useState([]);
@@ -42,7 +44,12 @@ function EditorContentTable({isSubmit}) {
     )
 
 
-
+    // const countdecline = (eventData) => {
+    //     for (let item in eventData) {
+    //         console.log(item);
+    //     }
+    //     console.log(count1++);
+    // }
     const fetchEventDetails = async () => {
         try {
             const response = await axios
@@ -58,11 +65,12 @@ function EditorContentTable({isSubmit}) {
             console.log(err.message);
         }
     }
+
     useEffect(() => {
        fetchEventDetails();
     }, [isSubmit])
 
-
+    // countdecline(eventData)
     const approve = (id) => {
         const status = "approved";
         const eventData = {
@@ -70,7 +78,9 @@ function EditorContentTable({isSubmit}) {
         }
         console.log(eventData)
         axios.put('http://localhost:8093/api/v1/updateEvent/'+id, eventData).then(() => {
+            isSubmitted(true)
             alert("event updated");
+            isSubmitted(false)
         }).catch((err) => {
             console.log(err);
         })
@@ -85,7 +95,9 @@ function EditorContentTable({isSubmit}) {
         }
         console.log(eventData)
         axios.put('http://localhost:8093/api/v1/updateEvent/'+id, eventData).then(() => {
+            isSubmitted(true)
             alert("event updated");
+            isSubmitted(false)
         }).catch((err) => {
             console.log(err);
         })

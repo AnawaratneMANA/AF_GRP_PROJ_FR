@@ -79,11 +79,12 @@
     display: grid;
     grid-template-columns: auto auto auto auto ;
     grid-auto-rows: minmax(1px, auto);
-    justify-content: left;
+    justify-content: center;
     align-items: normal;
     grid-gap: 1%;
+    margin-left: 50px;
 }
 
-.home__container{
-    margin-left: 3%;
+.home-container-main{
+    margin-left: 40px;
 }

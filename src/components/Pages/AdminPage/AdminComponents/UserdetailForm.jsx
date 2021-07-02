@@ -79,6 +79,7 @@ function UserdetailForm({value, isSubmitted}){
             //window.location.href('/admin');
             isSubmitted(true)
             alert("user updated");
+            isSubmitted(false)
         }).catch((err) => {
             console.log(err);
         })
