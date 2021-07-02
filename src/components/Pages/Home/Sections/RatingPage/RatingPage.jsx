@@ -1,23 +1,39 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Ratings1 from "../../../../Ratings/Ratings1";
 import './ratingstyles.scss'
 import Speaker from "../../../../KeySpeakers/SpeakersImges/profile.webp";
 import {useHistory} from "react-router-dom";
+import {useSelector} from "react-redux";
+import axios from "axios";
 
 function RatingPage() {
 
     const history = useHistory();
-
+    const [feedbackData, setFeedbackData] = useState([]);
+    // const users = useSelector((state) => state.users);
     const handleHistory = () => {
         history.push('/allFeedBackPage');
     }
 
-    const rows = [
-        {"title": 'Rating 1', "description": 'We want to help', "stars": 5, "image": Speaker},
-        {"title": 'Rating 1', "description": 'We want to help', "stars": 2, "image": Speaker},
-        {"title": 'Rating 1', "description": 'We want to help', "stars": 4, "image": Speaker},
-        {"title": 'Rating 1', "description": 'We want to help', "stars": 2, "image": Speaker},
-    ];
+    const fetchFeedBackDetails2 = async () => {
+        try {
+            const response = await axios
+                .get("http://localhost:8093/api/v1/feedbacks")
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+            setFeedbackData(response.data)
+
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchFeedBackDetails2();
+    }, [])
+
     return (<React.Fragment>
         <div className="rating-section">
             <div className="rating-header">
@@ -29,10 +45,9 @@ function RatingPage() {
                 <h4 className="rating-header-second-header">Information</h4>
             </div>
             <div className="cardLayout">
-                {rows.map((row) => (
-                    <div className="card-rating">
+                {feedbackData.map((row) => (
+                    console.log(row),
                         <Ratings1 rows={row}/>
-                    </div>
                 ))}
             </div>
         </div>

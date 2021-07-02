@@ -5,7 +5,7 @@ import './Star.css';
 const Star = ({value, method}) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
-
+    console.log(method);
     return(
       <div>
           {[...Array(value)].map((star, i) => {
@@ -24,6 +24,7 @@ const Star = ({value, method}) => {
                           size={40}
                           onMouseOver={() => setHover(ratingValue)}
                           onMouseLeave={() => setHover(method)}
+                          values={method}
                       />
                   </label>
               );
