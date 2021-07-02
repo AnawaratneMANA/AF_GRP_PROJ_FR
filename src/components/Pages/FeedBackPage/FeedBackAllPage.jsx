@@ -13,6 +13,7 @@ function FeedBackAllPage() {
     const [feedbackData, setFeedbackData] = useState([]);
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
+    const [isSubmited, setIsSubmitted] = useState(false);
 
     const fetchFeedBackDetails = async () => {
         try {
@@ -31,7 +32,7 @@ function FeedBackAllPage() {
 
     useEffect(() => {
         fetchFeedBackDetails();
-    }, [])
+    }, [isSubmited])
 
     //Add this to protected Components to avoid unauthorized users from comming
     useEffect(()=> {
@@ -51,7 +52,7 @@ function FeedBackAllPage() {
             <h1>All Feedback page</h1>
             <div className="alldownloadlist">
                 <div className={"feed-back-form"}>
-                    <FeedBackForm/>
+                    <FeedBackForm isSubmitted = {setIsSubmitted}/>
                 </div>
                 <div className="all-feedback-row">
                     <div className="cardLayout">
