@@ -15,7 +15,7 @@ const PaymentPage = () => {
     const users = useSelector((state) => state.users);
     const token = users.userToken;
     const [flag, setFlag] = useState(null)
-    const [paymentResponse, SetPaymentResponse] = useState();
+    const [paymentResponse, setPaymentResponse] = useState(null);
 
     //Creating  Authorization Header for Axios Requests
     axios.interceptors.request.use(
@@ -51,11 +51,11 @@ const PaymentPage = () => {
                 token: body.id,
                 amount: 50,
             }
-        })
+        }).then((res) => {setPaymentResponse(res)});
     }
 
     //Emails Invoker method.
-    const sendEmailsToCustomers = () => {
+    const sendEmailsToCustomers = (email) => {
         //Send Email to the customer.
         const userID = 'user_vjTwqbgkFdhOFYeJufJxC';
         const templateId = 'template_7my6c7z';
@@ -63,7 +63,7 @@ const PaymentPage = () => {
         sendFeedback(serviceID, templateId, {
             from_name: "Team WE19",
             message: "Payment is done successfully",
-            to_name: token.email
+            to_name: email
         }, userID)
     }
 
@@ -86,9 +86,12 @@ const PaymentPage = () => {
         //Printing the Token Testing.
         console.log(token.email)
 
-        //Sending Emails to the Customers.
-        //sendEmailsToCustomers();
-
+        if(paymentResponse != null){
+            sendEmailsToCustomers(token.email);
+            alert("Payment Successfull!, Email Sent")
+        } else {
+            alert("Payment Error!");
+        }
     }
 
 
