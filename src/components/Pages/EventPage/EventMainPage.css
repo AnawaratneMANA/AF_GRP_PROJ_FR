@@ -2,7 +2,7 @@
   display: flex;
 }
 
-.home__row {
+.event-home-row {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-auto-rows: minmax(1px, auto);
@@ -11,7 +11,7 @@
   grid-gap: 1%;
 }
 
-.home__container {
+.home-container-filter {
   margin-left: 3%;
 }
 

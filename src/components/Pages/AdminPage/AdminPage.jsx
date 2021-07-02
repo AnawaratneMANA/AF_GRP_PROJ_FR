@@ -6,12 +6,15 @@ import UserDetailTable from './AdminComponents/UserDetailTable'
 import TotalDownloadGraph from "./AdminComponents/TotalDownloadGraph";
 import EventGraph from "./AdminComponents/EventGraph";
 import AdminFileTable from "./AdminComponents/AdminFileTable";
+import CollapsComponent from "./CollapsComponent/CollapsComponent";
 import {useSelector} from "react-redux";
 
 const AdminPage = () => {
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
     const [tableUser, setTableUser] = useState([]);
+    const [isSubmited, setIsSubmitted] = useState(false);
+    const [eventArray, setEventArray] = useState([]);
     //Add this to protected Components to avoid unauthorized users from comming.
     useEffect(()=> {
         if(users.userType != "Admin"){
@@ -31,6 +34,7 @@ const AdminPage = () => {
                 <div className="admin__container">
                     <div className="admin__row">
                     <h1> Monitoring Section </h1>
+                        {/*<CollapsComponent/>*/}
                     </div>
                     <div className="admin__row">
                         {/*<AdminStatistics/>*/}
@@ -38,12 +42,12 @@ const AdminPage = () => {
                         <EventGraph/>
                     </div>
                     <div className="admin__row">
-                        <EditorContentTable/>
+                        <EditorContentTable isSubmit ={isSubmited} isSubmitted = {setIsSubmitted}/>
                         {/*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*/}
                     </div>
                     <div className="admin__row">
-                        <UserDetailTable method={setTableUser}/>
-                        <UserdetailForm value={tableUser}/>
+                        <UserDetailTable method={setTableUser} isSubmit ={isSubmited} isSubmitted = {setIsSubmitted}/>
+                        <UserdetailForm value={tableUser} isSubmitted = {setIsSubmitted}/>
                     </div>
                     <div className="admin__row">
                         <AdminFileTable/>

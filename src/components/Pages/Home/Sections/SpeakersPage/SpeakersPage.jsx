@@ -1,31 +1,54 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import KeySpeaker1 from "../../../../KeySpeakers/KeySpeaker1";
 import Speaker from '../../../../KeySpeakers/SpeakersImges/profile.webp'
 import './keyspeakers.css'
+import {useHistory} from "react-router-dom";
+import DownloadComponent from "../DownloadPage/DownloadComponent/DownloadComponent";
+import axios from "axios";
+import KeySpeakerComponentHome from "./KeySpeakerComponentHome";
 
 function SpeakersPage() {
 
-    //Call API here and Replace the Array.
+    const [keySpeakerData, setKeySpeakerData] = useState([]);
+    const history = useHistory();
+    const handleHistory = () => {
+        history.push('/allKeySpeakerPage');
+    }
 
-    const rows = [
-        {"name":'Salitha Ekanayaka', "title": 'Bsc', "image": Speaker},
-        {"name":'Nirmith Akash', "title": 'Bsc', "image": Speaker},
-        {"name":'Jason Born', "title": 'SK', "image": Speaker},
-        {"name":'John Doe', "title": 'N/A', "image": Speaker},
-    ];
+    const fetchKeySpeakerDetails2 = async () => {
+        try {
+            const response = await axios
+                .get("http://localhost:8093/api/v1/keyspeakers")
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+            setKeySpeakerData(response.data)
+
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchKeySpeakerDetails2();
+    }, [])
 
     return (<React.Fragment>
         <div className="speaker-section">
             <div className="speaker-header">
                 <h2 className="speaker-header-main-header">Key Speakers</h2>
+                {<button className="buttonDownload" onClick={(e) => {
+                    e.preventDefault();
+                    handleHistory();
+                }}>View All</button>}
                 <h4 className="speaker-header-second-header">Information</h4>
             </div>
-            <div className="cardLayout">
-                    {rows.map((row)=> (
-                        <div className="card-speaker">
-                        <KeySpeaker1 rows={row}/>
-                        </div>
-                    ))}
+            <div className="cardlayout-keynotespeakers">
+                {keySpeakerData.slice(0,4).map((row) => (
+                    console.log(row),
+                        <KeySpeakerComponentHome rows={row}/>
+                ))}
             </div>
         </div>
 

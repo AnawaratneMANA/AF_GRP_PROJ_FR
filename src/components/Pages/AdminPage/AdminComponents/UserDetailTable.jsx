@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Button, Link} from "@material-ui/core";
 import axios from "axios";
+import {useSelector} from "react-redux";
 
 const useStyles = makeStyles({
     table: {
@@ -19,9 +20,23 @@ const useStyles = makeStyles({
 });
 
 //const authAxios =
-function UserDetailTable({method}) {
+function UserDetailTable({method, isSubmit, isSubmitted}) {
     const classes = useStyles();
     const [userData, setuserData] = useState([]);
+    const users = useSelector((state) => state.users);
+    const [flag, setFlag] = useState(null)
+    console.log(users.userToken);
+
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer ' + users.userToken;
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
+
     const fetchUserDetails = async () => {
         try {
             const response = await axios
@@ -39,7 +54,7 @@ function UserDetailTable({method}) {
 
     useEffect(() => {
         fetchUserDetails();
-    }, [])
+    }, [isSubmit])
 
     const updateUser = (id) => {
         console.log(id);
@@ -47,6 +62,28 @@ function UserDetailTable({method}) {
     }
     const deleteUser = (id) => {
         console.log(id);
+        /**
+         *  axios.put('http://localhost:8093/api/v1/updateUser/'+value.id, userData).then(() => {
+            //window.location.href('/admin');
+            isSubmitted(true)
+            alert("user updated");
+            isSubmitted(false)
+        }).catch((err) => {
+            console.log(err);
+        })
+         */
+        axios.delete('http://localhost:8093/api/v1/deleteUser/'+id).then(res => {
+            isSubmitted(true)
+            alert("user deleted");
+            isSubmitted(false)
+        }).catch((err) => {
+            console.log(err)
+            }
+        );
+
+
+
+
     }
 
     return (

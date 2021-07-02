@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {FaStar} from "react-icons/fa";
 import './Star.css';
 
-const Star = ({value}) => {
+const Star = ({value, method}) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
-
+    console.log(method);
     return(
       <div>
           {[...Array(value)].map((star, i) => {
@@ -23,7 +23,8 @@ const Star = ({value}) => {
                           color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
                           size={40}
                           onMouseOver={() => setHover(ratingValue)}
-                          onMouseLeave={() => setHover(null)}
+                          onMouseLeave={() => setHover(method)}
+                          values={method}
                       />
                   </label>
               );

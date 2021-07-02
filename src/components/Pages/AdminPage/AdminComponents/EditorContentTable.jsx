@@ -13,6 +13,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link} from "@material-ui/core";
 import axios from 'axios';
+import {useSelector} from "react-redux";
+import {forEach} from "react-bootstrap/ElementChildren";
 
 const useStyles = makeStyles({
     table: {
@@ -22,31 +24,41 @@ const useStyles = makeStyles({
 
 //function EditorContentTable({method, setvalue}) {
 
-function EditorContentTable() {
-
-    // axios.interceptors.request.use(
-    //     config => {
-    //         config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
-    //             'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
-    //             'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
-    //         return config;
-    //     },
-    //     error => {
-    //         return Promise.reject(error);
-    //     }
-    // )
+function EditorContentTable({isSubmit, isSubmitted}) {
+    var count1 = 0;
+    console.log(isSubmit)
     const classes = useStyles();
     const [eventData, seteventData] = useState([]);
+    const users = useSelector((state) => state.users);
+    const [flag, setFlag] = useState(null)
+    console.log(users.userToken);
+
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer ' + users.userToken;
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
+
+
+    // const countdecline = (eventData) => {
+    //     for (let item in eventData) {
+    //         console.log(item);
+    //     }
+    //     console.log(count1++);
+    // }
     const fetchEventDetails = async () => {
         try {
             const response = await axios
                 .get("http://localhost:8093/api/v1/events")
+            seteventData(response.data)
                 .catch((error) => {
                     console.log("Error", error);
                 });
             console.log(response.data);
-            seteventData(response.data)
-
 
         } catch (err) {
             console.log("Error");
@@ -56,16 +68,40 @@ function EditorContentTable() {
 
     useEffect(() => {
        fetchEventDetails();
-    }, [])
-    
+    }, [isSubmit])
+
+    // countdecline(eventData)
     const approve = (id) => {
-        let value = "approve";
-        console.log(value);
+        const status = "approved";
+        const eventData = {
+            status
+        }
+        console.log(eventData)
+        axios.put('http://localhost:8093/api/v1/updateEvent/'+id, eventData).then(() => {
+            isSubmitted(true)
+            alert("event updated");
+            isSubmitted(false)
+        }).catch((err) => {
+            console.log(err);
+        })
+
+        console.log(status);
         console.log(id);
     }
     const decline = (id) => {
-        let value = "decline";
-        console.log(value);
+        const status = "declined";
+        const eventData = {
+            status
+        }
+        console.log(eventData)
+        axios.put('http://localhost:8093/api/v1/updateEvent/'+id, eventData).then(() => {
+            isSubmitted(true)
+            alert("event updated");
+            isSubmitted(false)
+        }).catch((err) => {
+            console.log(err);
+        })
+
         console.log(id);
     }
     return (
