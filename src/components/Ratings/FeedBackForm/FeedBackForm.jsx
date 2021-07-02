@@ -24,7 +24,7 @@ const useStyle = makeStyles(theme => ({
     }
 }))
 
-function FeedBackForm(){
+function FeedBackForm({isSubmitted}){
 
     const classes = useStyles();
     const classes2 = useStyle();
@@ -70,6 +70,9 @@ function FeedBackForm(){
         }
         console.log(data)
         axios.post('http://localhost:8093/api/v1/feedback', data).then(() => {
+            isSubmitted(true);
+            alert("Data added");
+            isSubmitted(false);
         }).catch((err) => {
             console.log(err);
             alert("Feed Back not inserted");
