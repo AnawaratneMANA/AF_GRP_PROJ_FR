@@ -144,7 +144,7 @@ const PaymentPage = (props) => {
                         </div>
                     </div>
                     <br/>
-                    <button id="PayButton" className="btn btn-block btn-success submit-button" type="submit">
+                    <button id="PayButton" className="btn btn-block btn-success submit-button" type="button">
                         <span className="submit-button-lock"></span>
                         <span className="align-middle">Pay {price}</span>
                     </button>
