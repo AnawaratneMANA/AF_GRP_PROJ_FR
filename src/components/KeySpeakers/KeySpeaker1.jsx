@@ -9,7 +9,7 @@ function KeySpeaker1({rows}){
             </div>
             <div className="speaker-info">
                 <h3 className="speaker-info-header">{rows.name}</h3>
-                <p className="speaker-info-secondary">{rows.title}</p>
+                <p className="speaker-info-secondary">{rows.qualifications}</p>
             </div>
         </div>
     );

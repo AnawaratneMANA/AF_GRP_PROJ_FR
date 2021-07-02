@@ -1,12 +1,13 @@
 .all-key-speakers-row {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto ;
   grid-auto-rows: minmax(1px, auto);
   justify-content: left;
   align-items: normal;
   grid-gap: 1%;
   margin-left: 170px;
   padding-bottom: 10px;
+  margin-top: 20px;
 }
 
 .key-speaker-page {
