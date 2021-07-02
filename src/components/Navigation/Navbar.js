@@ -67,9 +67,13 @@ function Navbar () {
                             <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
                                 REGISTRATION
                             </Link>
+
                         </li>
                     </ul>
                     { button  && <Button onClick={() => logout()} buttonStyle= "btn--outline"> LOG OUT </Button>}
+                    <Link to= '/adminlogin' className ="nav-links" onClick={closeMobileMenu}>
+                        ADMIN
+                    </Link>
                 </div>
             </nav>
         </React.Fragment>

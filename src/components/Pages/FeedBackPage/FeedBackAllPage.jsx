@@ -8,6 +8,7 @@ import {useSelector} from "react-redux";
 import axios from "axios";
 import KeySpeaker1 from "../../KeySpeakers/KeySpeaker1";
 import {Container, TextField, Typography} from "@material-ui/core";
+import {useHistory} from "react-router";
 
 function FeedBackAllPage() {
 
@@ -16,6 +17,7 @@ function FeedBackAllPage() {
     const [flag, setFlag] = useState(null)
     const [isSubmited, setIsSubmitted] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
+    const history = useHistory();
 
     const fetchFeedBackDetails = async () => {
         try {
@@ -36,10 +38,14 @@ function FeedBackAllPage() {
         fetchFeedBackDetails();
     }, [isSubmited])
 
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     //Add this to protected Components to avoid unauthorized users from comming
     useEffect(()=> {
         if(users.userName === null){
-            window.location.href='/loginpage';
+            navigation()
         } else {
             setFlag(true);
         }

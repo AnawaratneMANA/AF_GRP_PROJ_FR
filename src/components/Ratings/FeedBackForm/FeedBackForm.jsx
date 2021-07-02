@@ -5,6 +5,7 @@ import {makeStyles} from '@material-ui/core';
 import {useDispatch, useSelector} from 'react-redux';
 import Star from "../Star/Star";
 import axios from "axios";
+import {useHistory} from "react-router";
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
@@ -27,6 +28,7 @@ const useStyle = makeStyles(theme => ({
 function FeedBackForm({isSubmitted}){
 
     const classes = useStyles();
+    const history = useHistory();
     const classes2 = useStyle();
     const dispatch = useDispatch();
 
@@ -46,9 +48,13 @@ function FeedBackForm({isSubmitted}){
         }
     )
 
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     useEffect(()=> {
         if(users.userType === "uu"){
-            window.location.href='/loginpage';
+            navigation()
         } else {
             setFlag(true);
         }

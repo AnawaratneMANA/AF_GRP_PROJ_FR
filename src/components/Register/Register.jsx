@@ -17,9 +17,14 @@ const Register = () => {
 
     }, [])
 
-    function navigation(e) {
+    function navigation1(e) {
         //Redirect the user another page.
         history.push("/loginpage");
+    }
+
+    function navigation2(e) {
+        //Redirect the user another page.
+        history.push("/register");
     }
 
     const dbcall = async () => {
@@ -46,11 +51,11 @@ const Register = () => {
 
         //Redirection Logic
         if(Object.keys(errors).length !== 0){
-            setTimeout(() => { window.location.href='/register'; }, 6000);
+            setTimeout(() => { navigation2() }, 6000);
             console.log("Redirect to Register");
 
         } else {
-            setTimeout(() => { navigation() }, 6000);
+            setTimeout(() => { navigation1() }, 6000);
             console.log("Redirect to Login");
         }
 
@@ -156,7 +161,7 @@ const Register = () => {
                         <div className="button-group">
                             <button className="auth-button" type="submit">Registration</button>
                             <br/>
-                            <button className="auth-button" onClick={navigation}> Login </button>
+                            <button className="auth-button" onClick={navigation1}> Login </button>
                         </div>
                     </div>
                 </div>

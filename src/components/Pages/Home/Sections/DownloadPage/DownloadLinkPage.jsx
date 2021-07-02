@@ -4,13 +4,20 @@ import './DownloadLinkPage.scss';
 import UploadForm from "./UploadForm/UploadForm";
 import FileGrid from "./UploadForm/FileGrid";
 import {useSelector} from "react-redux";
+import {useHistory} from "react-router";
 function DownloadLinkPage(props) {
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
+    const history = useHistory();
     //Add this to protected Components to avoid unauthorized users from comming.
+
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     useEffect(()=> {
         if(users.userType === null){
-            window.location.href='/loginpage';
+           navigation()
         } else {
             setFlag(true);
         }

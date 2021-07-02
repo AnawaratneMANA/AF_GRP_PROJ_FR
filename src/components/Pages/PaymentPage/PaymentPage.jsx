@@ -4,6 +4,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import axios from "axios";
 import {useSelector} from "react-redux";
 import emailjs from 'emailjs-com';
+import {useHistory} from "react-router";
 
 
 const PaymentPage = (props) => {
@@ -18,6 +19,7 @@ const PaymentPage = (props) => {
     const [flag, setFlag] = useState(null)
     const [tokenKey, setTokenKey] = useState("");
     const [paymentResponse, setPaymentResponse] = useState(null);
+    const history = useHistory();
 
     //Creating  Authorization Header for Axios Requests
     axios.interceptors.request.use(
@@ -30,10 +32,14 @@ const PaymentPage = (props) => {
         }
     )
 
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     //Constructor - Validate the approaching user.
     useEffect(() => {
         if (users.userName === null) {
-            window.location.href = '/loginpage';
+            navigation()
         } else {
             setFlag(true);
         }

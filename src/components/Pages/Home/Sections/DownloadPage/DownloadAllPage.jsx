@@ -5,9 +5,11 @@ import CategoryForm from "./CategoryForm/CategoryForm";
 import {useSelector} from "react-redux";
 import axios from "axios";
 import {Container, TextField, Typography} from "@material-ui/core";
+import {useHistory} from "react-router";
 function DownloadAllPage() {
 
     const [categoryData, setCategoryData] = useState([]);
+    const history = useHistory();
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
     const [isSubmited, setIsSubmitted] = useState(false);
@@ -32,9 +34,14 @@ function DownloadAllPage() {
     }, [isSubmited])
 
     // Add this to protected Components to avoid unauthorized users from comming.
+
+    const navigation = () => {
+        history.push("/loginpage");
+    }
+
     useEffect(()=> {
         if(users.userName === null){
-            window.location.href='/loginpage';
+            navigation()
         } else {
             setFlag(true);
         }
