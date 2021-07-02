@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 });
 
 //const authAxios =
-function UserDetailTable({method}) {
+function UserDetailTable({method, isSubmit, isSubmitted}) {
     const classes = useStyles();
     const [userData, setuserData] = useState([]);
     const users = useSelector((state) => state.users);
@@ -54,7 +54,7 @@ function UserDetailTable({method}) {
 
     useEffect(() => {
         fetchUserDetails();
-    }, [])
+    }, [isSubmit])
 
     const updateUser = (id) => {
         console.log(id);
@@ -62,8 +62,27 @@ function UserDetailTable({method}) {
     }
     const deleteUser = (id) => {
         console.log(id);
-        axios.delete('http://localhost:8093/api/v1/deleteUser/'+id)
-            .then(res => console.log(res.data));
+        /**
+         *  axios.put('http://localhost:8093/api/v1/updateUser/'+value.id, userData).then(() => {
+            //window.location.href('/admin');
+            isSubmitted(true)
+            alert("user updated");
+            isSubmitted(false)
+        }).catch((err) => {
+            console.log(err);
+        })
+         */
+        axios.delete('http://localhost:8093/api/v1/deleteUser/'+id).then(res => {
+            isSubmitted(true)
+            alert("user deleted");
+            isSubmitted(false)
+        }).catch((err) => {
+            console.log(err)
+            }
+        );
+
+
+
 
     }
 
