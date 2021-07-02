@@ -27,6 +27,7 @@ function EditorContentTable() {
 
     const classes = useStyles();
     const [eventData, seteventData] = useState([]);
+    const [status, setStatus] = useState("");
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
     console.log(users.userToken);
@@ -63,13 +64,33 @@ function EditorContentTable() {
     }, [])
     
     const approve = (id) => {
-        let value = "approve";
-        console.log(value);
+        setStatus("approved");
+        const eventData = {
+            status
+        }
+        console.log(eventData)
+        axios.put('http://localhost:8093/api/v1/updateEvent/'+id, eventData).then(() => {
+            alert("event updated");
+        }).catch((err) => {
+            console.log(err);
+        })
+
+        console.log(status);
         console.log(id);
     }
     const decline = (id) => {
-        let value = "decline";
-        console.log(value);
+        setStatus("declined");
+        const eventData = {
+            status
+        }
+        console.log(eventData)
+        axios.put('http://localhost:8093/api/v1/updateEvent/'+id, eventData).then(() => {
+            alert("event updated");
+        }).catch((err) => {
+            console.log(err);
+        })
+
+        console.log(status);
         console.log(id);
     }
     return (
