@@ -5,6 +5,7 @@ import './keyspeakers.css'
 import {useHistory} from "react-router-dom";
 import DownloadComponent from "../DownloadPage/DownloadComponent/DownloadComponent";
 import axios from "axios";
+import KeySpeakerComponentHome from "./KeySpeakerComponentHome";
 
 function SpeakersPage() {
 
@@ -43,10 +44,10 @@ function SpeakersPage() {
                 }}>View All</button>}
                 <h4 className="speaker-header-second-header">Information</h4>
             </div>
-            <div className="cardLayout">
+            <div className="cardlayout-keynotespeakers">
                 {keySpeakerData.slice(0,4).map((row) => (
                     console.log(row),
-                        <KeySpeaker1 rows={row}/>
+                        <KeySpeakerComponentHome rows={row}/>
                 ))}
             </div>
         </div>
