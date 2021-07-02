@@ -5,7 +5,8 @@
   "main": "src/index.jsx",
   "scripts": {
     "start": "react-scripts start",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "build": "react-scripts build"
   },
   "author": "",
   "license": "ISC",

@@ -1,0 +1,41 @@
+.download-main-container1.download {
+  background-color: #A1ABCF;
+}
+.download-main-container1 .cardLayout {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-auto-rows: minmax(1px, auto);
+  justify-content: left;
+  align-items: normal;
+  grid-gap: 1%;
+  margin-left: 50px;
+  padding-bottom: 10px;
+}
+
+.header {
+  padding-left: 60px;
+  padding-top: 20px;
+}
+.header .main {
+  font-size: 48px;
+  font-weight: bold;
+}
+.header .second {
+  margin-top: -19px;
+  font-size: 28.69px;
+  font-weight: bold;
+  opacity: 60%;
+}
+
+.feed-back-form {
+  align-content: center;
+  margin-left: 550px;
+  margin-right: 250px;
+}
+
+.all-feedback-row {
+  margin-top: 100px;
+  margin-right: 300px;
+}
+
+/*# sourceMappingURL=feedbackstyles.css.map */

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import './Speakers.css';
+import './KeySpeackerComponentHome.css';
 
-function KeySpeaker1({rows}){
+function KeySpeakerComponentHome({rows}){
     return(
-        <div className="speaker">
+        <div className="home-speaker">
             <div className="img_top">
                 <img className='photo' src={rows.image}/>
             </div>
@@ -15,4 +15,4 @@ function KeySpeaker1({rows}){
     );
 }
 
-export default KeySpeaker1;
+export default KeySpeakerComponentHome;
