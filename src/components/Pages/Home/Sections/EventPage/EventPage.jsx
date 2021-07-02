@@ -39,11 +39,13 @@ const EventPage = () => {
     }, [])
 
     const rows = [
-        {"title1": 'component1',"title2": 'name1', "image": event1},
+        {"title1": 'Filter Page',"title2": 'name1', "image": event1},
         {"title1": 'component2',"title2": 'name2', "image": event1},
         {"title1": 'component3',"title2": 'name3', "image": event1},
         {"title1": 'component4',"title2": 'name3', "image": event1},
     ];
+
+    // This should include a filter. Home component
     return (<React.Fragment>
             <div className="mainheader">
                 <div className="header">
@@ -56,8 +58,8 @@ const EventPage = () => {
                     <p className="second">This section contain all the events</p>
                 </div>
                 <br />
-                <div className="home__container">
-                    <div className="home__row">
+                <div className="home-container-main">
+                    <div className="main-home-row">
                         {rows.map((row)=> (
                                 <EventComponent rows = {row}/>
 
