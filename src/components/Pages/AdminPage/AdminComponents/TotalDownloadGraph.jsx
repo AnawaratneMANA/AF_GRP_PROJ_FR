@@ -12,26 +12,16 @@ import axios from "axios";
 
 
 function TotalDownloadGraph() {
-    // axios.interceptors.request.use(
-    //     config => {
-    //         config.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiJ9.' +
-    //             'eyJzdWIiOiJBa2FzaCIsInVzZXJUeXBlIjoieXl5dXUiLCJleHAiOj' +
-    //             'E2MjQ5ODc3MzgsImlhdCI6MTYyNDk1MTczOH0.jvY3apk1gVawe043cHNBhcLPGBk8mQgjHTcGrG3A3lY';
-    //         return config;
-    //     },
-    //     error => {
-    //         return Promise.reject(error);
-    //     }
-    // )
+
     const [acceptvalue, setAcceptValue] = useState(70);
     const [rejectvalue, setRejectValue] = useState(30);
 
     let accept = {
-        country: 'Russia',
+        value: 'Accept',
          area: acceptvalue
     }
     let reject = {
-        country: 'Canada',
+        value: 'Reject',
         area: rejectvalue 
     }
     const data = [
@@ -49,11 +39,11 @@ function TotalDownloadGraph() {
                 >
                 <PieSeries
                     valueField="area"
-                    argumentField="country"
+                    argumentField="value"
                     
                 />
                 <Title
-                    text="Area of Countries"
+                    text="Event Graph"
                 />
                 <Animation />
                 </Chart>
