@@ -49,7 +49,7 @@ const PaymentPage = (props) => {
     const saveTheTransaction = async (body) => {
         console.log(body.id);
         setTokenKey(body.id)
-        await axios.post("http://localhost:8093/api/v1/charge", "", {
+        await axios.post("https://application-framework-database.herokuapp.com/api/v1/charge", "", {
             headers: {
                 token: body.id,
                 amount: 50,

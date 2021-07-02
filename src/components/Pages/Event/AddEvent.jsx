@@ -62,7 +62,7 @@ const  AddEvent = () =>{
             image
         }
         console.log(data)
-        axios.post('http://localhost:8093/api/v1/event', data).then(() => {
+        axios.post('https://application-framework-database.herokuapp.com/api/v1/event', data).then(() => {
         }).catch((err) => {
             console.log(err);
             alert("event data not inserted");

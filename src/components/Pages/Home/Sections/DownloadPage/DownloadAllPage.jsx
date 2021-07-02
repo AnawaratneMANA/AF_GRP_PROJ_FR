@@ -15,7 +15,7 @@ function DownloadAllPage() {
     const fetchDownloadCategoryDetails = async () => {
         try {
             const response = await axios
-                .get("http://localhost:8093/api/v1/categories")
+                .get("https://application-framework-database.herokuapp.com/api/v1/categories")
                 .catch((error) => {
                     console.log("Error", error);
                 });

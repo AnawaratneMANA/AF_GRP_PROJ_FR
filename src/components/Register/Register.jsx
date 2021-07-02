@@ -23,7 +23,7 @@ const Register = () => {
     }
 
     const dbcall = async () => {
-        const data = await axios.post("http://localhost:8093/api/v1/user", values).then(
+        const data = await axios.post("https://application-framework-database.herokuapp.com/api/v1/user", values).then(
             (data) => {
                 console.log(data);
             }

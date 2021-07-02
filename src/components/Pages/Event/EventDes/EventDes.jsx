@@ -20,7 +20,7 @@ const EventDes = (props) => {
     const getEventData = async () => {
         try {
             const response = await axios
-                .get("http://localhost:8093/api/v1/getEventById/"+eventid)
+                .get("https://application-framework-database.herokuapp.com/api/v1/getEventById/"+eventid)
                 .catch((error) => {
                 });
             setEventdata(response.data);

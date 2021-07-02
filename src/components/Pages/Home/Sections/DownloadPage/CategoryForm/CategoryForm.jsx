@@ -65,7 +65,7 @@ const CategoryForm = ({isSubmitted}) => {
         }
 
         console.log(data)
-        axios.post('http://localhost:8093/api/v1/download/category', data).then(() => {
+        axios.post('https://application-framework-database.herokuapp.com/api/v1/download/category', data).then(() => {
             isSubmitted(true);
             alert("Data added");
             isSubmitted(false);

@@ -27,7 +27,7 @@ const EventMainPage = () => {
     const fetchDownloadCategoryDetails1 = async () => {
         try {
             const response = await axios
-                .get("http://localhost:8093/api/v1/events")
+                .get("https://application-framework-database.herokuapp.com/api/v1/events")
                 .catch((error) => {
                     console.log("Error", error);
                 });
