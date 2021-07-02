@@ -3,6 +3,7 @@ import './Rating.css';
 import Star from "./Star/Star";
 
 function Ratings1({rows}){
+    console.log(rows);
     return(
       <div className="rating">
           <div className="rating_info">
