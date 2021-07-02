@@ -45,7 +45,7 @@ function Navbar () {
         <React.Fragment>
             <nav className= "navbar">
                 <div className= "navbar-container">
-                    <Link path = "/" className ="navbar-logo" onClick={closeMobileMenu}>
+                    <Link to = "/" className ="navbar-logo" onClick={closeMobileMenu}>
                         HOME <i className= "fa fa-university"/>
                     </Link>
                     <div className = "menu-icon" onClick={handleClick}>
@@ -58,7 +58,7 @@ function Navbar () {
                             </Link>
                         </li>
                         <li className= "nav-item">
-                            <Link to= '/services' className ="nav-links" onClick={closeMobileMenu}>
+                            <Link to= '/eventpage' className ="nav-links" onClick={closeMobileMenu}>
                                 EVENTS
                             </Link>
                         </li>
@@ -68,7 +68,7 @@ function Navbar () {
                             </Link>
                         </li>
                         <li className= "nav-item">
-                            <Link to= '/payment' className ="nav-links" onClick={closeMobileMenu}>
+                            <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
                                 REGISTRATION
                             </Link>
                         </li>

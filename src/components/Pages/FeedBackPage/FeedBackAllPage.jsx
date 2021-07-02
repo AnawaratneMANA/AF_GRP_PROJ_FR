@@ -7,6 +7,7 @@ import KeySpeakerForm from "../../KeySpeakers/KeySpeakersForm/KeySpeakerForm";
 import {useSelector} from "react-redux";
 import axios from "axios";
 import KeySpeaker1 from "../../KeySpeakers/KeySpeaker1";
+import {Container, TextField, Typography} from "@material-ui/core";
 
 function FeedBackAllPage() {
 
@@ -14,6 +15,7 @@ function FeedBackAllPage() {
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
     const [isSubmited, setIsSubmitted] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
 
     const fetchFeedBackDetails = async () => {
         try {
@@ -50,13 +52,34 @@ function FeedBackAllPage() {
     return (
         <div className="downloadallpage">
             <h1>All Feedback page</h1>
+            <Container className="" maxWidth="md">
+                <Typography className="" >Search Items</Typography>
+                <TextField
+                    id="filled-full-width"
+                    label="Search"
+                    style={{ margin: 8 }}
+                    placeholder="Search Items.."
+                    helperText="Search Items By Title"
+                    fullWidth
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                    margin="normal"
+                    variant="filled"
+                />
+            </Container>
             <div className="alldownloadlist">
                 <div className={"feed-back-form"}>
                     <FeedBackForm isSubmitted = {setIsSubmitted}/>
                 </div>
                 <div className="all-feedback-row">
                     <div className="cardLayout">
-                        {feedbackData.map((row) => (
+                        {feedbackData.filter((val) => {
+                            if(searchTerm == ""){
+                                return val
+                            } else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                return val
+                            }
+                        }).map((row) => (
                             console.log(row),
                                 <Ratings1 rows={row}/>
                         ))}
