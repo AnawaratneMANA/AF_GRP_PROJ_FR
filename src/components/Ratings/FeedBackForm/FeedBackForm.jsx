@@ -32,9 +32,9 @@ function FeedBackForm(){
 
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
-    const[name, setName] = useState("");
-    const[feedback, setFeedback] = useState("");
-    const[rating, setRating] = useState("");
+    const [name, setName] = useState("");
+    const [feedback, setFeedback] = useState("");
+    const [rating, setRating] = useState("");
 
     axios.interceptors.request.use(
         config => {

@@ -57,13 +57,8 @@ function FeedBackAllPage() {
                     <div className="cardLayout">
                         {feedbackData.map((row) => (
                             console.log(row),
-                                <KeySpeaker1 rows={row}/>
+                                <Ratings1 rows={row}/>
                         ))}
-                        {/*{rows.map((row)=> (*/}
-                        {/*    <div className="card-rating">*/}
-                        {/*        <Ratings1 rows={row}/>*/}
-                        {/*    </div>*/}
-                        {/*))}*/}
                     </div>
 
                 </div>
