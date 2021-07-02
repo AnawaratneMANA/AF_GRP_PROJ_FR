@@ -16,7 +16,6 @@ const AdminPage = () => {
     const [flag, setFlag] = useState(null)
     const [tableUser, setTableUser] = useState([]);
     const [isSubmited, setIsSubmitted] = useState(false);
-    const [eventArray, setEventArray] = useState();
     const [userData, setuserData] = useState([]);
     //Add this to protected Components to avoid unauthorized users from comming.
 
