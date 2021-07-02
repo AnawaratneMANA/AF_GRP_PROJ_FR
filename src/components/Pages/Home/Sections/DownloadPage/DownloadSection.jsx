@@ -8,21 +8,11 @@ function DownloadSection() {
 
     const history = useHistory();
     const [categoryData, setCategoryData] = useState([]);
-    // const [downloadHeader, setDownloadHeader] = useState("Download Header");
-    // const [downloadSecondHeader, setDownloadSecondHeader] = useState("Download Description");
 
     const handleHistory = () => {
 
         history.push('/alldownloadPage');
     }
-
-    // const rows = [
-    //     {"header":'Templates', "description": 'Empty Templates'},
-    //     {"header":'Research Papers', "description": 'Empty Research Papers'},
-    //     {"header":'Research Papers', "description": 'Completed Research Papers'},
-    //     {"header":'PDF Documents', "description": 'Attached PDF document files'},
-    //     {"header":'Video Files', "description": 'Attached Video Files'}
-    // ];
 
     const fetchDownloadCategoryDetails1 = async () => {
         try {
@@ -60,9 +50,6 @@ function DownloadSection() {
                     console.log(row),
                         <DownloadComponent header={row.downloadHeader} description={row.downloadDescription}/>
                 ))}
-            {/*{rows.map((row) => (*/}
-            {/*    <DownloadComponent header={row.header} description={row.description}/>*/}
-            {/*))}*/}
             </div>
     </div>)
 }
