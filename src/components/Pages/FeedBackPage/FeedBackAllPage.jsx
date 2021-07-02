@@ -5,11 +5,35 @@ import FeedBackForm from "../../Ratings/FeedBackForm/FeedBackForm";
 import Speaker from "../../KeySpeakers/SpeakersImges/profile.webp";
 import KeySpeakerForm from "../../KeySpeakers/KeySpeakersForm/KeySpeakerForm";
 import {useSelector} from "react-redux";
+import axios from "axios";
+import KeySpeaker1 from "../../KeySpeakers/KeySpeaker1";
+import {Container, TextField, Typography} from "@material-ui/core";
 
 function FeedBackAllPage() {
 
+    const [feedbackData, setFeedbackData] = useState([]);
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const fetchFeedBackDetails = async () => {
+        try {
+            const response = await axios
+                .get("http://localhost:8093/api/v1/feedbacks")
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+            setFeedbackData(response.data)
+
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchFeedBackDetails();
+    }, [])
 
     //Add this to protected Components to avoid unauthorized users from comming
     useEffect(()=> {
@@ -24,25 +48,39 @@ function FeedBackAllPage() {
         return null;
     }
 
-    const rows = [
-        {"title": 'Rating 1',"description": 'We want to help',"stars": 5, "image": Speaker},
-        {"title": 'Rating 2',"description": 'We want to help',"stars": 2, "image": Speaker},
-        {"title": 'Rating 3',"description": 'We want to help',"stars": 4, "image": Speaker},
-        {"title": 'Rating 4',"description": 'We want to help',"stars": 2, "image": Speaker},
-    ];
     return (
         <div className="downloadallpage">
             <h1>All Feedback page</h1>
+            <Container className="" maxWidth="md">
+                <Typography className="" >Search Items</Typography>
+                <TextField
+                    id="filled-full-width"
+                    label="Search"
+                    style={{ margin: 8 }}
+                    placeholder="Search Items.."
+                    helperText="Search Items By Title"
+                    fullWidth
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                    margin="normal"
+                    variant="filled"
+                />
+            </Container>
             <div className="alldownloadlist">
                 <div className={"feed-back-form"}>
                     <FeedBackForm/>
                 </div>
                 <div className="all-feedback-row">
                     <div className="cardLayout">
-                        {rows.map((row)=> (
-                            <div className="card-rating">
+                        {feedbackData.filter((val) => {
+                            if(searchTerm == ""){
+                                return val
+                            } else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                return val
+                            }
+                        }).map((row) => (
+                            console.log(row),
                                 <Ratings1 rows={row}/>
-                            </div>
                         ))}
                     </div>
 
