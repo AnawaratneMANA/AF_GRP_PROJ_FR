@@ -2,8 +2,15 @@ import React from 'react';
 import Ratings1 from "../../../../Ratings/Ratings1";
 import './ratingstyles.scss'
 import Speaker from "../../../../KeySpeakers/SpeakersImges/profile.webp";
+import {useHistory} from "react-router-dom";
 
 function RatingPage() {
+
+    const history = useHistory();
+
+    const handleHistory = () => {
+        history.push('/allFeedBackPage');
+    }
 
     const rows = [
         {"title": 'Rating 1', "description": 'We want to help', "stars": 5, "image": Speaker},
@@ -17,7 +24,7 @@ function RatingPage() {
                 <h2 className="rating-header-main-header">Rating</h2>
                 {<button className="buttonDownload" onClick={(e) => {
                     e.preventDefault();
-                    // window.location.href='/allFeedbackPage';
+                    handleHistory();
                 }}>View All</button>}
                 <h4 className="rating-header-second-header">Information</h4>
             </div>
@@ -27,13 +34,6 @@ function RatingPage() {
                         <Ratings1 rows={row}/>
                     </div>
                 ))}
-                {/*<div className="rating-section" data-testid='rating-section'>*/}
-                {/*    <div className="rating-header" data-testid='rating-header'>*/}
-                {/*        <h2 className="rating-header-main-header" data-testid='rating-header-main-header'>Register</h2>*/}
-                {/*        <h4 className="rating-header-second-header"*/}
-                {/*            data-testid='rating-header-second-header'>Information</h4>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
             </div>
         </div>
     </React.Fragment>)

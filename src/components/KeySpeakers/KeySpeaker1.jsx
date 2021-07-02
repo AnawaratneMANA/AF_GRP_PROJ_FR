@@ -1,15 +1,11 @@
 import React, {useState} from 'react';
 import './Speakers.css';
-import Speaker from './SpeakersImges/profile.webp'
-
-
-
 
 function KeySpeaker1({rows}){
     return(
         <div className="speaker">
             <div className="img_top">
-                <img className='photo' src={rows.image}></img>
+                <img className='photo' src={rows.image}/>
             </div>
             <div className="speaker-info">
                 <h3 className="speaker-info-header">{rows.name}</h3>

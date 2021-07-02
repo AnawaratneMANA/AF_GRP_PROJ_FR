@@ -23,22 +23,21 @@ const useStyle = makeStyles(theme => ({
     }
 }))
 
-
 function FeedBackForm(){
 
     const classes = useStyles();
     const classes2 = useStyle();
     const dispatch = useDispatch();
 
-    const[name, setName] = useState();
-    const[feedback, setFeedback] = useState();
-    const[rating, setRating] = useState();
+    const[name, setName] = useState("");
+    const[feedback, setFeedback] = useState("");
+    const[rating, setRating] = useState("");
 
 
     //submit the data
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log(rating);
         const userData = {
 
 
@@ -49,7 +48,7 @@ function FeedBackForm(){
         <div>
             <Paper className={classes.pageContent}>
                 <h3>FeedBack Form</h3>
-                <Star/>
+                <div><Star value={5} method={setRating}/></div>
                 <form className={classes2.root} onSubmit={handleSubmit}>
                     <Grid container>
                         <Grid item xs={12}>
