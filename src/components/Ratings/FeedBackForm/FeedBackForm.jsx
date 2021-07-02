@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Grid, Paper, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from '@material-ui/core';
 import {useDispatch, useSelector} from 'react-redux';
 import Star from "../Star/Star";
+import axios from "axios";
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
@@ -29,19 +30,50 @@ function FeedBackForm(){
     const classes2 = useStyle();
     const dispatch = useDispatch();
 
+    const users = useSelector((state) => state.users);
+    const [flag, setFlag] = useState(null)
     const[name, setName] = useState("");
     const[feedback, setFeedback] = useState("");
     const[rating, setRating] = useState("");
+
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = 'Bearer ' + users.userToken;
+            return config;
+        },
+        error => {
+            return Promise.reject(error);
+        }
+    )
+
+    useEffect(()=> {
+        if(users.userType === "uu"){
+            window.location.href='/loginpage';
+        } else {
+            setFlag(true);
+        }
+    }, [])
+
+    if(!flag){
+        return null;
+    }
 
 
     //submit the data
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(rating);
-        const userData = {
-
-
+        const data = {
+            name,
+            feedback,
+            rating
         }
+        console.log(data)
+        axios.post('http://localhost:8093/api/v1/feedback', data).then(() => {
+        }).catch((err) => {
+            console.log(err);
+            alert("Feed Back not inserted");
+        })
     }
 
     return (
