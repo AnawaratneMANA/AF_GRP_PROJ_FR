@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import EventComponent from "./EventComponent";
-import '../../../../../CSS/event.scss';
+import '../../../../../CSS/event.css';
 import AddEvent from "../../../Event/AddEvent";
 import event1 from "../../../../../Images/EventImages/screen6.jpg";
 import {BrowserRouter as Router, useHistory} from 'react-router-dom';

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import AddEvent from "../Event/AddEvent";
 import '../EventPage/EventMainPage.scss'
-import EventPage from "../Home/Sections/EventPage/EventPage";
 import {useSelector} from "react-redux";
 import EventComponent from "../Home/Sections/EventPage/EventComponent";
 import event1 from "../../../Images/EventImages/screen6.jpg";
@@ -13,7 +12,7 @@ const EventMainPage = () => {
     const [flag, setFlag] = useState(null)
 
     useEffect(()=> {
-        if(users.userName === "null"){
+        if(users.userName === null){
             window.location.href='/loginpage';
         } else {
             setFlag(true);
