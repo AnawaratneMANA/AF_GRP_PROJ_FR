@@ -8,8 +8,8 @@ function EventComponent({rows}) {
                         <img src={rows.image} alt="" className="image" />
                  </div>
                 <div className="event-info">
-                    <h2 className="event-info-main-title">{rows.title1}</h2>
-                    <p className="event-info-second-title">{rows.title2}</p>
+                    <h2 className="event-info-main-title">{rows.eventName}</h2>
+                    <p className="event-info-second-title">{rows.eventPlace}</p>
                 </div>
             </div>
         </div>
