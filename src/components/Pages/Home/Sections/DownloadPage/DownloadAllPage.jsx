@@ -9,7 +9,7 @@ function DownloadAllPage() {
     const [categoryData, setCategoryData] = useState([]);
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
-
+    const [isSubmited, setIsSubmitted] = useState(false);
 
     const fetchDownloadCategoryDetails = async () => {
         try {
@@ -28,7 +28,7 @@ function DownloadAllPage() {
 
     useEffect(() => {
         fetchDownloadCategoryDetails();
-    }, [])
+    }, [isSubmited])
 
     // Add this to protected Components to avoid unauthorized users from comming.
     useEffect(()=> {
@@ -48,7 +48,7 @@ function DownloadAllPage() {
             <input type="search" name="" id="" className="searchdownloads" placeholder="search downloads" /><br />
             <h1 className="downloadallpage-header">All Download page</h1>
             <div className="download-category-form">
-                <CategoryForm/>
+                <CategoryForm isSubmitted = {setIsSubmitted}/>
             </div>
             <div className="alldownloadlist">
                 <div className="alldownloadrow">
