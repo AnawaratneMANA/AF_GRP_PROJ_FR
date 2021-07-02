@@ -25,7 +25,7 @@ const useStyle = makeStyles(theme => ({
     }
 }))
 
-function UserdetailForm({value}){
+function UserdetailForm({value, isSubmitted}){
     const classes = useStyles();
     const classes2 = useStyle();
     const dispatch = useDispatch();
@@ -72,12 +72,12 @@ function UserdetailForm({value}){
             userName,
             password,
             type
-
         }
 
         console.log(userData);
         axios.put('http://localhost:8093/api/v1/updateUser/'+value.id, userData).then(() => {
             //window.location.href('/admin');
+            isSubmitted(true)
             alert("user updated");
         }).catch((err) => {
             console.log(err);

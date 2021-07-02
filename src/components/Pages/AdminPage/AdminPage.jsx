@@ -12,6 +12,7 @@ const AdminPage = () => {
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
     const [tableUser, setTableUser] = useState([]);
+    const [isSubmited, setIsSubmitted] = useState(false);
     //Add this to protected Components to avoid unauthorized users from comming.
     useEffect(()=> {
         if(users.userType != "Admin"){
@@ -42,8 +43,8 @@ const AdminPage = () => {
                         {/*<EditorContentTable setvalue = {setSwitchChange} method ={SwitchChangeMethod}/>*/}
                     </div>
                     <div className="admin__row">
-                        <UserDetailTable method={setTableUser}/>
-                        <UserdetailForm value={tableUser}/>
+                        <UserDetailTable method={setTableUser} isSubmit ={isSubmited}/>
+                        <UserdetailForm value={tableUser} isSubmitted = {setIsSubmitted}/>
                     </div>
                     <div className="admin__row">
                         <AdminFileTable/>
