@@ -83,8 +83,11 @@
     align-items: normal;
     grid-gap: 1%;
     margin-left: 50px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 90%
 }
 
 .home-container-main{
-    margin-left: 40px;
+
 }

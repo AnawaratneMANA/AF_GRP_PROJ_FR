@@ -34,7 +34,7 @@
 }
 
 .card-rating {
-  margin-left: 130px;
+
 }
 .photo1{
   height: 200px;
@@ -49,4 +49,18 @@
 
   width: 5%;
   border-radius: 20px;
+}
+
+.cardLayout {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-auto-rows: minmax(1px, auto);
+  justify-content: center;
+  align-items: normal;
+  grid-gap: 2%;
+
+  padding-bottom: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 90%
 }

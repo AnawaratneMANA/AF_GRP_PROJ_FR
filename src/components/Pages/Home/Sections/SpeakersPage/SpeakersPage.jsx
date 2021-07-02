@@ -44,7 +44,7 @@ function SpeakersPage() {
                 }}>View All</button>}
                 <h4 className="speaker-header-second-header">Information</h4>
             </div>
-            <div className="cardlayout-keynotespeakers">
+            <div className="cardlayout-keynotespeakers-main">
                 {keySpeakerData.slice(0,4).map((row) => (
                     console.log(row),
                         <KeySpeakerComponentHome rows={row}/>

@@ -75,13 +75,13 @@
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-auto-rows: minmax(1px, auto);
-  justify-content: left;
+  justify-content: center;
   align-items: normal;
   grid-gap: 1%;
-}
-
-.home__container {
-  margin-left: 3%;
+  margin-left: 50px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 90%;
 }
 
 /*# sourceMappingURL=event.css.map */
