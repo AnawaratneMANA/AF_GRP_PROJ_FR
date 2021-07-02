@@ -11,6 +11,7 @@ function KeySpeakerAllPage() {
     const [keySpeakerData, setKeySpeakerData] = useState([]);
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
+    const [isSubmited, setIsSubmitted] = useState(false);
 
     const fetchKeySpeakerDetails = async () => {
         try {
@@ -29,7 +30,7 @@ function KeySpeakerAllPage() {
 
     useEffect(() => {
         fetchKeySpeakerDetails();
-    }, [])
+    }, [isSubmited])
 
     //Add this to protected Components to avoid unauthorized users from comming
     useEffect(()=> {
@@ -49,7 +50,7 @@ function KeySpeakerAllPage() {
             <h1>All Key Speakers page</h1>
             <input type="search" name="" id="" className="search-speakers" placeholder="search downloads" /><br />
             <div className="key-speakers-form">
-                <KeySpeakerForm/>
+                <KeySpeakerForm isSubmitted = {setIsSubmitted}/>
             </div>
             <div className="all-key-speakers-list">
                 <div className="all-key-speakers-row">
