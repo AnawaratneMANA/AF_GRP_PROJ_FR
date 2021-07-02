@@ -36,7 +36,7 @@
   border-radius: 10% 10% 0% 0%;
   height: 229.2px;
   width: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .button {
