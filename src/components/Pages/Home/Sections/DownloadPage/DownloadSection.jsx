@@ -50,9 +50,6 @@ function DownloadSection() {
                     console.log(row),
                         <DownloadComponent header={row.downloadHeader} description={row.downloadDescription}/>
                 ))}
-            {/*{rows.map((row) => (*/}
-            {/*    <DownloadComponent header={row.header} description={row.description}/>*/}
-            {/*))}*/}
             </div>
     </div>)
 }

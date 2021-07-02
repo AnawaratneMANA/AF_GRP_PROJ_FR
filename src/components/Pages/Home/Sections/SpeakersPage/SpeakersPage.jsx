@@ -1,24 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import KeySpeaker1 from "../../../../KeySpeakers/KeySpeaker1";
 import Speaker from '../../../../KeySpeakers/SpeakersImges/profile.webp'
 import './keyspeakers.css'
 import {useHistory} from "react-router-dom";
+import DownloadComponent from "../DownloadPage/DownloadComponent/DownloadComponent";
+import axios from "axios";
 
 function SpeakersPage() {
 
+    const [keySpeakerData, setKeySpeakerData] = useState([]);
     const history = useHistory();
     const handleHistory = () => {
         history.push('/allKeySpeakerPage');
     }
 
-    //Call API here and Replace the Array.
+    const fetchKeySpeakerDetails2 = async () => {
+        try {
+            const response = await axios
+                .get("http://localhost:8093/api/v1/keyspeakers")
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+            setKeySpeakerData(response.data)
 
-    const rows = [
-        {"name":'Salitha Ekanayaka', "title": 'Bsc', "image": Speaker},
-        {"name":'Nirmith Akash', "title": 'Bsc', "image": Speaker},
-        {"name":'Jason Born', "title": 'SK', "image": Speaker},
-        {"name":'John Doe', "title": 'N/A', "image": Speaker},
-    ];
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchKeySpeakerDetails2();
+    }, [])
 
     return (<React.Fragment>
         <div className="speaker-section">
@@ -31,11 +44,10 @@ function SpeakersPage() {
                 <h4 className="speaker-header-second-header">Information</h4>
             </div>
             <div className="cardLayout">
-                    {rows.map((row)=> (
-                        <div className="card-speaker">
+                {keySpeakerData.slice(0,4).map((row) => (
+                    console.log(row),
                         <KeySpeaker1 rows={row}/>
-                        </div>
-                    ))}
+                ))}
             </div>
         </div>
 

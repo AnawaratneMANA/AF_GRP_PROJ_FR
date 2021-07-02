@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import './KeySpeakersAllPage.scss';
 import {useSelector} from "react-redux";
-import Speaker from "../../../../KeySpeakers/SpeakersImges/profile.webp";
 import KeySpeakerForm from "../../../../KeySpeakers/KeySpeakersForm/KeySpeakerForm";
 import KeySpeaker1 from "../../../../KeySpeakers/KeySpeaker1";
 import axios from "axios";
-import DownloadComponent from "../DownloadPage/DownloadComponent/DownloadComponent";
+
 
 function KeySpeakerAllPage() {
 
@@ -45,13 +44,6 @@ function KeySpeakerAllPage() {
         return null;
     }
 
-    // const rows = [
-    //     {"name":'Salitha Ekanayaka', "title": 'Bsc', "image": Speaker},
-    //     {"name":'Nirmith Akash', "title": 'Bsc', "image": Speaker},
-    //     {"name":'Jason Born', "title": 'SK', "image": Speaker},
-    //     {"name":'John Doe', "title": 'N/A', "image": Speaker},
-    // ];
-
     return (
         <div className="key-speaker-page">
             <h1>All Key Speakers page</h1>
@@ -61,7 +53,7 @@ function KeySpeakerAllPage() {
             </div>
             <div className="all-key-speakers-list">
                 <div className="all-key-speakers-row">
-                    {keySpeakerData.map((row) => ( //header={row.downloadHeader} description={row.downloadDescription}
+                    {keySpeakerData.map((row) => (
                         console.log(row),
                             <KeySpeaker1 rows={row}/>
                     ))}
