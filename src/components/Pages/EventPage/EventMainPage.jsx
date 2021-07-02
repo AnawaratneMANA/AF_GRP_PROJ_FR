@@ -4,12 +4,14 @@ import '../EventPage/EventMainPage.scss'
 import {useSelector} from "react-redux";
 import EventComponent from "../Home/Sections/EventPage/EventComponent";
 import event1 from "../../../Images/EventImages/screen6.jpg";
+import axios from "axios";
 
 const EventMainPage = () => {
 
     //Use States.
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
+    const [data, setData] = useState([]);
 
     useEffect(()=> {
         if(users.userName === null){
@@ -17,7 +19,25 @@ const EventMainPage = () => {
         } else {
             setFlag(true);
         }
+
+        fetchDownloadCategoryDetails1();
     }, [])
+
+
+    const fetchDownloadCategoryDetails1 = async () => {
+        try {
+            const response = await axios
+                .get("http://localhost:8093/api/v1/events")
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+            setData(response.data);
+
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
 
     if(!flag){
         return null;
@@ -42,7 +62,7 @@ const EventMainPage = () => {
                 <div>
                     <div className="home-container-filter">
                         <div className="event-home-row">
-                            {rows.map((row)=> (
+                            {data.slice(0,4).map((row)=> (
                                 <EventComponent rows = {row}/>
                             ))}
                         </div>
