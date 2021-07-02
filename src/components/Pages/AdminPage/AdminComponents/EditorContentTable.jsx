@@ -23,11 +23,10 @@ const useStyles = makeStyles({
 
 //function EditorContentTable({method, setvalue}) {
 
-function EditorContentTable() {
-
+function EditorContentTable({isSubmit}) {
+    console.log(isSubmit)
     const classes = useStyles();
     const [eventData, seteventData] = useState([]);
-    const [status, setStatus] = useState("");
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
     console.log(users.userToken);
@@ -42,29 +41,30 @@ function EditorContentTable() {
         }
     )
 
+
+
     const fetchEventDetails = async () => {
         try {
             const response = await axios
                 .get("http://localhost:8093/api/v1/events")
+            seteventData(response.data)
                 .catch((error) => {
                     console.log("Error", error);
                 });
             console.log(response.data);
-            seteventData(response.data)
-
 
         } catch (err) {
             console.log("Error");
             console.log(err.message);
         }
     }
-
     useEffect(() => {
        fetchEventDetails();
-    }, [])
-    
+    }, [isSubmit])
+
+
     const approve = (id) => {
-        setStatus("approved");
+        const status = "approved";
         const eventData = {
             status
         }
@@ -79,7 +79,7 @@ function EditorContentTable() {
         console.log(id);
     }
     const decline = (id) => {
-        setStatus("declined");
+        const status = "declined";
         const eventData = {
             status
         }
@@ -90,7 +90,6 @@ function EditorContentTable() {
             console.log(err);
         })
 
-        console.log(status);
         console.log(id);
     }
     return (
