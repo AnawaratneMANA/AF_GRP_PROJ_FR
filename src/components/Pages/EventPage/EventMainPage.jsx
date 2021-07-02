@@ -13,7 +13,7 @@ const EventMainPage = () => {
     const [flag, setFlag] = useState(null)
 
     useEffect(()=> {
-        if(users.userName === null){
+        if(users.userName === "null"){
             window.location.href='/loginpage';
         } else {
             setFlag(true);
@@ -25,13 +25,14 @@ const EventMainPage = () => {
     }
 
     const rows = [
-        {"title1": 'component1',"title2": 'name1', "image": event1},
+        {"title1": 'Main Page',"title2": 'name1', "image": event1},
         {"title1": 'component2',"title2": 'name2', "image": event1},
         {"title1": 'component3',"title2": 'name3', "image": event1},
         {"title1": 'component4',"title2": 'name3', "image": event1},
         {"title1": 'component4',"title2": 'name3', "image": event1},
         {"title1": 'component4',"title2": 'name3', "image": event1},
     ];
+
 
     return (
         <React.Fragment>
@@ -40,8 +41,8 @@ const EventMainPage = () => {
                     <AddEvent/>
                 </div>
                 <div>
-                    <div className="home__container">
-                        <div className="home__row">
+                    <div className="home-container-filter">
+                        <div className="event-home-row">
                             {rows.map((row)=> (
                                 <EventComponent rows = {row}/>
                             ))}
