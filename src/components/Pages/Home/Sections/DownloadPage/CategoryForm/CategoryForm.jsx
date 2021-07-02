@@ -24,7 +24,7 @@ const useStyle = makeStyles(theme => ({
 }))
 
 
-const CategoryForm = () => {
+const CategoryForm = ({isSubmitted}) => {
 
     const classes = useStyles();
     const classes2 = useStyle();
@@ -66,6 +66,9 @@ const CategoryForm = () => {
 
         console.log(data)
         axios.post('http://localhost:8093/api/v1/download/category', data).then(() => {
+            isSubmitted(true);
+            alert("Data added");
+            isSubmitted(false);
         }).catch((err) => {
             console.log(err);
             alert("Category data not inserted");
