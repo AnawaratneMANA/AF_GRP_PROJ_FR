@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 //function EditorContentTable({method, setvalue}) {
 
 function EditorContentTable({isSubmit, isSubmitted}) {
-    var count1 = 0;
+    //var count1 = 0;
     console.log(isSubmit)
     const classes = useStyles();
     const [eventData, seteventData] = useState([]);
