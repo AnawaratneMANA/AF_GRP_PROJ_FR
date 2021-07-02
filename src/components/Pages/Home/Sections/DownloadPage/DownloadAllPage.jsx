@@ -3,12 +3,34 @@ import './DownloadAllPage.scss';
 import DownloadComponent from './DownloadComponent/DownloadComponent';
 import CategoryForm from "./CategoryForm/CategoryForm";
 import {useSelector} from "react-redux";
+import axios from "axios";
 function DownloadAllPage() {
 
+    const [categoryData, setCategoryData] = useState([]);
     const users = useSelector((state) => state.users);
     const [flag, setFlag] = useState(null)
 
-    //Add this to protected Components to avoid unauthorized users from comming.
+
+    const fetchDownloadCategoryDetails = async () => {
+        try {
+            const response = await axios
+                .get("http://localhost:8093/api/v1/categories")
+                .catch((error) => {
+                    console.log("Error", error);
+                });
+            setCategoryData(response.data)
+
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchDownloadCategoryDetails();
+    }, [])
+
+    // Add this to protected Components to avoid unauthorized users from comming.
     useEffect(()=> {
         if(users.userName === null){
             window.location.href='/loginpage';
@@ -21,15 +43,6 @@ function DownloadAllPage() {
         return null;
     }
 
-
-    const rows = [
-        {"header":'Templates', "description": 'Empty Templates'},
-        {"header":'Research Papers', "description": 'Empty Research Papers'},
-        {"header":'Research Papers', "description": 'Completed Research Papers'},
-        {"header":'PDF Documents', "description": 'Attached PDF document files'},
-        {"header":'Video Files', "description": 'Attached Video Files'}
-    ];
-
     return (
         <div className="downloadallpage">
             <input type="search" name="" id="" className="searchdownloads" placeholder="search downloads" /><br />
@@ -39,13 +52,15 @@ function DownloadAllPage() {
             </div>
             <div className="alldownloadlist">
                 <div className="alldownloadrow">
-                    {rows.map((row) => (
-                        <DownloadComponent header={row.header} description={row.description}/>
+                    {categoryData.map((row) => (
+                        console.log(row),
+                        <DownloadComponent header={row.downloadHeader} description={row.downloadDescription}/>
                     ))}
                 </div>
             </div>
         </div>
     )
 }
+
 
 export default DownloadAllPage
