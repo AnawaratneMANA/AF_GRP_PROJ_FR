@@ -8,17 +8,17 @@ import emailjs from 'emailjs-com';
 
 const PaymentPage = () => {
 
-        //Default price
-        const [price, setPrice] = useState("$ "+ 50.00);
+    //Default price
+    const [price, setPrice] = useState("$ " + 50.00);
 
-        //Getting Auth from the user state.
-        const users = useSelector((state) => state.users);
-        const token = users.userToken;
-        const [flag, setFlag] = useState(null)
-        const [paymentResponse, SetPaymentResponse] = useState();
+    //Getting Auth from the user state.
+    const users = useSelector((state) => state.users);
+    const token = users.userToken;
+    const [flag, setFlag] = useState(null)
+    const [paymentResponse, SetPaymentResponse] = useState();
 
-        //Creating  Authorization Header for Axios Requests
-        axios.interceptors.request.use(
+    //Creating  Authorization Header for Axios Requests
+    axios.interceptors.request.use(
         config => {
             config.headers.authorization = `Bearer ${token}`;
             return config;
@@ -26,48 +26,48 @@ const PaymentPage = () => {
         error => {
             return Promise.reject(error);
         }
-        )
+    )
 
-        //Constructor - Validate the approaching user.
-        useEffect(()=> {
-            if(users.userName === null){
-                window.location.href='/loginpage';
-            } else {
-                setFlag(true);
+    //Constructor - Validate the approaching user.
+    useEffect(() => {
+        if (users.userName === null) {
+            window.location.href = '/loginpage';
+        } else {
+            setFlag(true);
+        }
+    }, [])
+
+    //Flag update for the user. If Null Do not show the page.
+    if (!flag) {
+        return null;
+    }
+
+
+    //Save the transaction to the backend.
+    const saveTheTransaction = async (body) => {
+        console.log(body.id);
+        await axios.post("http://localhost:8093/api/v1/charge", "", {
+            headers: {
+                token: body.id,
+                amount: 50,
             }
-        }, [])
+        })
+    }
 
-        //Flag update for the user. If Null Do not show the page.
-        if(!flag){
-            return null;
-        }
+    //Emails Invoker method.
+    const sendEmailsToCustomers = () => {
+        //Send Email to the customer.
+        const userID = 'user_vjTwqbgkFdhOFYeJufJxC';
+        const templateId = 'template_7my6c7z';
+        const serviceID = 'service_5zkxkh9';
+        sendFeedback(serviceID, templateId, {
+            from_name: "Team WE19",
+            message: "Payment is done successfully",
+            to_name: token.email
+        }, userID)
+    }
 
-
-        //Save the transaction to the backend.
-        const saveTheTransaction = async (body) => {
-            await axios.post("http://localhost:8093/api/v1/charge", body).then(
-                (res) => { SetPaymentResponse(res)}
-            ). catch((er) => er.message);
-        }
-
-        //Generate the payment token.
-        const handleToken = (token, address) => {
-            console.log({token, address});
-            //saveTheTransaction({token,address});
-            console.log(token.email)
-            //console.log(paymentResponse);
-
-            //Calling DB method.
-
-            //If Response valid
-
-            //Send Email to the customer.
-            const userID = 'user_vjTwqbgkFdhOFYeJufJxC';
-            const templateId = 'template_7my6c7z';
-            const serviceID = 'service_5zkxkh9';
-            sendFeedback(serviceID, templateId, { from_name: "team WE19", message: "Payment is done successfully", to_name: token.email }, userID)
-        }
-
+    //Send Emails to the customers.
     const sendFeedback = (serviceID, templateId, variables, id) => {
 
         emailjs.send(
@@ -77,9 +77,22 @@ const PaymentPage = () => {
             alert(`Email sent sucessfully`);
         })
             .catch(err => console.error('There has been an error.  Here some thoughts on the error that occured:', err))
+    }
+
+    //Generate the payment token.
+    const handleToken = (token, address) => {
+        //Calling The DB Method.
+        saveTheTransaction(token, price);
+        //Printing the Token Testing.
+        console.log(token.email)
+
+        //Sending Emails to the Customers.
+        //sendEmailsToCustomers();
 
     }
-        return (
+
+
+    return (
         <div className="container payment-container">
             <div id="Checkout" className="inline">
                 <h1>Pay Invoice</h1>
@@ -168,7 +181,7 @@ const PaymentPage = () => {
                     name={"upfront"}
                 />
             </div>
-      </div>
+        </div>
 
 
     );
