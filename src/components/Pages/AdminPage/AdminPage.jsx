@@ -10,6 +10,7 @@ import CollapsComponent from "./CollapsComponent/CollapsComponent";
 import {useSelector} from "react-redux";
 import useFirestore from "../../../Firebase/useFirestore";
 import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 const AdminPage = () => {
     const users = useSelector((state) => state.users);
@@ -18,10 +19,14 @@ const AdminPage = () => {
     const [isSubmited, setIsSubmitted] = useState(false);
     const [userData, setuserData] = useState([]);
     //Add this to protected Components to avoid unauthorized users from comming.
+    const history = useHistory();
 
     const { docs } = useFirestore('images');
     let totaldown = docs.length;
 
+    const navigation = () => {
+        history.push('/loginpage');
+    }
     useEffect(() => {
         fetchUserDetails();
     }, [])
@@ -59,7 +64,7 @@ const AdminPage = () => {
 
     useEffect(()=> {
         if(users.userType != "Admin"){
-            window.location.href='/loginpage';
+            navigation();
         } else {
             setFlag(true);
         }
