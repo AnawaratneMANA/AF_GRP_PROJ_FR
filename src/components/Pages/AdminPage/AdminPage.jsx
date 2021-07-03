@@ -16,7 +16,6 @@ const AdminPage = () => {
     const [flag, setFlag] = useState(null)
     const [tableUser, setTableUser] = useState([]);
     const [isSubmited, setIsSubmitted] = useState(false);
-    const [eventArray, setEventArray] = useState();
     const [userData, setuserData] = useState([]);
     //Add this to protected Components to avoid unauthorized users from comming.
 
@@ -30,7 +29,7 @@ const AdminPage = () => {
     const fetchUserDetails = async () => {
         try {
             const response = await axios
-                .get("http://localhost:8093/api/v1/users")
+                .get("http://application-framework-database.herokuapp.com/api/v1/users")
                 .catch((error) => {
                     console.log("Error", error);
                 });
@@ -58,9 +57,6 @@ const AdminPage = () => {
 
     console.log(data);
 
-
-    const [eventArray, setEventArray] = useState([]);
-    //Add this to protected Components to avoid unauthorized users from comming.kkkk
     useEffect(()=> {
         if(users.userType != "Admin"){
             window.location.href='/loginpage';
@@ -76,12 +72,12 @@ const AdminPage = () => {
 
 
     return (<div>
-            
+
             <div className="adminInterface">
                 <div className="admin__container">
                     <div className="admin__row">
-                    <h1> Monitoring Section </h1>
-                        <CollapsComponent/>
+                    <h1 className="admin-header"> Monitoring Section </h1>
+                        {/*<CollapsComponent/>*/}
                     </div>
                     <div className="admin__row1">
                         {data.map((value) => (
@@ -108,8 +104,6 @@ const AdminPage = () => {
                     </div>
                 </div>
             </div>
-
-            Hello.
         </div>
     )
 }

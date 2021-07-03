@@ -75,7 +75,7 @@ function UserdetailForm({value, isSubmitted}){
         }
 
         console.log(userData);
-        axios.put('http://localhost:8093/api/v1/updateUser/'+value.id, userData).then(() => {
+        axios.put('https://application-framework-database.herokuapp.com/api/v1/updateUser/'+value.id, userData).then(() => {
             //window.location.href('/admin');
             isSubmitted(true)
             alert("user updated");
