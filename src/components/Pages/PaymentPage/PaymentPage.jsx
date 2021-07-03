@@ -150,18 +150,16 @@ const PaymentPage = (props) => {
                         </div>
                     </div>
                     <br/>
-                    <div className="stripe-payment-ui">
-                        <StripeCheckout
-                            stripeKey="pk_test_51J8R13E0pZfHtqeOwbTMbjIavkjjILqevpElHxiuWopUuznA7SzlW2kjYV1z5PeFN6X3CZxX1OMrgTmiS4Eu0AgQ00XitZCzFs"
-                            token={handleToken}
-                            amount={10 * 100}
-                            name={"upfront"}
-                        />
-                    </div>
                 </form>
+                <div className="stripe-payment-ui">
+                    <StripeCheckout
+                        stripeKey="pk_test_51J8R13E0pZfHtqeOwbTMbjIavkjjILqevpElHxiuWopUuznA7SzlW2kjYV1z5PeFN6X3CZxX1OMrgTmiS4Eu0AgQ00XitZCzFs"
+                        token={handleToken}
+                        amount={10 * 100}
+                        name={"upfront"}
+                    />
+                </div>
             </div>
-
-
         </div>
 
 
